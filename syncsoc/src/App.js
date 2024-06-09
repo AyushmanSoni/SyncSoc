@@ -2,7 +2,7 @@
 function App() {
   return (
     <div>
-      <p>SyncSoc begins</p>
+      <p className="font-bold text-4xl">SyncSoc begins</p>
     </div>
   );
 }
