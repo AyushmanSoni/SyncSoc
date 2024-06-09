@@ -1,8 +1,9 @@
+import Signup from "./components/Signup";
 
 function App() {
   return (
     <div>
-      <p className="font-bold text-4xl">SyncSoc begins</p>
+      <Signup/>
     </div>
   );
 }
