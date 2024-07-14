@@ -1,3 +1,3 @@
 # SyncSoc
 hello
-hello starting the project
+hello this is siddharth
