@@ -1,12 +1,14 @@
-import Signup from "./components/Signup";
-
-function App() {
+import React from 'react';
+import Navbar from './components/Navbar/Navbar';
+import Home  from './pages/Home';
+const App = () => {
+  
   return (
     <div>
-      <Signup/>
+      <Home/>
+      
     </div>
   );
-}
+};
 
 export default App;
-
