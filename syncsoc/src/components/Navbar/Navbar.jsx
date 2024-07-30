@@ -14,7 +14,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className='bg-[#F3E4D6] text-grey px-4 md:px-24 py-4'>
+    <div className='bg-[#683B2B] text-[#F9F6F3] px-4 md:px-24 py-4'>
       <div className='flex items-center justify-between'>
         <div className='flex items-center'>
           <img className='h-10 me-4' src='https://www.svgrepo.com/show/458732/group.svg' alt='logo' />
@@ -28,27 +28,27 @@ const Navbar = () => {
         >
           <FaGripLines />
         </button>
-        <div className={`hidden md:flex md:items-center md:gap-8 ${isOpen ? 'block' : 'hidden'}`}>
-          <div className='flex flex-col md:flex-row md:gap-16 text-gray-500'>
+        <div className={`hidden md:flex md:flex-grow md:justify-center md:items-center`}>
+          <div className='flex flex-col md:flex-row md:gap-8 text-[#F9F6F3]'>
             {links.map((item, i) => (
-              <div key={i} className='px-4 py-2 hover:text-[#075A71]'>
+              <div key={i} className='px-4 py-2 '>
                 {item.title}
               </div>
             ))}
           </div>
-          <div className='flex gap-4 md:gap-8'>
-            <div className='px-4 py-2 text-[#086D8A] hover:text-[#075A71]'>
-              LogIn
-            </div>
-            <div className='px-4 py-2 bg-[#086D8A] text-white border rounded-lg hover:bg-[#075A71]'>
-              SignUp
-            </div>
+        </div>
+        <div className='hidden md:flex md:items-center md:gap-8'>
+          <div className='px-4 py-2 text-[#086D8A] hover:text-[#075A71]'>
+            LogIn
+          </div>
+          <div className='px-4 py-2 bg-[#086D8A] text-white border rounded-lg hover:bg-[#075A71]'>
+            SignUp
           </div>
         </div>
       </div>
       {/* Mobile menu */}
       <div className={`md:hidden ${isOpen ? 'block' : 'hidden'} mt-4`}>
-        <div className='flex flex-col gap-4'>
+        <div className='flex flex-col items-start gap-4'>
           {links.map((item, i) => (
             <div key={i} className='px-4 py-2 hover:text-[#075A71]'>
               {item.title}
