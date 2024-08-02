@@ -14,7 +14,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className='bg-[#683B2B] text-[#F9F6F3] px-4 md:px-24 py-4'>
+    <div className='bg-[#FFFDFB] text-[#F9F6F3] px-4 md:px-24 py-4'>
       <div className='flex items-center justify-between'>
         <div className='flex items-center'>
           <img className='h-10 me-4' src='https://www.svgrepo.com/show/458732/group.svg' alt='logo' />
