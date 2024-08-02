@@ -1,37 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base  {
-  html{
-    font-family: 'Poppins', sans-serif;
-  }
-}
-
-/* Toggle Switch Styles */
-.toggle-bg {
-  background-color: #D49E8D;
+/* index.css */
+.nav-link {
   position: relative;
-  transition: background-color 0.3s;
+  display: inline-block;
+  color: #808080; /* Initial gray color */
+  text-decoration: none;
+  transition: color 0.25s ease-out;
 }
 
-.toggle-bg input:checked + .toggle-bg {
-  background-color: #683B2B;
-}
-
-.dot {
+.nav-link::after {
+  content: '';
   position: absolute;
-  top: 0.125rem;
-  left: 0.125rem;
-  width: 1.25rem;
-  height: 1.25rem;
-  background-color: white;
-  border-radius: 50%;
-  transition: transform 0.3s;
+  width: 100%;
+  border-bottom: 1px solid #086D8A; /* Adjust thickness using border */
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom left;
+  transition: transform 0.25s ease-out;
 }
 
-input:checked + .toggle-bg .dot {
-  transform: translateX(1.25rem);
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }

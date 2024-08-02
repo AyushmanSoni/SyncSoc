@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { FaGripLines } from 'react-icons/fa';
 
 const Navbar = () => {
@@ -17,7 +16,7 @@ const Navbar = () => {
     <div className='bg-[#FFFDFB] text-[#F9F6F3] px-4 md:px-24 py-4'>
       <div className='flex items-center justify-between'>
         <div className='flex items-center'>
-          <img className='h-10 me-4 text-[#2E1A12]' src='https://www.svgrepo.com/show/458732/group.svg' alt='logo' />
+          <img className='h-10 me-4' src='https://www.svgrepo.com/show/458732/group.svg' alt='logo' />
           <h1 className='text-2xl font-semibold text-[#683B2B]'>
             Sync<span className='text-[#2E1A12]'>Soc</span>
           </h1>
@@ -29,10 +28,13 @@ const Navbar = () => {
           <FaGripLines />
         </button>
         <div className={`hidden md:flex md:flex-grow md:justify-center md:items-center`}>
-          <div className='flex flex-col md:flex-row md:gap-8 text-[#683B2B] font-medium hover:text-[#2E1A12]'>
+          <div className='flex flex-col md:flex-row md:gap-8 text-[#683B2B] font-medium'>
             {links.map((item, i) => (
-              <div key={i} className='px-4 py-2 '>
-                {item.title}
+              <div key={i} className='px-4 py-2 relative group'>
+                <a href={item.link} className='text-[#683B2B] hover:text-[#2E1A12]'>
+                  {item.title}
+                </a>
+                <div className='absolute bottom-0 left-0 w-full h-0.5 bg-[#2E1A12] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100' />
               </div>
             ))}
           </div>
@@ -50,16 +52,16 @@ const Navbar = () => {
       <div className={`md:hidden ${isOpen ? 'block' : 'hidden'} mt-4`}>
         <div className='flex flex-col items-start gap-4'>
           {links.map((item, i) => (
-            <div key={i} className='px-4 py-2 hover:text-[#075A71]'>
+            <a key={i} href={item.link} className='px-4 py-2 text-gray-700 hover:text-[#086D8A]'>
               {item.title}
-            </div>
+            </a>
           ))}
-          <div className='px-4 py-2 text-[#086D8A] hover:text-[#075A71]'>
+          <a href='/login' className='px-4 py-2 text-[#683B2B] hover:text-[#2E1A12]'>
             LogIn
-          </div>
-          <div className='px-4 py-2 bg-[#086D8A] text-white border rounded-lg hover:bg-[#075A71]'>
+          </a>
+          <a href='/signup' className='px-4 py-2 bg-[#683B2B] text-white border rounded-lg hover:bg-[#2E1A12]'>
             SignUp
-          </div>
+          </a>
         </div>
       </div>
     </div>
