@@ -51,7 +51,7 @@ const Hero = () => {
         </div>
       </div>
       <div className='relative mt-16 lg:mt-8 h-auto lg:h-full w-full lg:w-[50%]'>
-        <div className='absolute top-16 lg:top-6 right-0 mt-16 mr-2 w-full h-[70%] bg-[#683B2B] rounded-l-[110px]' />
+        <div className='absolute top-16 lg:top-6 right-0 mt-16 mr-2 w-full h-[70%] bg-[#b0725c] rounded-l-[110px]' />
         <img 
           className='absolute top-20 lg:top-16 mt-4 right w-full h-auto lg:w-[100%] lg:h-[70%] object-cover rounded-l-[100px] ' 
           src={heroimage} 
