@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import img1 from '../assets/landing1.svg'; // Ensure this path is correct
 
-const Landing1 = () => {
+const TechnicalSocieties = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -8,40 +9,50 @@ const Landing1 = () => {
   };
 
   return (
-    <div className="bg-white p-6 font-sans">
-      <h1 className="text-3xl text-brown-400 border-b-2 border-brown-800 inline-block mb-6">
-        Technical Societies
-      </h1>
-      <div className="flex flex-col md:flex-row justify-between">
-        <div className="flex flex-col justify-between flex-1 md:mr-4">
-          <div className="text-brown-600 text-right p-2">
-            Welcome to our Technical Societies page, where innovation meets collaboration. Dive into Geekhaven, Tesla, and Gravity for tech-driven adventures. Join us as we shape the future of technology together and explore the forefront of innovation.
+    <div className="bg-white p-8 font-sans">
+      {/* Centered Heading */}
+      <div className="text-center mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-[#4B2C20] pb-2 border-b-2 border-[#4B2C20] inline-block">
+          Technical Societies
+        </h1>
+      </div>
+      <div className='h-auto lg:h-[75vh] flex flex-col lg:flex-row bg-[#FFFDFB]'>
+        <div className='w-full lg:w-1/2 flex flex-col justify-center p-4 mx-auto lg:pl-[100px]'>
+          <div className="flex flex-col">
+            <div className="text-[#8B4513] text-xl md:text-2xl" style={{ lineHeight: '1.6', paddingRight: '25%' }}>
+              Welcome to our Technical Societies page, where 
+              innovation meets collaboration. Dive into Geekhaven,
+              Tesla and Gravity for tech-driven adventures.
+              Join us as we shape the future of technology
+              together and explore the forefront of innovation.    
+            </div>
           </div>
-          <div className="mt-4">
+          <div className="text-left mt-2 relative">
             <button
               onClick={toggleDropdown}
-              className="bg-brown-800 text-white px-4 py-2 rounded"
+              className="bg-[#8B4513] text-white px-6 py-3 text-lg font-bold rounded-lg"
             >
               Explore More
             </button>
             {isDropdownOpen && (
-              <div className="mt-2 border border-brown-800 rounded shadow-lg">
+              <div className="absolute mt-2 border border-[#8B4513] rounded-lg shadow-lg w-full z-10">
                 <ul className="bg-white">
-                  <li className="px-4 py-2 hover:bg-brown-100 cursor-pointer">Option 1</li>
-                  <li className="px-4 py-2 hover:bg-brown-100 cursor-pointer">Option 2</li>
-                  <li className="px-4 py-2 hover:bg-brown-100 cursor-pointer">Option 3</li>
-                  <li className="px-4 py-2 hover:bg-brown-100 cursor-pointer">Option 4</li>
-                  <li className="px-4 py-2 hover:bg-brown-100 cursor-pointer">Option 5</li>
+                  <li className="px-6 py-3 hover:bg-[#f5f5f5] cursor-pointer">Option 1</li>
+                  <li className="px-6 py-3 hover:bg-[#f5f5f5] cursor-pointer">Option 2</li>
+                  <li className="px-6 py-3 hover:bg-[#f5f5f5] cursor-pointer">Option 3</li>
+                  <li className="px-6 py-3 hover:bg-[#f5f5f5] cursor-pointer">Option 4</li>
+                  <li className="px-6 py-3 hover:bg-[#f5f5f5] cursor-pointer">Option 5</li>
                 </ul>
               </div>
             )}
           </div>
         </div>
-        <div className="flex-1 mt-6 md:mt-0">
-          <img
-            src="https://t4.ftcdn.net/jpg/00/43/64/51/360_F_43645148_tyVMgFvaLyP7w4K0hiaZSyqKJhxX7Apr.jpg"
-            alt="Technical Societies"
-            className="w-full h-auto rounded"
+        <div className='relative h-auto lg:h-full w-full lg:w-[40%]'>
+          <div className='absolute top-16 lg:top-6 right-0 mt-20 mr-6 w-full h-[70%] bg-[#b0725c] rounded-l-[110px]' />
+          <img 
+            className='absolute top-20 lg:top-16 mt-4 right w-full h-auto lg:w-[100%] lg:h-[70%] object-cover rounded-l-[100px]' 
+            src={img1} 
+            alt='Illustration' 
           />
         </div>
       </div>
@@ -49,5 +60,4 @@ const Landing1 = () => {
   );
 };
 
-export default Landing1;
-
+export default TechnicalSocieties;
