@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import heroimage from '../../assets/hero.svg';
 
 const Hero = () => {
   return (
     <div className='h-auto lg:h-[75vh] flex flex-col lg:flex-row bg-[#FFFDFB]'>
-      <div className='w-full lg:w-1/2 flex flex-col justify-center p-4 mx-auto lg:pl-[100px]'>
+      <div className='w-full lg:w-1/2 flex flex-col justify-center p-4 lg:pl-[100px]'>
         <div className='pb-2 mt-20'>
           <h1 className='text-3xl lg:text-4xl font-bold text-[#2E1A12]'>
             Uniting&nbsp;
@@ -23,7 +22,7 @@ const Hero = () => {
         </div>
         <div>
           <p className='text-sm lg:text-lg lg:w-[80%] text-[#b0725c] mt-8 font-medium'>
-          Discover a dynamic hub where cultural, technical, and sports societies unite. Our platform promotes inclusivity, collaboration and passion.
+            Discover a dynamic hub where cultural, technical, and sports societies unite. Our platform promotes inclusivity, collaboration, and passion.
           </p>
         </div>
         <div className='mt-8'>
@@ -50,13 +49,25 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className='relative mt-16 lg:mt-8 h-auto lg:h-full w-full lg:w-[50%]'>
-        <div className='absolute top-16 lg:top-6 right-0 mt-16 mr-2 w-full h-[70%] bg-[#b0725c] rounded-l-[110px]' />
-        <img 
-          className='absolute top-20 lg:top-16 mt-4 right w-full h-auto lg:w-[100%] lg:h-[70%] object-cover rounded-l-[100px] ' 
-          src={heroimage} 
-          alt='Illustration' 
-        />
+      <div className='relative lg:mt-16 mt-8 h-auto lg:h-full w-full lg:w-[50%]'>
+        {/* Web view */}
+        <div className='hidden lg:block'>
+          <div className='absolute top-6 right-0 mt-16 mr-2 w-full h-[70%] bg-[#b0725c] rounded-l-[110px]' />
+          <img 
+            className='absolute top-16 mt-4 right w-full h-auto lg:w-[100%] lg:h-[70%] object-cover rounded-l-[100px]' 
+            src={heroimage} 
+            alt='Illustration' 
+          />
+        </div>
+        {/* Mobile view */}
+        <div className='block lg:hidden justify-center'>
+          <div className='absolute top-16 lg:top-6 right-0 lg:mt-16 lg:mr-2 w-[90%] lg:w-full h-[70%] bg-[#b0725c] rounded-l-[110px] lg:block hidden' />
+          <img 
+            className='w-full lg:w-[90%] h-auto lg:h-[70%] object-cover rounded-l-[100px] border-8 border-[#8B4513]' 
+            src={heroimage} 
+            alt='Illustration' 
+          />
+        </div>
       </div>
     </div>
   );

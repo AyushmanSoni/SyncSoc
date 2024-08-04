@@ -9,7 +9,7 @@ const TechnicalSocieties = () => {
   };
 
   return (
-    <div className="bg-white p-8 font-sans">
+    <div className="bg-[#FFFDFB] p-8 font-sans h-screen">
       {/* Centered Heading */}
       <div className="text-center mb-8">
         <h1 className="text-3xl md:text-4xl font-bold text-[#4B2C20] pb-2 border-b-2 border-[#4B2C20] inline-block">
@@ -27,7 +27,7 @@ const TechnicalSocieties = () => {
               together and explore the forefront of innovation.    
             </div>
           </div>
-          <div className="text-left mt-2 relative">
+          <div className="text-left mt-8 relative">
             <button
               onClick={toggleDropdown}
               className="bg-[#8B4513] text-white px-6 py-3 text-lg font-bold rounded-lg"
@@ -48,9 +48,9 @@ const TechnicalSocieties = () => {
           </div>
         </div>
         <div className='relative h-auto lg:h-full w-full lg:w-[40%]'>
-          <div className='absolute top-16 lg:top-6 right-0 mt-20 mr-6 w-full h-[70%] bg-[#b0725c] rounded-l-[110px]' />
+          <div className='absolute top-12 lg:top-6 right-0 lg:mt-20 mr-6 w-full h-[70%] bg-[#b0725c] rounded-l-[110px]' />
           <img 
-            className='absolute top-20 lg:top-16 mt-4 right w-full h-auto lg:w-[100%] lg:h-[70%] object-cover rounded-l-[100px]' 
+            className='absolute top-16 lg:top-16 mt-2 lg:mt-4 right w-full h-auto lg:w-[100%] lg:h-[70%] object-cover rounded-l-[100px]' 
             src={img1} 
             alt='Illustration' 
           />
