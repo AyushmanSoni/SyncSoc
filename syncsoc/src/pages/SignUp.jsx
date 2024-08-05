@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import background from '../assets/college.png'; // Ensure this path is correct
+import background from '../assets/back.svg'; // Ensure this path is correct
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -52,7 +52,7 @@ const SignUp = () => {
           
 
           <form onSubmit={handleSubmit}>
-          <div className="mb-4">
+          <div className="mb-4 mt-8">
             <label className="block text-[#D49E8D] text-sm font-medium mb-3" htmlFor="username">Username</label>
             <input
               type="text"
@@ -102,13 +102,13 @@ const SignUp = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-[#9F7D68] text-white py-2 px-4 rounded-md hover:bg-[#683B2B] transition duration-300"
+            className="w-full bg-[#683B2B] text-white py-2 mt-8 px-4 rounded-md hover:bg-[#683B2B] transition duration-300"
           >
             Sign Up
           </button>
         </form>
         <div className="mt-6 text-center">
-          <p className="text-gray-700">Already have an account? <div  className="text-[#086D8A] hover:underline">Log In</div></p>
+          <p className="text-gray-700">Already have an account? <div  className="text-[#683B2B] hover:underline">Log In</div></p>
         </div>
         </div>
       </div>

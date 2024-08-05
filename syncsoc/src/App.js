@@ -4,6 +4,7 @@ import Home  from './pages/Home';
 import Footer from './components/Footer/Footer';
 import Signup from './components/Signup';
 import SignUp from './pages/SignUp';
+import Login from './pages/Login';
 const App = () => {
   
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Home/>
       <Footer/>
       <SignUp/>
+      <Login/>
       
       
     </div>
