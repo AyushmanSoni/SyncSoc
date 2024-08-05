@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import img1 from '../assets/landing1.svg'; // Ensure this path is correct
+import img2 from '../assets/cultural.svg'; // Ensure this path is correct
 
-const TechnicalSocieties = () => {
+const CulturalSocieties = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -13,18 +13,14 @@ const TechnicalSocieties = () => {
       {/* Centered Heading */}
       <div className="text-center mb-8">
         <h1 className="text-3xl md:text-4xl font-bold text-[#4B2C20] pb-2 border-b-2 border-[#4B2C20] inline-block">
-          Technical Societies
+          Cultural Societies
         </h1>
       </div>
-      <div className='h-auto lg:h-[75vh] flex flex-col lg:flex-row bg-[#FFFDFB]'>
+      <div className='h-auto lg:h-[75vh] flex flex-col lg:flex-row-reverse bg-[#FFFDFB]'>
         <div className='w-full lg:w-1/2 flex flex-col justify-center p-4 mx-auto lg:pl-[100px]'>
           <div className="flex flex-col">
             <div className="text-[#8B4513] text-xl md:text-2xl" style={{ lineHeight: '1.6', paddingRight: '25%' }}>
-              Welcome to our Technical Societies page, where 
-              innovation meets collaboration. Dive into Geekhaven,
-              Tesla and Gravity for tech-driven adventures.
-              Join us as we shape the future of technology
-              together and explore the forefront of innovation.    
+              Discover cultural vibrancy with Rangtarangini, Geneticxcrew, Virtuosi, Sarasva, and Nirmiti. Join us in celebrating art, music, and dance through diverse expressions. Unite with fellow enthusiasts to ignite creativity and foster lasting connections.
             </div>
           </div>
           <div className="text-left mt-8 relative">
@@ -48,10 +44,10 @@ const TechnicalSocieties = () => {
           </div>
         </div>
         <div className='relative h-auto lg:h-full w-full lg:w-[40%]'>
-          <div className='absolute top-16 lg:top-6 right-0 mt-20 mr-6 w-full h-[70%] bg-[#b0725c] rounded-l-[110px]' />
+          <div className='absolute top-12 lg:top-6 left-6 lg:mt-20 w-full h-[70%] bg-[#b0725c] rounded-r-[110px]' />
           <img 
-            className='absolute top-20 lg:top-16 mt-4 right w-full h-auto lg:w-[100%] lg:h-[70%] object-cover rounded-l-[100px]' 
-            src={img1} 
+            className='absolute top-16 lg:top-16 mt-2 lg:mt-4 right w-full h-auto lg:w-[100%] lg:h-[70%] object-cover rounded-r-[100px]' 
+            src={img2} 
             alt='Illustration' 
           />
         </div>
@@ -60,4 +56,4 @@ const TechnicalSocieties = () => {
   );
 };
 
-export default TechnicalSocieties;
+export default CulturalSocieties;
