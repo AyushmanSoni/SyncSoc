@@ -45,7 +45,7 @@ const SignUp = () => {
       
       <div className="absolute inset-0 flex items-center justify-center z-10" style={{ marginLeft: '55%' }}>
         <div className="p-8 max-w-md w-full">
-          <h2 className="text-[36px] font-bold text-[#683B2B]">Sign In to SyncSoc</h2>
+          <h2 className="text-[36px] font-bold text-[#683B2B]">Sign Up to SyncSoc</h2>
           <p className='font-semibold text-[#D49E8D] text-[14px]'>Unite Innovate Succeed Together</p>
 
           {/* Integrated Toggle Button */}
