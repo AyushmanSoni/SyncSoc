@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { FaGripLines } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
     { title: 'Home', link: '/' },
-    { title: 'Societies', link: '/all-events' },
-    { title: 'All Events', link: '/cart' },
-    { title: 'About', link: '/profile' },
-    { title: 'Fests', link: '/fests' }
+    { title: 'Societies', link: '/societies' },
+    { title: 'All Events', link: '/all-events' },
+    { title: 'Fests', link: '/fests' },
+    { title: 'About Us', link: '/profile' }
   ];
 
   return (
@@ -29,23 +30,20 @@ const Navbar = () => {
         </button>
         <div className={`hidden md:flex md:flex-grow md:justify-center md:items-center`}>
           <div className='flex flex-col md:flex-row md:gap-8 text-[#683B2B] font-medium'>
-            {links.map((item, i) => (
-              <div key={i} className='px-4 py-2 relative group'>
-                <a href={item.link} className='text-[#683B2B] hover:text-[#2E1A12]'>
-                  {item.title}
-                </a>
-                <div className='absolute bottom-0 left-0 w-full h-0.5 bg-[#2E1A12] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100' />
-              </div>
+            {links.map((items, i) => (
+              <Link to={items.link} key={i} className='px-4 py-2 '>
+                {items.title}
+              </Link>
             ))}
           </div>
         </div>
         <div className='hidden md:flex md:items-center md:gap-8'>
-          <div className='px-4 py-2 text-[#683B2B] font-medium hover:text-[#2E1A12]'>
+          <Link to="/login" className='px-4 py-2 text-[#683B2B] font-medium hover:text-[#2E1A12]'>
             LogIn
-          </div>
-          <div className='px-4 py-2 bg-[#683B2B] text-white border rounded-lg hover:bg-[#2E1A12]'>
+          </Link>
+          <Link to="/signup" className='px-4 py-2 bg-[#683B2B] text-white border rounded-lg hover:bg-[#2E1A12]'>
             SignUp
-          </div>
+          </Link>
         </div>
       </div>
       {/* Mobile menu */}

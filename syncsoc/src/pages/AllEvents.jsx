@@ -2,7 +2,7 @@ import React from 'react'
 
 const AllEvents = () => {
   return (
-    <div>AllEvents</div>
+    <div className='bg-white text-black h-screen'>AllEvents</div>
   )
 }
 

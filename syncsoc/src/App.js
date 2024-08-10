@@ -14,6 +14,9 @@ const App = () => {
       <Navbar/>
       <Routes>
         <Route exact path = "/" element={<Home/>} />
+        <Route path = "/all-events" element={ <AllEvents/> } />
+        <Route path = "/login" element={ <Login/> } />
+        <Route path = "/signup" element={ <SignUp/> } />
       </Routes>
       <Footer/>
       </Router>
@@ -21,10 +24,6 @@ const App = () => {
       {/* <Routes>
       <Route path="/all-events" element={<AllEvents/>} />
       </Routes> */}
-
-      
-      <SignUp/>
-      <Login/>
       
       
     </div>
