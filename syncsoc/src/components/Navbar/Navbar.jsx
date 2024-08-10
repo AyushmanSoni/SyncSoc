@@ -6,8 +6,8 @@ const Navbar = () => {
 
   const links = [
     { title: 'Home', link: '/' },
-    { title: 'Societies', link: '/all-books' },
-    { title: 'Event', link: '/cart' },
+    { title: 'Societies', link: '/all-events' },
+    { title: 'All Events', link: '/cart' },
     { title: 'About', link: '/profile' },
     { title: 'Fests', link: '/fests' }
   ];
