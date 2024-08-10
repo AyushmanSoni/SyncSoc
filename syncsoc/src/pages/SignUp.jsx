@@ -39,77 +39,75 @@ const SignUp = () => {
   return (
     <div
       className="relative w-full h-screen bg-cover bg-center"
-      style={{ background: `url(${background})` }}
+      style={{ backgroundImage: `url(${background})` }}
     >
-      <div className="absolute inset-y-0 right-0 w-5/6 bg-gradient-to-l from-[#F7F5F1] via-[#F7F5F1] to-transparent"></div>
-      
-      <div className="absolute inset-0 flex items-center justify-center z-10" style={{ marginLeft: '55%' }}>
-        <div className="p-8 max-w-md w-full">
-          <h2 className="text-[36px] font-bold text-[#683B2B]">Sign Up to SyncSoc</h2>
-          <p className='font-semibold text-[#D49E8D] text-[14px]'>Unite Innovate Succeed Together</p>
+      <div className="absolute inset-y-0 right-0 w-full md:w-5/6 bg-gradient-to-l from-[#F7F5F1] via-[#F7F5F1] to-transparent"></div>
 
-          {/* Integrated Toggle Button */}
-          
+      <div className="absolute inset-0 flex items-center justify-center z-10 p-4 md:p-0">
+      <div className="bg-[#FFFDFB] p-8 max-w-md w-full rounded-lg shadow-lg md:bg-transparent md:shadow-none md:ml-auto md:mr-[5%]">
 
-          <form onSubmit={handleSubmit}>
-          <div className="mb-4 mt-8">
-            <label className="block text-[#D49E8D] text-sm font-medium mb-3" htmlFor="username">Username</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              className="bg-[#F7F5F1] appearance-none border-2 border-[#D49E8D] rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#683B2B]"
-              required
-            />
+          <h2 className="text-[28px] md:text-[36px] font-bold text-[#683B2B] text-center md:text-left">Sign Up to SyncSoc</h2>
+          <p className='font-semibold text-[#D49E8D] text-[14px] text-center md:text-left'>Unite Innovate Succeed Together</p>
+
+          <form onSubmit={handleSubmit} className="mt-6">
+            <div className="mb-4">
+              <label className="block text-[#D49E8D] text-sm font-medium mb-2" htmlFor="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                className="bg-[#F7F5F1] appearance-none border-2 border-[#D49E8D] rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#683B2B]"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-[#D49E8D] text-sm font-medium mb-2" htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="bg-[#F7F5F1] appearance-none border-2 border-[#D49E8D] rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#683B2B]"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-[#D49E8D] text-sm font-medium mb-2" htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                className="bg-[#F7F5F1] appearance-none border-2 border-[#D49E8D] rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#683B2B]"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-[#D49E8D] text-sm font-medium mb-2" htmlFor="address">Address</label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                value={formData.address}
+                onChange={handleChange}
+                className="bg-[#F7F5F1] appearance-none border-2 border-[#D49E8D] rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#683B2B]"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-[#683B2B] text-white py-2 mt-4 rounded-md hover:bg-[#4A291B] transition duration-300"
+            >
+              Sign Up
+            </button>
+          </form>
+          <div className="mt-6 text-center">
+            <p className="text-gray-700">Already have an account? <Link to="/login" className="text-[#683B2B] hover:underline">Log In</Link></p>
           </div>
-          <div className="mb-4">
-            <label className="block text-[#D49E8D] text-sm font-medium mb-3" htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="bg-[#F7F5F1] appearance-none border-2 border-[#D49E8D] rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#683B2B]"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-[#D49E8D] text-sm font-medium mb-3" htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              className="bg-[#F7F5F1] appearance-none border-2 border-[#D49E8D] rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#683B2B]"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-[#D49E8D] text-sm font-medium mb-3" htmlFor="address">Address</label>
-            <input
-              type="text"
-              id="address"
-              name="address"
-              value={formData.address}
-              onChange={handleChange}
-              className="bg-[#F7F5F1] appearance-none border-2 border-[#D49E8D] rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#683B2B]"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-[#683B2B] text-white py-2 mt-8 px-4 rounded-md hover:bg-[#683B2B] transition duration-300"
-          >
-            Sign Up
-          </button>
-        </form>
-        <div className="mt-6 text-center">
-          <p className="text-gray-700">Already have an account? <div  className="text-[#683B2B] hover:underline">Log In</div></p>
-        </div>
         </div>
       </div>
     </div>
