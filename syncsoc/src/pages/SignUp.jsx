@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import background from '../assets/back.svg'; // Ensure this path is correct
+import background from '../assets/back.svg'
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
