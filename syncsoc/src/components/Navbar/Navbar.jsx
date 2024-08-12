@@ -22,7 +22,7 @@ const Navbar = () => {
           subDropdown: [
             { title: 'Music Society', link: '/societies/cultural/music' },
             { title: 'Dance Society', link: '/societies/cultural/dance' },
-            { title: 'Drama Society', link: '/societies/cultural/drama' },
+            { title: 'Drama Society', link: '/drama' },
             { title: 'Literary Society', link: '/societies/cultural/literary' },
             { title: 'Fine Arts Society', link: '/societies/cultural/fine-arts' },
             { title: 'Photography Society', link: '/societies/cultural/photography' },

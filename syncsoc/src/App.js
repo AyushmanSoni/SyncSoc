@@ -6,6 +6,7 @@ import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import AllEvents from './pages/AllEvents';
+import Rangtarangini from './pages/Rangtarangini.jsx';
 const App = () => {
   
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path = "/all-events" element={ <AllEvents/> } />
         <Route path = "/login" element={ <Login/> } />
         <Route path = "/signup" element={ <SignUp/> } />
+        <Route path = "/drama" element={ <Rangtarangini/> } />
       </Routes>
       <Footer/>
       </Router>
