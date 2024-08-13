@@ -20,21 +20,21 @@ const Navbar = () => {
           title: 'Cultural',
           link: '/societies/cultural',
           subDropdown: [
-            { title: 'Music Society', link: '/societies/cultural/music' },
-            { title: 'Dance Society', link: '/societies/cultural/dance' },
+            { title: 'Music Society', link: '/band' },
+            { title: 'Dance Society', link: '/dance' },
             { title: 'Drama Society', link: '/drama' },
-            { title: 'Literary Society', link: '/societies/cultural/literary' },
-            { title: 'Fine Arts Society', link: '/societies/cultural/fine-arts' },
-            { title: 'Photography Society', link: '/societies/cultural/photography' },
+            { title: 'Literary Society', link: '/lit' },
+            { title: 'Fine Arts Society', link: '/art' },
+            { title: 'Photography Society', link: '/pic' },
           ]
         },
         {
           title: 'Technical',
           link: '/societies/technical',
           subDropdown: [
-            { title: 'Coding Club', link: '/societies/technical/coding' },
-            { title: 'Robotics Club', link: '/societies/technical/robotics' },
-            { title: 'Electronics Club', link: '/societies/technical/electronics' },
+            { title: 'Coding Club', link: '/coding' },
+            { title: 'Robotics Club', link: '/robotics' },
+            { title: 'Electronics Club', link: '/electronics' },
           ]
         },
         {

@@ -5,3 +5,4 @@ export const Tesla = () => {
     <div>Tesla</div>
   )
 }
+export default Tesla;
