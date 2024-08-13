@@ -3,7 +3,8 @@ const app = express()
 
 // constants 
 const port = 5000
-
+const cors = require("cors");
+app.use(cors());
 
 // predefined middleware
 app.use(express.urlencoded({ extended: false}))
@@ -32,6 +33,10 @@ app.use('/participants' , check_login , Participants )
 app.get('/society',(req,res)=>{
     console.log("in society");
 })
+
+// app.get("/",(req,res)=>{
+//     res.send("gondia");
+// });
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
