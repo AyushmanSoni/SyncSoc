@@ -16,8 +16,11 @@ require("dotenv").config();
 app.use(express.urlencoded({ extended: false}))
 app.use(express.json());
 
+
 const  {connect} = require('./db.js')
-connect("mongodb+srv://ayushman:sAnskarsoni3660@cluster0.z8hwd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+const {get_password} = require('../backend/secret.js')
+// pass = get_password()
+connect(`mongodb+srv://ayushman:${get_password()}@cluster0.z8hwd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
 
 
 // middleware importing
