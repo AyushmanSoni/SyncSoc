@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import img1 from '../assets/landing1.svg'; // Ensure this path is correct
+import { Link } from 'react-router-dom';
 
 const TechnicalSocieties = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -35,13 +36,23 @@ const TechnicalSocieties = () => {
               Explore More
             </button>
             {isDropdownOpen && (
-              <div className="absolute mt-2 border border-[#8B4513] rounded-lg shadow-lg w-full z-10">
+              <div className="absolute mt-2 border border-[#8B4513] rounded-lg shadow-lg w-1/2 z-10">
                 <ul className="bg-white">
-                  <li className="px-6 py-3 hover:bg-[#f5f5f5] cursor-pointer">Option 1</li>
-                  <li className="px-6 py-3 hover:bg-[#f5f5f5] cursor-pointer">Option 2</li>
-                  <li className="px-6 py-3 hover:bg-[#f5f5f5] cursor-pointer">Option 3</li>
-                  <li className="px-6 py-3 hover:bg-[#f5f5f5] cursor-pointer">Option 4</li>
-                  <li className="px-6 py-3 hover:bg-[#f5f5f5] cursor-pointer">Option 5</li>
+                  <li>
+                    <Link to='/coding' className="block px-6 py-3 text-[#4B2C20] hover:bg-[#f5f5f5] cursor-pointer">
+                      GeekHaven
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to='/robotics' className="block px-6 py-3 text-[#4B2C20] hover:bg-[#f5f5f5] cursor-pointer">
+                      Gravity
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to='/electronics' className="block px-6 py-3 text-[#4B2C20] hover:bg-[#f5f5f5] cursor-pointer">
+                      Tesla
+                    </Link>
+                  </li>
                 </ul>
               </div>
             )}
