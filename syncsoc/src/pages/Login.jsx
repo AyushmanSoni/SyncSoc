@@ -7,12 +7,12 @@ import background from '../assets/back.svg';
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    username: '',
+    rollNo: '',
     password: ''
   });
 
   const [error, setError] = useState('');
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   // const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -24,12 +24,16 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      if (formData.username === "" || formData.password === "") {
+      if (formData.rollNo === "" || formData.password === "") {
         alert("All fields are required");
       } else {
-        // const response = await axios.post('https://chapterverse1.onrender.com/api/v1/sign-in', formData);
+        
         console.log(formData);
-        const response = await axios.post('https://chapterverse1.onrender.com/api/v1/sign-in', formData);
+        const response = await axios.post('http://localhost:5000/Login', formData , {
+            headers: {
+              'Content-Type': 'application/json'
+            }
+        });
         console.log(response.data);
         
         // Storing user data
@@ -48,12 +52,12 @@ const Login = () => {
         // dispatch(authActions.login());
         // dispatch(authActions.changeRole(response.data.role));
         
-        // navigate("/profile");
+        navigate("/all-events");
       }
     } catch (err) {
       console.error('Error during login:', err);
       alert(err.response?.data?.message || 'Login failed. Please try again.');
-      setError('Login failed. Please check your username and password.');
+      setError('Login failed. Please check your rollNo and password.');
     }
   };
 
@@ -72,12 +76,12 @@ const Login = () => {
           
           <form onSubmit={handleSubmit} className="mt-6">
             <div className="mb-4">
-              <label className="block text-[#D49E8D] text-sm font-medium mb-2" htmlFor="name">Username</label>
+              <label className="block text-[#D49E8D] text-sm font-medium mb-2" htmlFor="name">rollNo</label>
               <input
                 type="text"
                 id="name"
-                name="username"
-                value={formData.username}
+                name="rollNo"
+                value={formData.rollNo}
                 onChange={handleChange}
                 className="bg-[#F7F5F1] appearance-none border-2 border-[#D49E8D] rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#683B2B]"
                 required

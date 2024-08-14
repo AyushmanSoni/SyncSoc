@@ -14,6 +14,8 @@ require("dotenv").config();
 
 // predefined middleware
 app.use(express.urlencoded({ extended: false}))
+app.use(express.json());
+
 const  {connect} = require('./db.js')
 connect("mongodb+srv://ayushman:sAnskarsoni3660@cluster0.z8hwd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 

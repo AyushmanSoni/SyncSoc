@@ -11,23 +11,24 @@ const {check} = require('../constants.js')
 // authentication
 // field -> rollNo , password  , email , age , name
 router.post('/Signup', async(req, res) =>{
-    const roll = req.body.rollNo  
-    const password = req.body.password
-    const email = req.body.email
+
+    console.log(req.body)
+
     const name = req.body.name
-    const age = req.body.age
+    const email = req.body.email
+    const password = req.body.password
+    const roll = req.body.rollNo  
+    // const age = req.body.age
 
-    console.log(roll , password , name , age , email )
-    
+    console.log(roll , password , name , email )
 
-
-    if(!roll || !password || !email || !name || !age ){
+    if(!roll || !password || !email || !name  ){
         return res.status(400).send("All fields are required");
     }
     
-    if(roll.length <= 2){
-        return res.status(400).send("Invalid roll number");
-    }
+    // if(roll.length <= 2){
+    //     return res.status(400).send("Invalid roll number");
+    // }
     let type = "member"
     const socname = email.split("@")[0] 
     const domain = email.split("@")[1]
@@ -42,11 +43,10 @@ router.post('/Signup', async(req, res) =>{
     console.log(roll , password , socname )  
     
 
-    const newuser = new user({name:name , email: email , password: password , rollNo : roll , age : age , type : type });
+    const newuser = new user({name:name , email: email , password: password , rollNo : roll ,type : type });
     const temp = await newuser.save();
 
-    return res.status(200).send("signup successful");
-
+    return res.status(200).json({"signup successful":1});
 })
 
 

@@ -1,38 +1,49 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import background from '../assets/back.svg'
+import axios from 'axios';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
-    username: '',
+    name: '',
     email: '',
     password: '',
-    address: ''
+    rollNo: ''
   });
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(name,value);
     setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
+    console.log("working");
     e.preventDefault();
 
     try {
-      if (formData.username === "" || formData.email === "" || formData.password === "" || formData.address === "") {
+      if (formData.name === "" || formData.email === "" || formData.password === "" || formData.rollNo === "") {
         alert("All fields are required");
       } else {
         console.log(formData);
-        // const response = await axios.post('https://chapterverse1.onrender.com/api/v1/sign-up', formData);
-        // alert(response.data.message);
-        // navigate("/LogIn");
+        const response = await axios.post('http://localhost:5000/Signup', formData, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        console.log("working");
+        console.log(response.data);
+        alert(response.data.message);
+        navigate("/login");
       }
     } catch (err) {
+      console.log("working");
       console.error('Error during sign up:', err);
       setError('Sign up failed. Please try again.');
-      // alert(err.response.data.message);
+      alert(err.response?.data?.message || 'An error occurred. Please try again.');
+
     }
   };
 
@@ -51,12 +62,12 @@ const SignUp = () => {
 
           <form onSubmit={handleSubmit} className="mt-6">
             <div className="mb-4">
-              <label className="block text-[#D49E8D] text-sm font-medium mb-2" htmlFor="username">Username</label>
+              <label className="block text-[#D49E8D] text-sm font-medium mb-2" htmlFor="name">Username</label>
               <input
                 type="text"
-                id="username"
-                name="username"
-                value={formData.username}
+                id="name"
+                name="name"
+                value={formData.name}
                 onChange={handleChange}
                 className="bg-[#F7F5F1] appearance-none border-2 border-[#D49E8D] rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#683B2B]"
                 required
@@ -87,12 +98,12 @@ const SignUp = () => {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-[#D49E8D] text-sm font-medium mb-2" htmlFor="address">Address</label>
+              <label className="block text-[#D49E8D] text-sm font-medium mb-2" htmlFor="rollNo">Roll Number</label>
               <input
                 type="text"
-                id="address"
-                name="address"
-                value={formData.address}
+                id="rollNo"
+                name="rollNo"
+                value={formData.rollNo}
                 onChange={handleChange}
                 className="bg-[#F7F5F1] appearance-none border-2 border-[#D49E8D] rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#683B2B]"
                 required
