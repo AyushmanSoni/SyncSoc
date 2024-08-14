@@ -16,6 +16,8 @@ router.post('/Signup', async(req, res) =>{
     const email = req.body.email
     const name = req.body.name
     const age = req.body.age
+
+    console.log(roll , password , name , age , email )
     
 
 
@@ -43,7 +45,7 @@ router.post('/Signup', async(req, res) =>{
     const newuser = new user({name:name , email: email , password: password , rollNo : roll , age : age , type : type });
     const temp = await newuser.save();
 
-    return res.status(200).send(roll);
+    return res.status(200).send("signup successful");
 
 })
 

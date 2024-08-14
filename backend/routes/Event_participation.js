@@ -32,7 +32,7 @@ router.get('/society/:event_name' , async (req, res) => {
     }
     return res.status(401).json({message: 'unauthorised'})   
 })
-
+//user ne kaha kaha register kiya hai 
 router.post('/:event_name' , async (req, res) => {
     console.log(req.user)
     const name = req.user.name 

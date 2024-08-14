@@ -7,7 +7,7 @@ const events = require('../models/Event_register')
 const {check} = require('../constants') 
 
 
-router.post("/event_register" , async (req, res) => {
+router.post("/event_add" , async (req, res) => {
     const venue = req.body.venue
     const date = req.body.date
     const short_description = req.body.short_description 
