@@ -18,9 +18,9 @@ app.use(express.json());
 
 
 const  {connect} = require('./db.js')
-const {get_password} = require('../backend/secret.js')
+// const {get_password} = require()
 // pass = get_password()
-connect(`mongodb+srv://ayushman:${get_password()}@cluster0.z8hwd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
+connect(`mongodb+srv://ayushman:${process.env.password}@cluster0.z8hwd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
 
 
 // middleware importing
