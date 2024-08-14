@@ -45,9 +45,9 @@ app.get('/society',(req,res)=>{
     console.log("in society");
 })
 
-app.get("/",(req,res)=>{
-    res.send("gondia");
-});
+// app.get("/",(req,res)=>{
+//     res.send("gondia");
+// });
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
