@@ -16,9 +16,7 @@ router.post('/Signup', async(req, res) =>{
     const email = req.body.email
     const name = req.body.name
     const age = req.body.age
-    let type = "member"
-    const socname = email.split("@")[0] 
-    const domain = email.split("@")[1]
+    
 
 
     if(!roll || !password || !email || !name || !age ){
@@ -28,6 +26,9 @@ router.post('/Signup', async(req, res) =>{
     if(roll.length <= 2){
         return res.status(400).send("Invalid roll number");
     }
+    let type = "member"
+    const socname = email.split("@")[0] 
+    const domain = email.split("@")[1]
     if(domain !== "iiita.ac.in"){
         return res.status(400).send("Signup with email id please ");
     }

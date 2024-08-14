@@ -7,4 +7,3 @@ function connect(url){
 }
 
 module.exports = {connect};
-    

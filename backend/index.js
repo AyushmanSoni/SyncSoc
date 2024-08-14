@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 // constants 
- const port = 5000
+const port = 5000
 const cors = require("cors");
 app.use(cors());
 
@@ -10,10 +10,12 @@ require("dotenv").config();
 
 // const PORT = process.env.PORT || 5000;
 
+// db -> mongodb+srv://ayushman:sAnsksrsoni3660@cluster0.z8hwd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
 // predefined middleware
 app.use(express.urlencoded({ extended: false}))
 const  {connect} = require('./db.js')
-connect('mongodb://127.0.0.1:27017/SyncSoc')
+connect("mongodb+srv://ayushman:sAnskarsoni3660@cluster0.z8hwd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
 
 // middleware importing
