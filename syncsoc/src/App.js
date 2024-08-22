@@ -15,6 +15,8 @@ import Nirmiti from './pages/Nirmiti.jsx'
 import Geekhaven from './pages/Geekhaven.jsx'
 import Gravity from './pages/Gravity.jsx'
 import Tesla from './pages/Tesla.jsx'
+import Profile from './pages/Profile.jsx'
+import AddEvent from './pages/AddEvent.jsx';
 
 
 
@@ -38,9 +40,12 @@ const App = () => {
         <Route path = "/coding" element={ <Geekhaven/> } />
         <Route path = "/robotics" element={ <Gravity/> } />
         <Route path = "/electronics" element={ <Tesla/> } />
+        <Route path = "/pro" element={ <Profile/> } />
+
         
 
       </Routes>
+      <AddEvent/>
       <Footer/>
       </Router>
       

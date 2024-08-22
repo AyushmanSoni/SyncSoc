@@ -13,7 +13,7 @@ const Login = () => {
 
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
+   const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,9 +37,12 @@ const Login = () => {
         console.log(response.data);
         
         // Storing user data
+        dispatch(authActions.login());
+        dispatch(authActions.changeRole(response.data.role)); 
         localStorage.setItem("id", response.data.id);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("role", response.data.role);
+        navigate("/profile");
         
         // Handling response
         if (response.data && response.data.message) {
