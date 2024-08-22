@@ -20,7 +20,7 @@ router.get('/student' , async (req, res) => {
 
 })
 
-// kisi society ke ek particular event ke particpant ki list 
+// kisi society ke liye ek particular event ke particpant ki list 
 router.get('/society/:event_name' , async (req, res) => {
 
     const role = req.user.role;
@@ -32,7 +32,7 @@ router.get('/society/:event_name' , async (req, res) => {
     }
     return res.status(401).json({message: 'unauthorised'})   
 })
-//user ne kaha kaha register kiya hai 
+//to register for an event
 router.post('/:event_name' , async (req, res) => {
     console.log(req.user)
     const name = req.user.name 

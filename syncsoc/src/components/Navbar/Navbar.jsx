@@ -43,7 +43,7 @@ const Navbar = () => {
     },
     { title: 'All Events', link: '/all-events' },
     { title: 'Fests', link: '/fests' },
-    { title: 'About Us', link: '/profile' },
+    { title: 'About Us', link: '/about' },
     { title: 'Profile', link: '/pro' },
   ];
 
