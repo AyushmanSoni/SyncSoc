@@ -1,6 +1,6 @@
 import React from 'react';
 import heroimage from '../../assets/hero.svg';
-
+import { Link } from 'react-router-dom';
 const Hero = () => {
   return (
     <div className='h-auto lg:h-[75vh] flex flex-col lg:flex-row bg-[#FFFDFB]'>
@@ -26,9 +26,9 @@ const Hero = () => {
           </p>
         </div>
         <div className='mt-8'>
-          <button className='bg-[#683B2B] text-white text-lg font-semibold py-2 px-8 rounded hover:bg-[#2E1A12]'>
+          <Link to = "/all-events" className='bg-[#683B2B] text-white text-lg font-semibold py-2 px-8 rounded hover:bg-[#2E1A12]'>
             Explore Events
-          </button>
+          </Link>
         </div>
         <div className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-4'>
           <div className='flex items-center'>
