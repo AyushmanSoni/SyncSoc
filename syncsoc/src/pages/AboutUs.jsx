@@ -2,9 +2,12 @@ import React from 'react';
 
 const AboutUs = () => {
   return (
-    <div className="bg-white text-gray-800">
+    <div className="bg-[#FFFDFB] text-gray-800">
       {/* Hero Section */}
-      <div className="relative h-80 bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: `url('https://example.com/your-hero-image.jpg')` }}>
+      <div 
+        className="relative h-96 bg-cover bg-center flex items-center justify-center" 
+        style={{ backgroundImage: `url('https://aaa.iiita.ac.in/slideshow1/3.JPG')` }}
+      >
         <div className="bg-black bg-opacity-50 p-8 rounded-md">
           <h1 className="text-4xl md:text-5xl font-bold text-white text-center">Explore, Engage, Excel</h1>
           <p className="text-lg md:text-xl text-gray-200 text-center mt-4">Connecting you with the heart of campus life.</p>
@@ -13,7 +16,7 @@ const AboutUs = () => {
 
       {/* Introduction Section */}
       <div className="px-8 md:px-16 py-12 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">Who We Are</h2>
+        <h2 className="text-4xl md:text-4xl font-bold mb-6 text-[#683B2B]">Who We Are</h2>
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
           We are a platform dedicated to helping students explore all the societies in our college, register for exciting events and interviews, and actively participate in campus activities. Our mission is to make it easier for you to engage with the campus community, discover new interests, and contribute your skills.
         </p>

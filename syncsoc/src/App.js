@@ -17,8 +17,8 @@ import Gravity from './pages/Gravity.jsx'
 import Tesla from './pages/Tesla.jsx'
 import Profile from './pages/Profile.jsx'
 import AddEvent from './pages/AddEvent.jsx';
-import aboutus from './pages/AboutUs.jsx';
 import AboutUs from './pages/AboutUs.jsx';
+import Interviews from './pages/Interviews.jsx';
 
 
 
@@ -44,6 +44,7 @@ const App = () => {
         <Route path = "/electronics" element={ <Tesla/> } />
         <Route path = "/pro" element={ <Profile/> } />
         <Route path = "/about" element={ <AboutUs/> } />
+        <Route path = "/interviews" element={ <Interviews/> } />
 
         
 
