@@ -21,21 +21,20 @@ router.post("/event_add" , async (req, res) => {
         return res.status(400).json({message : "All fields are required"})
     }
 
-    // console.log(req.user)
-
+    console.log(req.user)
     const society = req.user.email.split("@")[0] 
+    console.log(society)
 
     try{
         const newevent = new events({name : name , society:society , venue : venue , date : date, short_description : short_description, fee : fee , time : time, remarks : remarks ,  image_url : image_url})
         await newevent.save()
-        return res.status(200).json(newevent)
+        return res.status(200).json({"Success": "1"});
     }
     catch(err){
         console.log(err)
         return res.status(301).json({message : "Event with name name exists"})
     }
 })
-
 
 
 router.get("/list_of_event" , async (req, res) => {

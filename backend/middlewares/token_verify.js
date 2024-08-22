@@ -25,7 +25,6 @@ const check_login = (req,res,next) => {
             return res.status(403).json({message: "Token expired please sign in again"});
         }
         req.user = user;
-
         // console.log(req.user)
         next();
     });
