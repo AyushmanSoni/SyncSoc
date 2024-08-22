@@ -90,7 +90,7 @@ const RectangularCard = () => {
           </div>
         </div>
         <div className="w-[30%] flex items-center justify-center">
-          <button className="px-6 py-2 bg-[#FFFDFB] font-medium text-[18px] text-[#A25C43] border-2 border-[#D49E8D] rounded-full">
+          <button className="px-6 py-2 bg-[#FFFDFB] font-medium text-[18px] text-[#A25C43] border-2 border-[#D49E8D] rounded-full hover:bg-[#683B2B] hover:text-white hover:border-none">
             Read More
           </button>
         </div>
