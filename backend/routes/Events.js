@@ -95,12 +95,21 @@ router.delete('/delete/:name', async (req, res) =>{
 router.get("/event_details/:id", async (req, res) => {
     try {
         const eventId = req.params.id;
+
+        // Validate if eventId is a valid MongoDB ObjectId
+        if (!eventId.match(/^[0-9a-fA-F]{24}$/)) {
+            return res.status(400).json({ message: "Invalid Event ID" });
+        }
+
+        // Fetch the event details from the database
         const eventDetails = await events.findById(eventId);
-        
+
+        // Check if the event exists
         if (!eventDetails) {
             return res.status(404).json({ message: "Event not found" });
         }
 
+        // Return the event details
         return res.status(200).json(eventDetails);
     } catch (error) {
         console.error("Error fetching event details:", error);

@@ -24,13 +24,13 @@ const AboutUs = () => {
 
       {/* Features Section */}
       <div className="px-8 md:px-16 py-12 bg-gray-100">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">What We Offer</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 ">What We Offer</h2>
         <div className="flex flex-wrap justify-center">
           <div className="w-full md:w-1/3 p-4">
             <div className="bg-white shadow-lg rounded-lg p-6">
               <h3 className="text-xl font-bold mb-4">Explore Societies</h3>
               <p className="text-gray-700">
-                Browse through all college societies, learn about their activities, and find the perfect fit for your interests.
+                With SynSoc, browse through all college societies, learn about their activities, and find the perfect fit for your interests.
               </p>
             </div>
           </div>

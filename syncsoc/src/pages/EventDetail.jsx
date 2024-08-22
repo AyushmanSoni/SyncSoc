@@ -12,13 +12,13 @@ const EventDetailsPage = () => {
     const fetchEvent = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`http://localhost:5000/event_details/${eventId}`, {
+        const response = await axios.get(`http://localhost:5000/event/event_details/${eventId}`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
           },
         });
-
+        console.log("entering");
         setEvent(response.data);
       } catch (error) {
         setError('Failed to fetch event details');
