@@ -7,12 +7,12 @@ const RectangularCard = () => {
     // Fetch data from the list_of_event API
     const fetchEvents = async () => {
       try {
-        const response = await fetch('http://your-server-url/api/list_of_event', {
+        const response = await fetch('http://localhost:5000/event/list_of_event', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
             // Add authentication header if needed
-            'Authorization': 'Bearer your-auth-token'
+            'Authorization': 'Bearer token'
           }
         });
         const result = await response.json();

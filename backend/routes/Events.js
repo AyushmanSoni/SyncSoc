@@ -17,6 +17,8 @@ router.post("/event_add" , async (req, res) => {
     const name = req.body.name 
     const image_url = req.body.image_url 
 
+    console.log(venue , date , short_description , fee , time , remarks , name , image_url)
+
     if(!venue || !date || !short_description || !fee || !time || !name){
         return res.status(400).json({message : "All fields are required"})
     }
@@ -41,7 +43,6 @@ router.post("/event_add" , async (req, res) => {
 router.get("/list_of_event" , async (req, res) => {
 
     console.log(req.headers)
-
     const society = req.user.email.split("@")[0] 
     console.log(society)
 
