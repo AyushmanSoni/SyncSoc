@@ -20,7 +20,8 @@ import AddEvent from './pages/AddEvent';
 import AboutUs from './pages/AboutUs';
 import Interviews from './pages/Interviews';
 import EventDetail from './pages/EventDetail';
-
+import Form from './pages/Regform';
+import RegistrationForm from './pages/Regform';
 const App = () => {
   return (
     <div>
@@ -46,6 +47,7 @@ const App = () => {
           <Route path="/eventdetails/:eventId" element={<EventDetail />} /> {/* Updated route */}
         </Routes>
         <AddEvent />
+        <RegistrationForm/>
         <Footer />
       </Router>
     </div>

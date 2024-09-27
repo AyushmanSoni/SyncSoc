@@ -45,7 +45,7 @@ router.post('/:event_name' , async (req, res) => {
     
     const new_participant = new participants({name : name, rollNo:roll, event_name:event_name})
     await new_participant.save()
-    
+    console.log(res.data);
     // console.log(new_participant)
     return res.json({message: 'Hello from the event route'})
 })
