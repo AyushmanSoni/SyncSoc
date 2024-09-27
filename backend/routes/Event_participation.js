@@ -30,7 +30,7 @@ router.get('/society/:event_name' , async (req, res) => {
         const list = await participants.find({event_name: event_name})
         return res.status(200).json(list);
     }
-    return res.status(401).json({message: 'unauthorised'})   
+    return res.status(401).json({message: 'unauthorised'})
 })
 //to register for an event
 router.post('/:event_name' , async (req, res) => {
@@ -38,6 +38,7 @@ router.post('/:event_name' , async (req, res) => {
     const name = req.user.name 
     const roll = req.user.rollNo 
     const event_name = req.params.event_name 
+    console.log(event_name)
 
     if(!name || !roll || !event_name) {
         return res.status(400).json({message: 'All fields are required'})

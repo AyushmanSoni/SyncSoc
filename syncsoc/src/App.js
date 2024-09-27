@@ -45,7 +45,7 @@ const App = () => {
           <Route path="/interviews" element={<Interviews />} />
           <Route path="/eventdetails/:eventId" element={<EventDetail />} /> {/* Updated route */}
         </Routes>
-        <AddEvent />
+        {/* <AddEvent /> */}
         <Footer />
       </Router>
     </div>
