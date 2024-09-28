@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const EventDetailsPage = () => {
   const { eventId } = useParams();
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const navigate = useNavigate(); // for navigation
 
   useEffect(() => {
     const fetchEvent = async () => {
@@ -28,6 +29,15 @@ const EventDetailsPage = () => {
 
     fetchEvent();
   }, [eventId]);
+
+  // Function to handle register button click
+  const handleRegisterClick = () => {
+    if (event) {
+      console.log("Navigating to registration for event:", event.name); // Log the event name
+      navigate(`/register/${eventId}`, { state: { eventName: event.name } });
+      console.log(eventId)
+    }
+  };
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
@@ -72,6 +82,16 @@ const EventDetailsPage = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Register Button */}
+      <div className="mt-6">
+        <button
+          onClick={handleRegisterClick}
+          className="bg-[#A25C43] text-white py-2 px-4 rounded-lg hover:bg-[#683B2B] transition duration-300"
+        >
+          Register
+        </button>
       </div>
     </div>
   );

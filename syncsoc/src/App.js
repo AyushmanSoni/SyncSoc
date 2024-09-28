@@ -45,9 +45,10 @@ const App = () => {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/interviews" element={<Interviews />} />
           <Route path="/eventdetails/:eventId" element={<EventDetail />} /> {/* Updated route */}
+          <Route path="/register/:eventId" element={<RegistrationForm/>} />
         </Routes>
-        <AddEvent />
-        <RegistrationForm/>
+        {/* <AddEvent /> */}
+        {/* <RegistrationForm/> */}
         <Footer />
       </Router>
     </div>
