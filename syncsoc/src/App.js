@@ -44,21 +44,25 @@ const App = () => {
           <Route path="/coding" element={<Geekhaven />} />
           <Route path="/robotics" element={<Gravity />} />
           <Route path="/electronics" element={<Tesla />} />
-          <Route path="/pro" element={<Profile />} />
+          
           <Route path="/about" element={<AboutUs />} />
           <Route path="/interviews" element={<Interviews />} />
           <Route path="/eventdetails/:eventId" element={<EventDetail />} /> {/* Updated route */}
           <Route path="/add-event" element={<AddEvent/>} />
           <Route path="/settings" element={<Settings/>} />
 
+          <Route path="/pro" element={<Profile />} >
+            <Route index element ={<Registered_events/>}/>
+            <Route path ="/pro/settings" element={<Settings/>}/>
+          </Route>
 
           
 
           <Route path="/register/:eventId" element={<RegistrationForm/>} />
         </Routes>
         {/* <AddEvent /> */}
-        {/* {/* <AddEvent /> */} */}
-        {/* {/* <RegistrationForm/> */} */}
+        {/* {/* <AddEvent /> */} 
+        {/* {/* <RegistrationForm/> */}
         <Footer />
       </Router>
     </div>

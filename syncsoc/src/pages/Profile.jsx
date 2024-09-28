@@ -12,7 +12,7 @@ const Profile = () => {
   
   useEffect(() => {
     const headers = {
-      id: localStorage.getItem('id'),
+      // id: localStorage.getItem('id'),
       authorization: `Bearer ${localStorage.getItem('token')}`,
     };
     const fetchProfile = async () => {
@@ -27,13 +27,13 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className='bg-[#F3F8F9] px-2 md:px-12 flex flex-col md:flex-row h-auto py-8 gap-4'>
-      <div className="w-full md:w-1/6">
+    <div className='bg-[#F1DFDA] px-2 md:px-12 flex flex-col md:flex-row h-auto py-8 gap-4'>
+      {/* <div className="w-full md:w-1/6">
             <Sidebar/>
           </div>
           <div className="w-full md:w-5/6">
             <Outlet />
-          </div>
+          </div> */}
 
 
       {!profile && !error && (
@@ -48,10 +48,10 @@ const Profile = () => {
       )}
       {profile && (
         <>
-          <div className="w-full md:w-1/6">
+          <div className="w-full md:w-1/4">
             <Sidebar data = {profile}/>
           </div>
-          <div className="w-full md:w-5/6">
+          <div className="w-full md:w-3/4">
             <Outlet />
           </div>
         </>

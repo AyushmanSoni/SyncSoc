@@ -4,7 +4,7 @@ const user = require("../models/Personal_details.js");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const Secret = "Do you want to know my secret?"
-
+const {check_login}= require("../middlewares/token_verify.js")
 
 
 function authenticateToken(req, res, next) {
@@ -91,18 +91,20 @@ router.post('/Login', async(req, res) =>{
 })
 
 //get user info
-router.get("/get-user-info", authenticateToken, async (req, res) => {
-    try {
-        const { rollNo } = req.user;  // Extract rollNo from decoded token
-        const userData = await user.findOne({ rollNo }).select("-password"); // Do not return password
+router.get("/get-user-info", check_login , async (req, res) => {
+    // try {
+    //     const { rollNo } = req.user;  // Extract rollNo from decoded token
+    //     const userData = await user.findOne({ rollNo }).select("-password"); // Do not return password
 
-        if (!userData) {
-            return res.status(404).json({ message: "User not found" });
-        }
+    //     if (!userData) {
+    //         return res.status(404).json({ message: "User not found" });
+    //     }
 
-        return res.status(200).json(userData);
-    } catch (error) {
-        res.status(500).json({ message: "Internal server error" });
-    }
+    //     return res.status(200).json(userData);
+    // } catch (error) {
+    //     res.status(500).json({ message: "Internal server error" });
+    // }
+    console.log(req.user)
+    return res.json(req.user);
 });
 module.exports = router;
