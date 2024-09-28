@@ -32,6 +32,7 @@ const user = require('./models/Personal_details.js')
 const Signup_and_login = require('./routes/Signup_and_login.js')
 const Event = require('./routes/Events.js')
 const Participants = require('./routes/Event_participation.js')
+const Team = require('./routes/Teams_making.js')
 
 app.use("/" , Signup_and_login )
 
@@ -40,7 +41,7 @@ app.get("/list_of_event" , async (req, res) => {
   return res.status(200).json(Events)
 })
 
-
+app.use('/team',check_login, Team)
 app.use('/event' , check_login ,   Event )
 app.use('/participants' , check_login , Participants )
 
