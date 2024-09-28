@@ -24,6 +24,7 @@ import Form from './pages/Regform';
 import RegistrationForm from './pages/Regform';
 import Settings from './components/Profile/Settings';
 import Registered_events from './components/Profile/Registered_events';
+import TeamPage from './pages/Teampage';
 const App = () => {
   const role = localStorage.getItem('role');
   return (
@@ -55,7 +56,7 @@ const App = () => {
             <Route index element ={<Registered_events/>}/>
             <Route path ="/pro/settings" element={<Settings/>}/>
           </Route>
-
+          <Route path="/team/:society" element={<TeamPage />} />
           
 
           <Route path="/register/:eventId" element={<RegistrationForm/>} />

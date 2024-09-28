@@ -35,22 +35,15 @@ router.post('/add_member' , async(req , res) => {
 })
 
 
-router.get('/list_of_members' , async(req , res) => {
+router.get('/list_of_members/:society' , async(req , res) => {
     
-    console.log(req.headers)
-    const society = req.user.email.split("@")[0] 
-    console.log(society)
-
-    if(check(society)){
-        const people = await Team_Schema.find({society : society})
-        return res.status(200).json(people)
-    }
-    else{
-        return res.status(401).message("unauthorized")
-    }
+    const society = req.params.society
+    const people = await Team_Schema.find({society : society})
+    return res.status(200).json(people)
 
 })
 
+module.exports = router
 
 
 
