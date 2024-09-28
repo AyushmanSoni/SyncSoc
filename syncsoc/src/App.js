@@ -49,12 +49,13 @@ const App = () => {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/interviews" element={<Interviews />} />
           <Route path="/eventdetails/:eventId" element={<EventDetail />} /> {/* Updated route */}
-          <Route path="/add-event" element={<AddEvent/>} />
+          
           <Route path="/settings" element={<Settings/>} />
 
           <Route path="/pro" element={<Profile />} >
             <Route index element ={<Registered_events/>}/>
             <Route path ="/pro/settings" element={<Settings/>}/>
+            <Route path="/pro/add-event" element={<AddEvent/>} />
           </Route>
           <Route path="/team/:society" element={<TeamPage />} />
           
