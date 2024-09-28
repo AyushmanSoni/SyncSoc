@@ -20,8 +20,12 @@ import AddEvent from './pages/AddEvent';
 import AboutUs from './pages/AboutUs';
 import Interviews from './pages/Interviews';
 import EventDetail from './pages/EventDetail';
-
+import Form from './pages/Regform';
+import RegistrationForm from './pages/Regform';
+import Settings from './components/Profile/Settings';
+import Registered_events from './components/Profile/Registered_events';
 const App = () => {
+  const role = localStorage.getItem('role');
   return (
     <div>
       <Router>
@@ -44,8 +48,16 @@ const App = () => {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/interviews" element={<Interviews />} />
           <Route path="/eventdetails/:eventId" element={<EventDetail />} /> {/* Updated route */}
+          <Route path="/add-event" element={<AddEvent/>} />
+          <Route path="/settings" element={<Settings/>} />
+
+
+          
+
         </Routes>
         {/* <AddEvent /> */}
+        {/* <AddEvent /> */}
+        {/* <RegistrationForm/> */}
         <Footer />
       </Router>
     </div>
