@@ -5,6 +5,18 @@ const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const Secret = "Do you want to know my secret?"
 
+
+
+function authenticateToken(req, res, next) {
+    const token = req.headers['authorization'];
+    if (!token) return res.status(401).send("Access denied");
+
+    jwt.verify(token, Secret, (err, user) => {
+        if (err) return res.status(403).send("Invalid token");
+        req.user = user; // decoded user details from token
+        next();
+    });
+}
 // constants importing
 const {check} = require('../constants.js')
 
@@ -79,13 +91,18 @@ router.post('/Login', async(req, res) =>{
 })
 
 //get user info
-router.get("/get-user-info", authenticateToken ,async (req,res) => {
+router.get("/get-user-info", authenticateToken, async (req, res) => {
     try {
-        const {id} = req.headers;
-        const data = await User.findById(id).select("-password");
-        return res.status(200).json(data);
+        const { rollNo } = req.user;  // Extract rollNo from decoded token
+        const userData = await user.findOne({ rollNo }).select("-password"); // Do not return password
+
+        if (!userData) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        return res.status(200).json(userData);
     } catch (error) {
-        res.status(500).json({message: "Internal server error"});
+        res.status(500).json({ message: "Internal server error" });
     }
-})
+});
 module.exports = router;
