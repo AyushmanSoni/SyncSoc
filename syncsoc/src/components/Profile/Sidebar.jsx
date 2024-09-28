@@ -51,11 +51,11 @@ const Sidebar = ({data}) => {
 
       {role === "society" && (
         <div className='w-full flex-col items-center justify-center hidden lg:flex'>
-          <Link to="/profile"
+          <Link to="/pro"
             className="text-[#A25C43] font-semibold w-full py-2 text-center hover:bg-[#DAE9ED] rounded transition-all duration-200 mt-2">
-            All Events
+            Our Events
           </Link>
-          <Link to="/add-event"
+          <Link to="/pro/add-event"
             className="text-[#A25C43] font-semibold w-full py-2 text-center hover:bg-[#DAE9ED] rounded transition-all duration-200 mt-2">
             Add Event
           </Link>
