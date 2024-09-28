@@ -51,9 +51,6 @@ const App = () => {
           <Route path="/add-event" element={<AddEvent/>} />
           <Route path="/settings" element={<Settings/>} />
 
-
-          
-
         </Routes>
         {/* <AddEvent /> */}
         {/* <AddEvent /> */}
