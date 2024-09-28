@@ -14,6 +14,10 @@ const TeamSchema = new mongoose.Schema({
     Position: {
         type: String,
         required: true
+    },
+    society:{
+        type: String,
+        required: true,
     }
 });
 
