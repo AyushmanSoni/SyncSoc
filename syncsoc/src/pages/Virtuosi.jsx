@@ -8,7 +8,7 @@ const HeroSection = () => {
   
   // Function to handle navigation to team page
   const handleNavigateToTeam = () => {
-    const societyName = 'music'; // Replace 'music' with the dynamic society name if needed
+    const societyName = 'virtuosi'; // Replace 'music' with the dynamic society name if needed
     navigate(`/team/${societyName}`);
   };
 

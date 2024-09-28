@@ -50,9 +50,17 @@ const TeamPage = () => {
 
   // Handle sorting by position
   const handleSort = () => {
-    const sorted = [...sortedMembers].sort((a, b) => {
-      const positionOrder = ['Coordinator', 'Member', 'Volunteer'];
-      return positionOrder.indexOf(a.position) - positionOrder.indexOf(b.position);
+    const sorted = [...members].sort((a, b) => {
+      const positionOrder = ['Coordinator', 'Volunteer', 'Member' , 'member'];
+      const positionComparison =
+        positionOrder.indexOf(a.Position) - positionOrder.indexOf(b.Position);
+
+      // If positions are the same, maintain the order of addition (i.e., index in the array)
+      if (positionComparison === 0) {
+        return members.indexOf(a) - members.indexOf(b);
+      }
+
+      return positionComparison;
     });
     setSortedMembers(sorted);
   };
@@ -61,9 +69,9 @@ const TeamPage = () => {
   const handleAddMember = async (e) => {
     e.preventDefault();
     try {
-      const token = getToken(); // Get token for the request
+      const token = localStorage.getItem('token'); // Get token for the request
       const response = await axios.post(
-        '/api/add_member',
+        'http://localhost:5000/team/add_member',
         {
           ...newMember,
           society, // Include the society in the request
@@ -74,11 +82,13 @@ const TeamPage = () => {
           },
         }
       );
-      if (response.data.Success === '1') {
+      console.log(response)
+      if (response.status === 200 ) {
         setSuccessMessage('Member added successfully!');
         setError(null);
         setNewMember({ name: '', rollNo: '', position: '' }); // Reset form
-        fetchMembers(society); // Fetch updated members list
+        setMembers(society); // Fetch updated members list
+        alert('Member added successfully!'); // Alert when member is added successfully
       }
     } catch (err) {
       setError('Error adding member. Person with the same roll number might already exist.');
@@ -145,7 +155,7 @@ const TeamPage = () => {
               <tr key={member.rollNo} className="border-t hover:bg-gray-100">
                 <td className="p-4">{member.name}</td>
                 <td className="p-4">{member.rollNo}</td>
-                <td className="p-4">{member.position}</td>
+                <td className="p-4">{member.Position}</td>
               </tr>
             ))}
           </tbody>
@@ -181,15 +191,15 @@ const TeamPage = () => {
           <label className="block text-lg font-medium text-gray-700">Position</label>
           <select
             name="position"
-            value={newMember.position}
+            value={newMember.Position}
             onChange={handleInputChange}
             className="border border-gray-300 rounded-md px-4 py-2 w-full"
             required
           >
             <option value="">Select Position</option>
             <option value="Coordinator">Coordinator</option>
-            <option value="Member">Member</option>
             <option value="Volunteer">Volunteer</option>
+            <option value="Member">Member</option>
           </select>
         </div>
         <button

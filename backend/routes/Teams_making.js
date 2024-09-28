@@ -11,6 +11,8 @@ const {check} = require('../constants')
 // only admin access not allowed yet
 router.post('/add_member' , async(req , res) => {
 
+    // console.log(check(society))
+
     const society = req.user.email.split("@")[0] 
     console.log(society)
 
@@ -24,6 +26,7 @@ router.post('/add_member' , async(req , res) => {
         try{
             const newevent = new Team_Schema({name : name , rollNo:rollNo , Position : position , society:society})
             await newevent.save()
+            console.log(newevent)
             return res.status(200).json(newevent);
         }
         catch(err){
@@ -40,11 +43,15 @@ router.post('/add_member' , async(req , res) => {
 
 router.get('/list_of_members/:society' , async(req , res) => {
     
-    const society = req.params.society
-    console.log(society)
-    const people = await Team_Schema.find({society : society})
-    return res.status(200).json(people)
-
+    try{
+        const society = req.params.society
+        console.log(society)
+        const people = await Team_Schema.find({society : society})
+        return res.status(200).json(people)
+    }
+    catch{
+        return res.status(400).message("Not avaialable")
+    }
 })
 
 module.exports = router
