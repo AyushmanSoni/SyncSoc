@@ -52,11 +52,21 @@ const App = () => {
           
           <Route path="/settings" element={<Settings/>} />
 
-          <Route path="/pro" element={<Profile />} >
-            <Route index element ={<Registered_events/>}/>
-            <Route path ="/pro/settings" element={<Settings/>}/>
-            <Route path="/pro/add-event" element={<AddEvent/>} />
-          </Route>
+          <Route path="/pro" element={<Profile />}>
+  {role === "member" ? (
+    <>
+      <Route index element={<Registered_events />} />
+      <Route path="settings" element={<Settings />} />
+    </>
+  ) : role === "society" ? (
+    <>
+      <Route index element={<AllEvents />} />
+      <Route path="add-event" element={<AddEvent />} />
+      <Route path="settings" element={<Settings />} />
+    </>
+  ) : null}
+</Route>
+
           <Route path="/team/:society" element={<TeamPage />} />
           
 
