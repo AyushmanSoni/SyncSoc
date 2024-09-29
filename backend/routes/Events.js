@@ -56,6 +56,14 @@ router.get("/list_of_event" , async (req, res) => {
 
 })
 
+
+router.get("/list_of_event/:society" , async (req, res,)=>{
+    const society = req.params.society
+    console.log(society)
+    const events = await events.find({society : society})
+    return res.status(200).json(events)
+})
+
 router.delete('/delete/:name', async (req, res) =>{
     const name = req.params.name
 
@@ -116,7 +124,6 @@ router.get("/event_details/:id", async (req, res) => {
         return res.status(500).json({ message: "Internal Server Error" });
     }
 });
-
 
 
 module.exports = router 

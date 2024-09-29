@@ -35,7 +35,8 @@ router.post('/upload/:society', upload.single('file'), async (req, res) => {
 
             const newRow = new Interview({
                 rollNo: row[0], // Assuming rollNo is in the first column
-                timeOfInterview: new Date(row[1]), // Assuming timeOfInterview is in the second column, cast to Date if appropriate
+                name: row[1],
+                timeOfInterview: row[2], // Assuming timeOfInterview is in the second column, cast to Date if appropriate
                 society: society // Add the society from the request parameters
             });
 

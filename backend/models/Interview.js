@@ -5,6 +5,10 @@ const interviewSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    name:{
+        type:String,
+        required: true,
+    },
     timeOfInterview: {
         type: String, 
         required: true
