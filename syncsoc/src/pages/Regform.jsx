@@ -104,7 +104,7 @@ const RegistrationForm = () => {
           type="submit"
           className="w-full bg-[#A25C43] text-white py-2 px-4 rounded-md hover:bg-[#683B2B] transition duration-300"
         >
-          Register
+          Enter more Details
         </button>
       </form>
       {message && <p className="mt-4 text-center text-green-500">{message}</p>}

@@ -27,25 +27,55 @@ const {check_login}  = require('./middlewares/token_verify.js')
 
 // model importing 
 const user = require('./models/Personal_details.js')
+const events = require('./models/Event_register.js')
 
 // router importing 
 const Signup_and_login = require('./routes/Signup_and_login.js')
 const Event = require('./routes/Events.js')
 const Participants = require('./routes/Event_participation.js')
 const Team = require('./routes/Teams_making.js')
-const Interview = require('./routes/Interviews.js')
+const Interview = require('./routes/Interview.js')
 
 app.use("/" , Signup_and_login )
 
 app.get("/list_of_event" , async (req, res) => {
-  const Events = await events.find()
+  const Events = await events.find({})
   return res.status(200).json(Events)
 })
+
+app.get("/event_details/:id", async (req, res) => {
+  try {
+      const eventId = req.params.id;
+
+      // Validate if eventId is a valid MongoDB ObjectId
+      if (!eventId.match(/^[0-9a-fA-F]{24}$/)) {
+          return res.status(400).json({ message: "Invalid Event ID" });
+      }
+
+      // Fetch the event details from the database
+      const eventDetails = await events.findById(eventId);
+
+      // Check if the event exists
+      if (!eventDetails) {
+          return res.status(404).json({ message: "Event not found" });
+      }
+
+      // Return the event details
+      return res.status(200).json(eventDetails);
+  } catch (error) {
+      console.error("Error fetching event details:", error);
+      return res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+
 
 app.use('/team',check_login, Team)
 app.use('/event' , check_login ,   Event )
 app.use('/participants' , check_login , Participants )
 app.use('/interview' , check_login , Interview)
+
+
 // app.get("/",(req,res)=>{
 //     res.send("gondia");
 // });

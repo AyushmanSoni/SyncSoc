@@ -21,11 +21,12 @@ import AddEvent from './pages/AddEvent';
 import AboutUs from './pages/AboutUs';
 import Interviews from './pages/Interviews';
 import EventDetail from './pages/EventDetail';
-import Form from './pages/Regform';
 import RegistrationForm from './pages/Regform';
 import Settings from './components/Profile/Settings';
 import Registered_events from './components/Profile/Registered_events';
 import TeamPage from './pages/Teampage';
+import Interview from './pages/Interview';
+
 
 const App = () => {
   const role = localStorage.getItem('role');
@@ -50,12 +51,13 @@ const App = () => {
           <Route path="/sport" element={<Spirit/>} />
           
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/interviews" element={<Interviews />} />
+          <Route path="/interviews" element={<Interview/>} />
           <Route path="/eventdetails/:eventId" element={<EventDetail />} /> {/* Updated route */}
           
           <Route path="/settings" element={<Settings/>} />
 
-          <Route path="/pro" element={<Profile />}>
+          {/* // Profile component should include <Outlet /> to render child routes */}
+<Route path="/pro" element={<Profile />}>
   {role === "member" ? (
     <>
       <Route index element={<Registered_events />} />
@@ -64,11 +66,12 @@ const App = () => {
   ) : role === "society" ? (
     <>
       <Route index element={<AllEvents />} />
-      <Route path="add-event" element={<AddEvent />} />
+      <Route path="/pro/add-event" element={<AddEvent />} />
       <Route path="settings" element={<Settings />} />
     </>
   ) : null}
 </Route>
+
 
           <Route path="/team/:society" element={<TeamPage />} />
           

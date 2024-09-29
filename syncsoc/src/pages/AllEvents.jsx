@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Loader from '../components/Loader/Loader';
 
 const RectangularCard = () => {
   const [events, setEvents] = useState([]);
@@ -12,7 +13,7 @@ const RectangularCard = () => {
       try {
         const token = localStorage.getItem('token'); // Retrieve the token from storage
 
-        const response = await axios.get('http://localhost:5000/event/list_of_event', {
+        const response = await axios.get('http://localhost:5000/list_of_event', {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,  // Add token to the request headers
@@ -39,7 +40,11 @@ const RectangularCard = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading events...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Loader />
+      </div>
+    );
   }
 
   if (error) {

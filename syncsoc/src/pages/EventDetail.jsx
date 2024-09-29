@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+// Import Alert component
+
+
+// Mockup function for checking login status
+const check_login = () => {
+  const token = localStorage.getItem('token');
+  return !!token; // returns true if token exists, otherwise false
+};
 
 const EventDetailsPage = () => {
   const { eventId } = useParams();
@@ -13,10 +21,10 @@ const EventDetailsPage = () => {
     const fetchEvent = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`http://localhost:5000/event/event_details/${eventId}`, {
+        const response = await axios.get(`http://localhost:5000/event_details/${eventId}`, {  // Use backticks here
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
+            'Authorization': `Bearer ${token}`,  // Template literal with backticks
           },
         });
         setEvent(response.data);
@@ -26,18 +34,20 @@ const EventDetailsPage = () => {
         setLoading(false);
       }
     };
-
+  
     fetchEvent();
   }, [eventId]);
+  
 
   // Function to handle register button click
   const handleRegisterClick = () => {
     if (event) {
       console.log("Navigating to registration for event:", event.name); // Log the event name
-      navigate(`/register/${eventId}`, { state: { eventName: event.name } });
-      console.log(eventId)
+      navigate(`/register/${eventId}`, { state: { eventName: event.name } }); // Use backticks for string interpolation
+      console.log(eventId);
     }
   };
+  
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
@@ -46,13 +56,22 @@ const EventDetailsPage = () => {
   return (
     <div className="w-full h-screen p-8 bg-[#F1DFDA] flex flex-col items-center">
       <div className="w-full max-w-5xl bg-white p-6 rounded-lg shadow-lg flex flex-col md:flex-row">
-        <div className="md:w-1/3">
-          <img
-            src={event.image_url}
-            alt={event.name}
-            className="rounded-lg w-full object-cover"
-          />
-        </div>
+      <div className="md:w-1/3 flex flex-col">
+  <img
+    src={event.image_url}
+    alt={event.name}
+    className="rounded-lg w-full object-cover"
+  />
+  <div className="flex items-center justify-center mt-24">
+    <button
+      onClick={handleRegisterClick}
+      className="bg-[#A25C43] text-white py-4 px-32 text-[20px] rounded-lg hover:bg-[#683B2B] transition duration-300"
+    >
+      Register
+    </button>
+  </div>
+</div>
+
         <div className="md:w-2/3 md:pl-8 mt-4 md:mt-0">
           <h1 className="text-4xl font-bold text-[#A25C43] mb-4">{event.name}</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -85,14 +104,6 @@ const EventDetailsPage = () => {
       </div>
 
       {/* Register Button */}
-      <div className="mt-6">
-        <button
-          onClick={handleRegisterClick}
-          className="bg-[#A25C43] text-white py-2 px-4 rounded-lg hover:bg-[#683B2B] transition duration-300"
-        >
-          Register
-        </button>
-      </div>
     </div>
   );
 };

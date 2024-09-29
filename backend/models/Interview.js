@@ -13,6 +13,10 @@ const interviewSchema = new mongoose.Schema({
         type: String, 
         required: true
     },
+    venue:{
+        type: String, 
+        required: true
+    },
     society: {
         type: String,
         required: true
