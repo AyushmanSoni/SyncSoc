@@ -10,7 +10,7 @@ const HeroSection = () => {
   const navigate = useNavigate();
 
   const handleNavigateToTeam = () => {
-    const societyName = 'tesla'; //replace with your society name
+    const societyName = 'Tesla'; //replace with your society name
     navigate(`/team/${societyName}`);
   };
 

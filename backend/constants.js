@@ -1,6 +1,6 @@
 const express = require('express')
 
-const Soclist = new Set(["sarasva" , "rangtarangini" , "virtuosi" , "tesla" , "geekhaven"]);
+const Soclist = new Set(["Sarasva" , "Rangtarangini" , "Virtuosi" , "Tesla" , "Geekhaven", "AMS", "Nirmiti" , "Geneticxcrew", "Gravity" , "Spirit"]);
 
 function check(society){
     return Soclist.has(society)

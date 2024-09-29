@@ -38,7 +38,7 @@ const Navbar = () => {
             { title: 'Electronics Club', link: '/electronics' },
           ],
         },
-        { title: 'Sports Society', link: '/societies/sports' },
+        { title: 'Sports Society', link: '/sport' },
       ],
     },
     { title: 'All Events', link: '/all-events' },

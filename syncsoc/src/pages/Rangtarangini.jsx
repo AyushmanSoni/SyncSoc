@@ -11,7 +11,7 @@ const HeroSection = () => {
   
   // Function to handle navigation to team page
   const handleNavigateToTeam = () => {
-    const societyName = 'rangtarangini'; //replace with your society name
+    const societyName = 'Rangtarangini'; //replace with your society name
     navigate(`/team/${societyName}`);
   };
 

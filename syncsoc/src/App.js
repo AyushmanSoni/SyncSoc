@@ -15,6 +15,7 @@ import Nirmiti from './pages/Nirmiti';
 import Geekhaven from './pages/Geekhaven';
 import Gravity from './pages/Gravity';
 import Tesla from './pages/Tesla';
+import Spirit from './pages/Spirit';
 import Profile from './pages/Profile';
 import AddEvent from './pages/AddEvent';
 import AboutUs from './pages/AboutUs';
@@ -25,6 +26,7 @@ import RegistrationForm from './pages/Regform';
 import Settings from './components/Profile/Settings';
 import Registered_events from './components/Profile/Registered_events';
 import TeamPage from './pages/Teampage';
+
 const App = () => {
   const role = localStorage.getItem('role');
   return (
@@ -45,6 +47,7 @@ const App = () => {
           <Route path="/coding" element={<Geekhaven />} />
           <Route path="/robotics" element={<Gravity />} />
           <Route path="/electronics" element={<Tesla />} />
+          <Route path="/sport" element={<Spirit/>} />
           
           <Route path="/about" element={<AboutUs />} />
           <Route path="/interviews" element={<Interviews />} />
