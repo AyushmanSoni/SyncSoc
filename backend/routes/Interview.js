@@ -3,7 +3,7 @@ const multer = require('multer');
 const XLSX = require('xlsx');
 
 // model importing
-const Interview = require('./Interview');
+const Interview = require('../models/Interview');
 
 const router = express.Router();
 
@@ -13,7 +13,11 @@ const upload = multer({ dest: 'uploads/' });
 
 // Route to handle Excel file upload and store data into MongoDB
 router.post('/upload', upload.single('file'), async (req, res) => {
-    const society = req.user.name;  // Extract society from request parameters
+    const society = req.user.email.split("@")[0] 
+    // const { society } = req.user.name;
+    console.log(society)
+    console.log(req.user)
+    
 
     if (!req.file) {
         return res.status(400).send('No file uploaded.');
@@ -41,6 +45,7 @@ router.post('/upload', upload.single('file'), async (req, res) => {
                 society: society // Add the society from the request parameters
             });
 
+            // console.log(new)
             return newRow.save(); // Save the row to MongoDB
         });
 
@@ -54,8 +59,10 @@ router.post('/upload', upload.single('file'), async (req, res) => {
 });
 
 
-router.get('/interview_schedule/:society' , async(req,res)=>{
-    const { society } = req.params;
+router.get('/interview_schedule' , async(req,res)=>{
+    const society = req.user.email.split("@")[0] 
+    // const { society } = req.user.name;
+    console.log(society)
     
     if (!society) {
         return res.status(400).send('Society are required.');
@@ -68,11 +75,12 @@ router.get('/interview_schedule/:society' , async(req,res)=>{
         if (!interview) {
             return res.status(404).send('No interview found for the given rollNo and society.');
         }
+        console.log(interview)
 
-        res.json(interview);
+        return res.json(interview);
     } catch (err) {
         console.error('Error fetching interview time:', err);
-        res.status(500).send('An error occurred while fetching the interview time.');
+        return res.status(500).send('An error occurred while fetching the interview time.');
     }
 })
 
@@ -97,30 +105,33 @@ router.get('/interview-time/:society', async (req, res) => {
         res.json(interview);
     } catch (err) {
         console.error('Error fetching interview time:', err);
-        res.status(500).send('An error occurred while fetching the interview time.');
+        return res.status(500).send('An error occurred while fetching the interview time.');
     }
 });
 
 
 router.get('/interview-time', async (req, res) => {
     const rollNo = req.user.rollNo; 
+    // console.log(rollNo)
 
-    if (!rollNo || !society) {
-        return res.status(400).send('Both rollNo and society are required.');
+    if (!rollNo) {
+        return res.status(400).send('Society are required.');
     }
 
     try {
         // Find the interview document based on rollNo and society
-        const interview = await Interview.findOne({ rollNo: rollNo });
+        const interview = await Interview.find({ rollNo: rollNo });
 
         if (!interview) {
             return res.status(404).send('No interview found for the given rollNo and society.');
         }
 
-        res.json(interview);
+        // console.log("result")
+        // console.log(interview)
+        return res.json(interview);
     } catch (err) {
         console.error('Error fetching interview time:', err);
-        res.status(500).send('An error occurred while fetching the interview time.');
+        return res.status(500).send('An error occurred while fetching the interview time.');
     }
 });
 
