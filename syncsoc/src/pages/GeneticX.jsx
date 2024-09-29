@@ -1,24 +1,40 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // Import your logo image
 // import logo from '../assets/logo.png';
 import image from '../assets/Group 1.svg'
 import logo from '../assets/rang.svg'; // replace with your actual logo path
 
 const HeroSection = () => {
+
+  const navigate = useNavigate();
+
+  const handleNavigateToTeam = () => {
+    const societyName = 'geneticx'; //replace with your society name
+    navigate(`/team/${societyName}`);
+  };
+
   return (
     <div className="relative bg-white h-screen">
       {/* Navbar */}
       <div className="flex justify-between items-center px-24 py-6">
         <div className="flex items-center space-x-4">
           <img 
-          src={logo} 
-          alt="Rangtarangini Logo" className="h-12 text-[#683B2B]" />
-          <div className="text-2xl font-medium text-[#683B2B]">GeneticX</div>
+            src={logo} 
+            alt="Rangtarangini Logo" 
+            className="h-12 text-[#683B2B]" 
+          />
+          <div className="text-2xl font-medium text-[#683B2B]">GeneticXCrew</div>
         </div>
         <div className="space-x-12 text-lg font-medium">
           <Link to="/" className="text-[#D49E8D] hover:text-[#683B2B]">Home</Link>
-          <a href="#about" className="text-[#D49E8D] hover:text-[#683B2B]">Team</a>
+          {/* Call the function to navigate to team page */}
+          <button 
+            onClick={handleNavigateToTeam}
+            className="text-[#D49E8D] hover:text-[#683B2B]"
+          >
+            Team
+          </button>
           <a href="#services" className="text-[#D49E8D] hover:text-[#683B2B]">Events</a>
           <a href="#contact" className="text-[#D49E8D] hover:text-[#683B2B]">Contact</a>
         </div>
