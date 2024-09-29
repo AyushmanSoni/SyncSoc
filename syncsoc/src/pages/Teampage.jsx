@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Loader from '../components/Loader/Loader';
 
 const TeamPage = () => {
   const { society } = useParams(); // Get the society name from the URL
