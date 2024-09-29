@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Loader from '../components/Loader/Loader';
 
 const RectangularCard = () => {
   const [events, setEvents] = useState([]);
@@ -39,7 +40,11 @@ const RectangularCard = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading events...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Loader />
+      </div>
+    );
   }
 
   if (error) {
