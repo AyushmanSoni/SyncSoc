@@ -26,6 +26,7 @@ import Settings from './components/Profile/Settings';
 import Registered_events from './components/Profile/Registered_events';
 import TeamPage from './pages/Teampage';
 import Interview from './pages/Interview';
+import SocEvents from './pages/SocEvents';
 
 
 const App = () => {
@@ -53,6 +54,7 @@ const App = () => {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/interviews" element={<Interview/>} />
           <Route path="/eventdetails/:eventId" element={<EventDetail />} /> {/* Updated route */}
+          <Route path="/events/:society" element={<SocEvents/>} />
           
           <Route path="/settings" element={<Settings/>} />
 

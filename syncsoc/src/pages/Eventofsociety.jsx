@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import Loader from '../components/Loader/Loader';
 
-const SocEvents = () => {
+const ReCard = () => {
   const { society } = useParams(); // Get the society name from the URL params
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -103,4 +103,4 @@ const SocEvents = () => {
   );
 };
 
-export default SocEvents;
+export default ReCard;

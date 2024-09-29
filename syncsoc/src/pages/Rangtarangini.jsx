@@ -1,19 +1,10 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-// Import your logo image
-// import logo from '../assets/logo.png';
-import image from '../assets/Group 1.svg'
+import { Link } from 'react-router-dom';
+import image from '../assets/Group 1.svg';
 import logo from '../assets/rang.svg'; // replace with your actual logo path
 
 const HeroSection = () => {
-
-  const navigate = useNavigate(); // Initialize useNavigate hook
-  
-  // Function to handle navigation to team page
-  const handleNavigateToTeam = () => {
-    const societyName = 'Rangtarangini'; //replace with your society name
-    navigate(`/team/${societyName}`);
-  };
+  const societyName = 'rangtarangini'; // Replace with your society name dynamically if needed
 
   return (
     <div className="relative bg-white h-screen">
@@ -29,14 +20,20 @@ const HeroSection = () => {
         </div>
         <div className="space-x-12 text-lg font-medium">
           <Link to="/" className="text-[#D49E8D] hover:text-[#683B2B]">Home</Link>
-          {/* Call the function to navigate to team page */}
-          <button 
-            onClick={handleNavigateToTeam}
+          {/* Link to Team page */}
+          <Link 
+            to={`/team/${societyName}`}
             className="text-[#D49E8D] hover:text-[#683B2B]"
           >
             Team
-          </button>
-          <a href="#services" className="text-[#D49E8D] hover:text-[#683B2B]">Events</a>
+          </Link>
+          {/* Link to Events page */}
+          <Link
+            to={`/events/${societyName}`} // Link to events of the specific society
+            className="text-[#D49E8D] hover:text-[#683B2B]"
+          >
+            Events
+          </Link>
           <a href="#contact" className="text-[#D49E8D] hover:text-[#683B2B]">Contact</a>
         </div>
       </div>
@@ -45,19 +42,23 @@ const HeroSection = () => {
       <div className="flex flex-col md:flex-row items-center justify-between px-8 md:px-24 h-full">
         {/* Left Text Section */}
         <div className="md:w-1/2 mb-28">
-        <h1 className='text-4xl md:text-6xl font-bold text-[#683B2B]'>Light</h1>
+          <h1 className='text-4xl md:text-6xl font-bold text-[#683B2B]'>Light</h1>
           <h1 className="text-4xl mt-4 md:text-6xl font-bold text-[#683B2B]">
             Camera <br/>
             <span className="text-[#D49E8D] mt-4">Reaction!</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-500 mt-4 w-[80%]">
-          Welcome to our vibrant dramatics society, where every performance sparks emotion and leaves a lasting impression
+            Welcome to our vibrant dramatics society, where every performance sparks emotion and leaves a lasting impression.
           </p>
           <div className="mt-8 space-x-4">
-            <button className="bg-[#683B2B] text-white py-3 px-12 text-lg rounded-lg hover:bg-[#4A291B] transition duration-300">
+            {/* Link to the Events page with the society name */}
+            <Link 
+              to={`/events/${societyName}`}  // Use Link to pass society name dynamically
+              className="bg-[#683B2B] text-white py-3 px-12 text-lg rounded-lg hover:bg-[#4A291B] transition duration-300"
+            >
               Events
-            </button>
-            <button className="bg-transparent border-2 border-[#683B2B] text-[#683B2B] text-lg py-3 px-10 rounded-md hover:text-[#4A291B]  transition duration-300">
+            </Link>
+            <button className="bg-transparent border-2 border-[#683B2B] text-[#683B2B] text-lg py-3 px-10 rounded-md hover:text-[#4A291B] transition duration-300">
               Gallery
             </button>
           </div>
@@ -68,7 +69,7 @@ const HeroSection = () => {
           <img
             src={image} // Replace with your actual image path
             alt="Your Image"
-            className="w-[90%] h-auto rounded-lg "
+            className="w-[90%] h-auto rounded-lg"
           />
         </div>
       </div>
