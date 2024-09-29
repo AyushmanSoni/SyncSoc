@@ -13,7 +13,7 @@ const RectangularCard = () => {
       try {
         const token = localStorage.getItem('token'); // Retrieve the token from storage
 
-        const response = await axios.get('http://localhost:5000/event/list_of_event', {
+        const response = await axios.get('http://localhost:5000/list_of_event', {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,  // Add token to the request headers

@@ -65,7 +65,7 @@ const App = () => {
   ) : role === "society" ? (
     <>
       <Route index element={<AllEvents />} />
-      <Route path="add-event" element={<AddEvent />} />
+      <Route path="/pro/add-event" element={<AddEvent />} />
       <Route path="settings" element={<Settings />} />
     </>
   ) : null}
