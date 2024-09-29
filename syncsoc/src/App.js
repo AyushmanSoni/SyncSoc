@@ -25,6 +25,7 @@ import RegistrationForm from './pages/Regform';
 import Settings from './components/Profile/Settings';
 import Registered_events from './components/Profile/Registered_events';
 import TeamPage from './pages/Teampage';
+import Interview from './pages/Interview';
 
 
 const App = () => {
@@ -50,7 +51,7 @@ const App = () => {
           <Route path="/sport" element={<Spirit/>} />
           
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/interviews" element={<Interviews />} />
+          <Route path="/interviews" element={<Interview/>} />
           <Route path="/eventdetails/:eventId" element={<EventDetail />} /> {/* Updated route */}
           
           <Route path="/settings" element={<Settings/>} />

@@ -1,40 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useSelector } from 'react-redux'; // Assuming you're using Redux for user management
 
 const InterviewPage = () => {
     const [isSociety, setIsSociety] = useState(false);
-    const [interviews, setInterviews] = useState([]);
+    const [interviews, setInterviews] = useState([]); // Ensure interviews is an array by default
     const [file, setFile] = useState(null);
     const [error, setError] = useState('');
 
-    const user = useSelector(state => state.auth.user); // Replace with actual state management logic
+    const role = localStorage.getItem("role");
 
     useEffect(() => {
         // Check if logged in user is a society
-        if (user?.role === 'society') {
+        if (role === 'society') {
             setIsSociety(true);
             fetchSocietyInterviews();
         } else {
             fetchUserInterviews();
         }
-    }, [user]);
+    }, [role]);
 
     const fetchSocietyInterviews = async () => {
         try {
-            const response = await axios.get(`/interview/interview_schedule/${user.name}`);
-            setInterviews(response.data);
+            const response = await axios.get(`http://localhost:5000/interview/interview_schedule`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+            console.log(role);
+            setInterviews(response.data || []); // Ensure we set an empty array if no data is returned
         } catch (error) {
+            console.log(role);
+            console.log(localStorage);
             setError('Error fetching interviews for society');
+            setInterviews([]); // Set to empty array on error to prevent map() errors
         }
     };
 
     const fetchUserInterviews = async () => {
         try {
-            const response = await axios.get(`/interview/interview-time`);
-            setInterviews(response.data);
+            const response = await axios.get(`http://localhost:5000/interview/interview-time`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+            setInterviews(response.data || []); // Ensure it's an array
         } catch (error) {
             setError('Error fetching user interviews');
+            setInterviews([]); // Set to empty array on error to prevent map() errors
         }
     };
 
@@ -44,7 +58,11 @@ const InterviewPage = () => {
         setFile(e.target.files[0]);
 
         try {
-            await axios.post('/interview/upload', formData);
+            await axios.post('http://localhost:5000/interview/upload', formData, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            });
             fetchSocietyInterviews(); // Refresh the interview list
         } catch (err) {
             setError('File upload failed');
@@ -58,7 +76,7 @@ const InterviewPage = () => {
             {error && <p className="text-red-500 text-center">{error}</p>}
 
             {/* Society View */}
-            {isSociety ? (
+            {role === "society" && (
                 <div>
                     {!file && (
                         <div className="mb-5">
@@ -82,7 +100,7 @@ const InterviewPage = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {interviews.map((interview, index) => (
+                            {Array.isArray(interviews) && interviews.map((interview, index) => (
                                 <tr key={index}>
                                     <td className="px-4 py-2 border border-[#4e362a]">{interview.name}</td>
                                     <td className="px-4 py-2 border border-[#4e362a]">{interview.rollNo}</td>
@@ -94,8 +112,8 @@ const InterviewPage = () => {
                         </tbody>
                     </table>
                 </div>
-            ) : (
-                // User View
+            )}
+            {role === "member" && (
                 <div>
                     <table className="min-w-full table-auto bg-white border-collapse border border-[#4e362a] rounded-lg">
                         <thead className="bg-[#c1a492]">
@@ -106,7 +124,7 @@ const InterviewPage = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {interviews.map((interview, index) => (
+                            {Array.isArray(interviews) && interviews.map((interview, index) => (
                                 <tr key={index}>
                                     <td className="px-4 py-2 border border-[#4e362a]">{interview.society}</td>
                                     <td className="px-4 py-2 border border-[#4e362a]">
