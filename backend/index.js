@@ -33,6 +33,7 @@ const Signup_and_login = require('./routes/Signup_and_login.js')
 const Event = require('./routes/Events.js')
 const Participants = require('./routes/Event_participation.js')
 const Team = require('./routes/Teams_making.js')
+const Interview = require('./routes/Interview.js')
 
 app.use("/" , Signup_and_login )
 
@@ -44,6 +45,8 @@ app.get("/list_of_event" , async (req, res) => {
 app.use('/team',check_login, Team)
 app.use('/event' , check_login ,   Event )
 app.use('/participants' , check_login , Participants )
+app.use('/interview' , check_login , Interview)
+
 
 // app.get("/",(req,res)=>{
 //     res.send("gondia");

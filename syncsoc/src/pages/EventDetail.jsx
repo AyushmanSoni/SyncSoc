@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 // Import Alert component
-import { Alert } from '@welcome-ui/alert';
+
 
 // Mockup function for checking login status
 const check_login = () => {
