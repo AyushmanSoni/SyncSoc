@@ -27,7 +27,6 @@ const {check_login}  = require('./middlewares/token_verify.js')
 
 // model importing 
 const user = require('./models/Personal_details.js')
-const events = require('./models/Event_register')
 const events = require('./models/Event_register.js')
 
 // router importing 
