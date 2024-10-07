@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect } from "react"; // Import React and useEffect hook
+import { useDispatch, useSelector } from "react-redux"; // Import useDispatch and useSelector from react-redux
+import { authActions } from "./store/auth"; // Import authActions from the auth slice (make sure to adjust the path to where the auth slice is located)
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
@@ -29,8 +32,22 @@ import Interview from './pages/Interview';
 import SocEvents from './pages/SocEvents';
 
 
+
 const App = () => {
-  const role = localStorage.getItem('role');
+  const dispatch = useDispatch();
+  const role = useSelector((state) => state.auth.role);
+
+  useEffect(() => {
+    if (localStorage.getItem("id") &&
+        localStorage.getItem("token") &&
+        localStorage.getItem("role")) {
+      dispatch(authActions.login());
+      dispatch(authActions.changeRole(localStorage.getItem("role")));
+    }
+  }, [dispatch]);
+  
+
+
   return (
     <div>
       <Router>
@@ -67,14 +84,12 @@ const App = () => {
     </>
   ) : role === "society" ? (
     <>
-      <Route index element={<AllEvents />} />
+      <Route index element={<SocEvents/>} />
       <Route path="/pro/add-event" element={<AddEvent />} />
       <Route path="settings" element={<Settings />} />
     </>
   ) : null}
 </Route>
-
-
           <Route path="/team/:society" element={<TeamPage />} />
           
 
@@ -85,7 +100,9 @@ const App = () => {
         {/* {/* <RegistrationForm/> */}
         <Footer />
       </Router>
+      
     </div>
+
   );
 };
 

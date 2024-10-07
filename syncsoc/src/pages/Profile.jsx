@@ -12,7 +12,7 @@ const Profile = () => {
   
   useEffect(() => {
     const headers = {
-      // id: localStorage.getItem('id'),
+      id: localStorage.getItem('id'),
       authorization: `Bearer ${localStorage.getItem('token')}`,
     };
     const fetchProfile = async () => {
@@ -24,6 +24,7 @@ const Profile = () => {
       }
     };
     fetchProfile();
+
   }, []);
 
   return (

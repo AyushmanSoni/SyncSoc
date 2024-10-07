@@ -4,13 +4,14 @@ import image from '../assets/Group 1.svg';
 import logo from '../assets/rang.svg'; // replace with your actual logo path
 
 const HeroSection = () => {
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const societyName = 'Virtuosi';
+  // const navigate = useNavigate(); // Initialize useNavigate hook
   
-  // Function to handle navigation to team page
-  const handleNavigateToTeam = () => {
-    const societyName = 'Virtuosi'; //replace with your society name
-    navigate(`/team/${societyName}`);
-  };
+  // // Function to handle navigation to team page
+  // const handleNavigateToTeam = () => {
+  //   const societyName = 'Virtuosi'; //replace with your society name
+  //   navigate(`/team/${societyName}`);
+  // };
 
   return (
     <div className="relative bg-white h-screen">
@@ -26,14 +27,20 @@ const HeroSection = () => {
         </div>
         <div className="space-x-12 text-lg font-medium">
           <Link to="/" className="text-[#D49E8D] hover:text-[#683B2B]">Home</Link>
-          {/* Call the function to navigate to team page */}
-          <button 
-            onClick={handleNavigateToTeam}
+          {/* Link to Team page */}
+          <Link 
+            to={`/team/${societyName}`}
             className="text-[#D49E8D] hover:text-[#683B2B]"
           >
             Team
-          </button>
-          <a href="#services" className="text-[#D49E8D] hover:text-[#683B2B]">Events</a>
+          </Link>
+          {/* Link to Events page */}
+          <Link
+            to={`/events/${societyName}`} // Link to events of the specific society
+            className="text-[#D49E8D] hover:text-[#683B2B]"
+          >
+            Events
+          </Link>
           <a href="#contact" className="text-[#D49E8D] hover:text-[#683B2B]">Contact</a>
         </div>
       </div>

@@ -1,44 +1,48 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Loader from '../components/Loader/Loader';
+import { useSelector } from 'react-redux'; // Use selector to get the role and society
 
 const SocEvents = () => {
-  const { society } = useParams(); // Get the society name from the URL params
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
+  const role = useSelector((state) => state.auth.role); // Get the role of the logged-in user
+  const society = localStorage.getItem('society'); // Assuming society name is stored in localStorage or Redux
+
   useEffect(() => {
     const fetchEvents = async () => {
-      try {
-        const token = localStorage.getItem('token'); // Retrieve the token from local storage
+      if (role === 'society') {
+        try {
+          const token = localStorage.getItem('token'); // Retrieve the token from local storage
+          const response = await axios.get(`http://localhost:5000/event/list_of_event/${society}`, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`,  // Add token to the request headers
+            }
+          });
 
-        const response = await axios.get(`http://localhost:5000/event/list_of_event/${society}`, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,  // Add token to the request headers
+          const result = response.data;
+
+          if (Array.isArray(result)) {
+            setEvents(result);
+          } else {
+            throw new Error('Unexpected data format received');
           }
-        });
 
-        const result = response.data;
-
-        if (Array.isArray(result)) {
-          setEvents(result);
-        } else {
-          throw new Error('Unexpected data format received');
+        } catch (error) {
+          console.error('Error fetching events:', error);
+          setError('Failed to fetch events');
+        } finally {
+          setLoading(false);
         }
-
-      } catch (error) {
-        console.error('Error fetching events:', error);
-        setError('Failed to fetch events');
-      } finally {
-        setLoading(false);
       }
     };
 
     fetchEvents();
-  }, [society]); // Fetch events whenever the society changes
+  }, [society, role]); // Fetch events whenever the society or role changes
 
   if (loading) {
     return (
