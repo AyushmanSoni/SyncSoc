@@ -4,7 +4,7 @@ import image from '../assets/Group 1.svg';
 import logo from '../assets/rang.svg'; // replace with your actual logo path
 
 const HeroSection = () => {
-  const societyName = 'Virtuosi';
+  const societyName = 'virtuosi';
   // const navigate = useNavigate(); // Initialize useNavigate hook
   
   // // Function to handle navigation to team page

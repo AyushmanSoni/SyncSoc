@@ -15,9 +15,10 @@ const Sidebar = ({ data }) => {
   if (role === "society" && data.email) {
     societyName = data.email.split("@")[0]; // Example: for "artclub@example.com", societyName will be "artclub"
   }
+  console.log(societyName);
 
   return (
-    <div className='bg-white p-4 rounded flex flex-col items-center h-full'>
+    <div className='bg-white p-4 rounded flex flex-col items-center h-screen'>
       {/* User Profile Information */}
       <div className='flex items-center flex-col justify-center'>
         <img src="https://cdn-icons-png.freepik.com/512/6596/6596121.png" className='h-[12vh]' alt='Profile' />
@@ -60,13 +61,17 @@ const Sidebar = ({ data }) => {
               className="text-[#A25C43] font-semibold w-full py-2 text-center hover:bg-[#DAE9ED] rounded transition-all duration-200 mt-2">
               Add Event
             </Link>
+            <Link to="/pro/add-member"
+              className="text-[#A25C43] font-semibold w-full py-2 text-center hover:bg-[#DAE9ED] rounded transition-all duration-200 mt-2">
+              Add Member
+            </Link>
           </div>
         )}
       </div>
 
       {/* Log Out Button */}
       <button
-        className='bg-[#A25C43] w-3/6 lg:w-3/4 mt-4 lg:mt-0 text-white border border-[#086D8A] font-semibold flex items-center justify-center py-2 rounded hover:bg-[#075A71] transition-all duration-300 hover:text-white'
+        className='bg-[#A25C43] w-3/6 lg:w-3/4 mt-4 lg:mt-0 text-white border border-[#683B2B] font-semibold flex items-center justify-center py-2 rounded hover:bg-[#683B2B] transition-all duration-300 hover:text-white'
         onClick={() => {
           console.log("Logging out...");
           dispatch(authActions.logout());

@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom'; // Import useParams
+import { Link } from 'react-router-dom'; // Remove useParams
 import Loader from '../components/Loader/Loader';
 import { useSelector } from 'react-redux'; // Use selector to get the role
 
-const SocEvents = () => {
+const ProSocEvents = ({ society }) => { // Accept society as a prop
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  console.log(society);
 
-  const { society } = useParams();
-  console.log(society); // Extract the society name from URL parameters
   const role = useSelector((state) => state.auth.role); // Get the role of the logged-in user
 
   useEffect(() => {
@@ -108,4 +107,4 @@ const SocEvents = () => {
   );
 };
 
-export default SocEvents;
+export default ProSocEvents;

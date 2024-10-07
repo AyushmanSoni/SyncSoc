@@ -30,7 +30,8 @@ import Registered_events from './components/Profile/Registered_events';
 import TeamPage from './pages/Teampage';
 import Interview from './pages/Interview';
 import SocEvents from './pages/SocEvents';
-
+import AddMemberPage from "./pages/AddMember";
+import ProSocEvents from "./pages/ProSocEvents";
 
 
 const App = () => {
@@ -46,7 +47,7 @@ const App = () => {
     }
   }, [dispatch]);
   
-
+  const society = localStorage.getItem('society');
 
   return (
     <div>
@@ -84,8 +85,10 @@ const App = () => {
     </>
   ) : role === "society" ? (
     <>
-      <Route index element={<SocEvents/>} />
+      <Route index element={<ProSocEvents society={society}/>} />
       <Route path="/pro/add-event" element={<AddEvent />} />
+      <Route path="/pro/add-member" element={<AddMemberPage society={society}/>} />
+
       <Route path="settings" element={<Settings />} />
     </>
   ) : null}

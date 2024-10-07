@@ -63,10 +63,10 @@ const AddEvent = () => {
 
   return (
     <div className='h-[100%] p-0 md:p-4'>
-      <h1 className='text-3xl md:text-5xl font-semibold text-[#086D8A] mb-8'>Add Event</h1>
+      <h1 className='text-3xl md:text-5xl font-semibold text-[#683B2B] mb-8'>Add Event</h1>
       <div className='p-4 bg-white rounded'>
         <div>
-          <label htmlFor="" className='text-[#086D8A] text-xl font-medium'>Event Name</label>
+          <label htmlFor="" className='text-[#683B2B] text-xl font-medium'>Event Name</label>
           <input 
             type="text"
             className='w-full mt-2 bg-[#F3F8F9] text-zinc-700 p-2 outline-none'
@@ -78,7 +78,7 @@ const AddEvent = () => {
           />
         </div>
         <div className='mt-6'>
-          <label htmlFor="" className='text-[#086D8A] text-xl font-medium'>Venue</label>
+          <label htmlFor="" className='text-[#683B2B] text-xl font-medium'>Venue</label>
           <input 
             type="text"
             className='w-full mt-2 bg-[#F3F8F9] text-zinc-700 p-2 outline-none'
@@ -91,7 +91,7 @@ const AddEvent = () => {
         </div>
         <div className='mt-6 flex gap-4'>
           <div className='w-1/2'>
-            <label htmlFor="" className='text-[#086D8A] text-xl font-medium'>Date</label>
+            <label htmlFor="" className='text-[#683B2B] text-xl font-medium'>Date</label>
             <input 
               type="date"
               className='w-full mt-2 bg-[#F3F8F9] text-zinc-700 p-2 outline-none'
@@ -102,7 +102,7 @@ const AddEvent = () => {
             />
           </div>
           <div className='w-1/2'>
-            <label htmlFor="" className='text-[#086D8A] text-xl font-medium'>Time</label>
+            <label htmlFor="" className='text-[#683B2B] text-xl font-medium'>Time</label>
             <input 
               type="time"
               className='w-full mt-2 bg-[#F3F8F9] text-zinc-700 p-2 outline-none'
@@ -114,7 +114,7 @@ const AddEvent = () => {
           </div>
         </div>
         <div className='mt-6'>
-          <label htmlFor="" className='text-[#086D8A] text-xl font-medium'>Short Description</label>
+          <label htmlFor="" className='text-[#683B2B] text-xl font-medium'>Short Description</label>
           <textarea
             className='w-full mt-2 bg-[#F3F8F9] text-zinc-700 p-2 outline-none'
             rows="4"
@@ -126,7 +126,7 @@ const AddEvent = () => {
           />
         </div>
         <div className='mt-6'>
-          <label htmlFor="" className='text-[#086D8A] text-xl font-medium'>Remarks</label>
+          <label htmlFor="" className='text-[#683B2B] text-xl font-medium'>Remarks</label>
           <textarea
             className='w-full mt-2 bg-[#F3F8F9] text-zinc-700 p-2 outline-none'
             rows="4"
@@ -138,7 +138,7 @@ const AddEvent = () => {
         </div>
         <div className='mt-6 flex gap-4'>
           <div className='w-1/2'>
-            <label htmlFor="" className='text-[#086D8A] text-xl font-medium'>Fee</label>
+            <label htmlFor="" className='text-[#683B2B] text-xl font-medium'>Fee</label>
             <input 
               type="number"
               className='w-full mt-2 bg-[#F3F8F9] text-zinc-700 p-2 outline-none'
@@ -150,7 +150,7 @@ const AddEvent = () => {
             />
           </div>
           <div className='w-1/2'>
-            <label htmlFor="" className='text-[#086D8A] text-xl font-medium'>Image URL</label>
+            <label htmlFor="" className='text-[#683B2B] text-xl font-medium'>Image URL</label>
             <input 
               type="text"
               className='w-full mt-2 bg-[#F3F8F9] text-zinc-700 p-2 outline-none'
@@ -162,7 +162,7 @@ const AddEvent = () => {
             />
           </div>
         </div>
-        <button className='mt-6 px-3 bg-[#086D8A] text-white font-semibold py-2 rounded hover:bg-[#075A71]'
+        <button className='mt-6 px-3 bg-[#A25C43] text-white font-semibold py-2 rounded hover:bg-[#683B2B]'
           onClick={submit}>
           Add Event
         </button>
