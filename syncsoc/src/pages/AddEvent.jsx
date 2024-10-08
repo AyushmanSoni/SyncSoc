@@ -63,7 +63,7 @@ const AddEvent = () => {
 
   return (
     <div className='h-[100%] p-0 md:p-4'>
-      <h1 className='text-3xl md:text-5xl font-semibold text-[#683B2B] mb-8'>Add Event</h1>
+      <h1 className='text-3xl md:text-3xl font-semibold text-[#683B2B] mb-8'>Add Event</h1>
       <div className='p-4 bg-white rounded'>
         <div>
           <label htmlFor="" className='text-[#683B2B] text-xl font-medium'>Event Name</label>

@@ -45,55 +45,59 @@ const AddMemberPage = ({ society }) => {
   };
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
-      <h2 className="text-2xl font-bold text-[#683B2B] mt-8">Add New Member</h2>
-      {error && <p className="text-red-500 mb-4">{error}</p>}
-      {successMessage && <p className="text-green-500 mb-4">{successMessage}</p>}
-      <form onSubmit={handleAddMember} className="mt-4 space-y-4">
-        <div>
-          <label className="block text-lg font-medium text-gray-700">Name</label>
-          <input
-            type="text"
-            name="name"
-            value={newMember.name}
-            onChange={handleInputChange}
-            className="border border-gray-300 rounded-md px-4 py-2 w-full"
-            required
-          />
-        </div>
-        <div>
-          <label className="block text-lg font-medium text-gray-700">Roll Number</label>
-          <input
-            type="text"
-            name="rollNo"
-            value={newMember.rollNo}
-            onChange={handleInputChange}
-            className="border border-gray-300 rounded-md px-4 py-2 w-full"
-            required
-          />
-        </div>
-        <div>
-          <label className="block text-lg font-medium text-gray-700">Position</label>
-          <select
-            name="position"
-            value={newMember.Position}
-            onChange={handleInputChange}
-            className="border border-gray-300 rounded-md px-4 py-2 w-full"
-            required
+    <div className='h-[100%] p-0 md:p-4'>
+      <h2 className='text-2xl md:text-3xl font-semibold text-[#683B2B] mb-8'>Add New Member</h2>
+      <div className='p-4 bg-white rounded'>
+        {error && <p className="text-red-500 mb-4">{error}</p>}
+        {successMessage && <p className="text-green-500 mb-4">{successMessage}</p>}
+        <form onSubmit={handleAddMember} className="mt-4 space-y-4">
+          <div>
+            <label className='text-[#683B2B] text-xl font-medium'>Name</label>
+            <input
+              type="text"
+              name="name"
+              value={newMember.name}
+              onChange={handleInputChange}
+              className='w-full mt-2 bg-[#F3F8F9] text-zinc-700 p-2 outline-none'
+              placeholder='Enter member name'
+              required
+            />
+          </div>
+          <div className='mt-6'>
+            <label className='text-[#683B2B] text-xl font-medium'>Roll Number</label>
+            <input
+              type="text"
+              name="rollNo"
+              value={newMember.rollNo}
+              onChange={handleInputChange}
+              className='w-full mt-2 bg-[#F3F8F9] text-zinc-700 p-2 outline-none'
+              placeholder='Enter roll number'
+              required
+            />
+          </div>
+          <div className='mt-6'>
+            <label className='text-[#683B2B] text-xl font-medium'>Position</label>
+            <select
+              name="position"
+              value={newMember.position} // Changed to 'position' (correct casing)
+              onChange={handleInputChange}
+              className='w-full mt-2 bg-[#F3F8F9] text-zinc-700 p-2 outline-none'
+              required
+            >
+              <option value="">Select Position</option>
+              <option value="Coordinator">Coordinator</option>
+              <option value="Volunteer">Volunteer</option>
+              <option value="Member">Member</option>
+            </select>
+          </div>
+          <button
+            type="submit"
+            className='mt-6 px-3 bg-[#A25C43] text-white font-semibold py-2 rounded hover:bg-[#683B2B]'
           >
-            <option value="">Select Position</option>
-            <option value="Coordinator">Coordinator</option>
-            <option value="Volunteer">Volunteer</option>
-            <option value="Member">Member</option>
-          </select>
-        </div>
-        <button
-          type="submit"
-          className="bg-[#A25C43] text-white py-3 px-6 rounded-lg hover:bg-[#683B2B] transition duration-300"
-        >
-          Add Member
-        </button>
-      </form>
+            Add Member
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

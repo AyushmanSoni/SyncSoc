@@ -1,29 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* index.css */
+/* Apply Poppins to the entire project */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Specific styles for the nav-link */
 .nav-link {
   position: relative;
   display: inline-block;
   color: #808080; /* Initial gray color */
+  font-weight: 400; /* Regular weight */
   text-decoration: none;
-  transition: color 0.25s ease-out;
+  transition: color 0.25s ease-out, border-color 0.25s ease-out;
 }
 
 .nav-link::after {
   content: '';
   position: absolute;
   width: 100%;
-  border-bottom: 1px solid #086D8A; /* Adjust thickness using border */
-  bottom: 0;
+  height: 2px; /* Thickness of the underline */
+  background-color: #086D8A; /* Color of the underline */
+  bottom: -2px; /* Adjusted position for a cleaner look */
   left: 0;
-  transform: scaleX(0);
+  transform: scaleX(0); /* Start hidden */
   transform-origin: bottom left;
   transition: transform 0.25s ease-out;
 }
 
+.nav-link:hover {
+  color: #086D8A; /* Change text color on hover */
+}
+
 .nav-link:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
+  transform: scaleX(1); /* Reveal underline on hover */
 }
