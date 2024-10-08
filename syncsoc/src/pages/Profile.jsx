@@ -28,7 +28,7 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className='bg-[#F1DFDA] px-2 md:px-12 flex flex-col md:flex-row h-auto py-8 gap-4'>
+    <div className='bg-[#F1DFDA]  md:pr-12 flex flex-col md:flex-row h-auto  gap-4'>
       {/* <div className="w-full md:w-1/6">
             <Sidebar/>
           </div>
@@ -49,10 +49,10 @@ const Profile = () => {
       )}
       {profile && (
         <>
-          <div className="w-full md:w-1/4">
+          <div className="w-full md:w-1/5">
             <Sidebar data = {profile}/>
           </div>
-          <div className="w-full md:w-3/4">
+          <div className="w-full md:w-4/5">
             <Outlet />
           </div>
         </>

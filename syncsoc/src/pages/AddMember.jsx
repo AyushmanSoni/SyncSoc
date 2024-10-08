@@ -46,57 +46,56 @@ const AddMemberPage = ({ society }) => {
 
   return (
     <div className='h-[100%] p-0 md:p-4'>
-      <h2 className='text-2xl md:text-3xl font-semibold text-[#683B2B] mb-8'>Add New Member</h2>
-      <div className='p-4 bg-white rounded'>
+      <h1 className='text-3xl md:text-2xl font-semibold text-[#683B2B] mb-4 ml-4 mt-4'>Add New Member</h1>
+      <div className='p-4'>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         {successMessage && <p className="text-green-500 mb-4">{successMessage}</p>}
-        <form onSubmit={handleAddMember} className="mt-4 space-y-4">
-          <div>
-            <label className='text-[#683B2B] text-xl font-medium'>Name</label>
-            <input
-              type="text"
-              name="name"
-              value={newMember.name}
-              onChange={handleInputChange}
-              className='w-full mt-2 bg-[#F3F8F9] text-zinc-700 p-2 outline-none'
-              placeholder='Enter member name'
-              required
-            />
-          </div>
-          <div className='mt-6'>
-            <label className='text-[#683B2B] text-xl font-medium'>Roll Number</label>
-            <input
-              type="text"
-              name="rollNo"
-              value={newMember.rollNo}
-              onChange={handleInputChange}
-              className='w-full mt-2 bg-[#F3F8F9] text-zinc-700 p-2 outline-none'
-              placeholder='Enter roll number'
-              required
-            />
-          </div>
-          <div className='mt-6'>
-            <label className='text-[#683B2B] text-xl font-medium'>Position</label>
-            <select
-              name="position"
-              value={newMember.position} // Changed to 'position' (correct casing)
-              onChange={handleInputChange}
-              className='w-full mt-2 bg-[#F3F8F9] text-zinc-700 p-2 outline-none'
-              required
-            >
-              <option value="">Select Position</option>
-              <option value="Coordinator">Coordinator</option>
-              <option value="Volunteer">Volunteer</option>
-              <option value="Member">Member</option>
-            </select>
-          </div>
-          <button
-            type="submit"
-            className='mt-6 px-3 bg-[#A25C43] text-white font-semibold py-2 rounded hover:bg-[#683B2B]'
+        <div className='mt-4'>
+          <label className='text-[#683B2B] text-lg font-medium'>Name</label>
+          <input
+            type="text"
+            name="name"
+            value={newMember.name}
+            onChange={handleInputChange}
+            className='w-full mt-2 bg-[#F3F8F9] rounded-lg border border-gray-300 text-zinc-700 p-2 outline-none'
+            placeholder='Enter member name'
+            required
+          />
+        </div>
+        <div className='mt-4'>
+          <label className='text-[#683B2B] text-lg font-medium'>Roll Number</label>
+          <input
+            type="text"
+            name="rollNo"
+            value={newMember.rollNo}
+            onChange={handleInputChange}
+            className='w-full mt-2 bg-[#F3F8F9] rounded-lg border border-gray-300 text-zinc-700 p-2 outline-none'
+            placeholder='Enter roll number'
+            required
+          />
+        </div>
+        <div className='mt-4'>
+          <label className='text-[#683B2B] text-lg font-medium'>Position</label>
+          <select
+            name="position"
+            value={newMember.position}
+            onChange={handleInputChange}
+            className='w-full mt-2 bg-[#F3F8F9] rounded-lg border border-gray-300 text-zinc-700 p-2 outline-none'
+            required
           >
-            Add Member
-          </button>
-        </form>
+            <option value="">Select Position</option>
+            <option value="Coordinator">Coordinator</option>
+            <option value="Volunteer">Volunteer</option>
+            <option value="Member">Member</option>
+          </select>
+        </div>
+        <button
+          type="submit"
+          className='mt-6 px-6 bg-[#A25C43] text-white font-semibold py-2 rounded hover:bg-[#683B2B]'
+          onClick={handleAddMember}
+        >
+          Add Member
+        </button>
       </div>
     </div>
   );
