@@ -7,15 +7,15 @@ const HeroSection = () => {
   const societyName = 'rangtarangini'; // Replace with your society name dynamically if needed
 
   return (
-    <div className="relative bg-white h-screen">
+    <div className="relative bg-[#FFFDFB] h-screen">
       {/* Navbar */}
       <div className="flex justify-between items-center px-24 py-6">
         <div className="flex items-center space-x-4">
-          <img 
+          {/* <img 
             src={logo} 
             alt="Rangtarangini Logo" 
             className="h-12 text-[#683B2B]" 
-          />
+          /> */}
           <div className="text-2xl font-medium text-[#683B2B]">Rangtarangini</div>
         </div>
         <div className="space-x-12 text-lg font-medium">

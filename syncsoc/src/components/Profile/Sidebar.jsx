@@ -40,14 +40,14 @@ const Sidebar = ({ data }) => {
         {role === "member" && (
           <>
             <div className='flex items-center'>
-              <HiOutlineClipboardCheck size={24} className='mr-2 text-[#A25C43]' />
+              <HiOutlineClipboardCheck size={24} className='mr-2 mt-2 text-[#A25C43]' />
               <Link to="/pro" className="text-[#A25C43] text-lg font-medium w-full py-2 rounded transition-all duration-200 mt-2">
                 Registered Events
               </Link>
             </div>
-            <div className='flex items-center mt-4'>
+            <div className='flex items-center mt-2'>
               <IoIosSettings size={24} className='mr-2 text-[#A25C43]' />
-              <Link to="/pro/settings" className="text-[#A25C43] font-semibold text-xl w-full py-2 hover:bg-[#F1DFDA] rounded transition-all duration-200">
+              <Link to="/pro/settings" className="text-[#A25C43] text-lg font-medium w-full py-2 ">
                 Settings
               </Link>
             </div>
