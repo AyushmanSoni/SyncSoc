@@ -17,6 +17,7 @@ router.post("/event_add" , async (req, res) => {
     const remarks = req.body.remarks
     const name = req.body.name 
     const image_url = req.body.image_url 
+    const form_link = req.body.form_link 
 
     console.log(venue , date , short_description , fee , endTime , remarks , name , image_url)
 
@@ -29,7 +30,7 @@ router.post("/event_add" , async (req, res) => {
     console.log(society)
 
     try{
-        const newevent = new events({name : name , society:society , venue : venue , date : date, short_description : short_description, fee : fee , remarks : remarks , startTime:startTime, endTime:endTime , image_url : image_url})
+        const newevent = new events({name : name , society:society ,form_link:form_link, venue : venue , date : date, short_description : short_description, fee : fee , remarks : remarks , startTime:startTime, endTime:endTime , image_url : image_url})
         await newevent.save()
         return res.status(200).json({"Success": "1"});
     }
@@ -107,6 +108,7 @@ router.delete('/delete/:name', async (req, res) =>{
     //     return res.status(500).json({ message: "Internal server error" });
     // }
 // });
+
 router.get("/event_details/:id", async (req, res) => {
     try {
         const eventId = req.params.id;

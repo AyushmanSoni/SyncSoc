@@ -44,6 +44,9 @@ const Event_schema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    form_link:{
+        type: String,
+    }
 }
 );
 

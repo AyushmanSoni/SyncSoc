@@ -17,8 +17,6 @@ app.use(express.json());
 
 
 const  {connect} = require('./db.js')
-// const {get_password} = require()
-// pass = get_password()
 connect(`mongodb+srv://ayushman:${process.env.password}@cluster0.z8hwd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
 
 // middleware importing
@@ -105,5 +103,3 @@ app.get("/event_details/:id", async (req, res) => {
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
-
-

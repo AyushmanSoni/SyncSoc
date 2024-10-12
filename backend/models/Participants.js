@@ -18,6 +18,9 @@ const studentSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    form_link:{
+        type: String,
+    }
 });
 
 // Create the model
