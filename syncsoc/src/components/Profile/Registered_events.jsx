@@ -51,7 +51,7 @@ const RegisteredEvents = () => {
   }
 
   return (
-    <div className='bg-[#F1DFDA] h-auto flex flex-col items-center'>
+    <div className='bg-[#F1DFDA] flex h-auto flex-col items-center'>
       <div className='text-4xl font-medium text-[#A25C43] my-8'>
         Your Registered Events
       </div>
@@ -59,14 +59,8 @@ const RegisteredEvents = () => {
         {events.map((event) => (
           <div 
             key={event._id} 
-            className="flex bg-[#F1DFDA] text-[#A25C43] p-4 rounded-lg mb-4 h-44 border-b-2 border-[#E1C2B7] transition duration-300 ease-in-out hover:shadow-lg"
+            className="flex bg-[#F1DFDA] text-[#A25C43] p-4 rounded-lg  h-28 border-b-2 border-[#E1C2B7] transition duration-300 ease-in-out hover:shadow-lg"
           >
-            <div className="w-[15%] flex items-center justify-center">
-              <div className="text-center">
-                <p className='text-[18px] font-semibold'>{event.time}</p>
-                <p className='text-[18px] font-semibold'>Onwards</p>
-              </div>
-            </div>
             <div className="w-[15%] flex rounded items-center justify-center">
               <img
                 src={event.image_url}
@@ -76,9 +70,6 @@ const RegisteredEvents = () => {
             <div className="w-[45%] flex flex-col justify-center">
               <div className="flex-1 flex">
                 <p className="text-[20px] mt-8 ml-8 font-medium text-[#A25C43]">{event.event_name}</p>
-              </div>
-              <div className="flex-1 flex text-[#D49E8D]">
-                <p className="text-[18px] ml-8">{event.short_description}</p>
               </div>
             </div>
             <div className="w-[30%] flex items-center justify-center">

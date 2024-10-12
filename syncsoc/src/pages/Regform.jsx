@@ -48,7 +48,7 @@ const RegistrationForm = () => {
 
       // Send the registration request with token in headers
       const response = await axios.post(
-        `http://localhost:5000/participants/${eventId}`, // Register for the specific event
+        `http://localhost:5000/participants/${eventName}`, // Register for the specific event
         formData,
         {
           headers: {
