@@ -35,6 +35,7 @@ const Event = require('./routes/Events.js')
 const Participants = require('./routes/Event_participation.js')
 const Team = require('./routes/Teams_making.js')
 const Interview = require('./routes/Interview.js')
+const  front_page_event = require('./routes/past_present_future.js')
 
 app.use("/" , Signup_and_login )
 
@@ -68,12 +69,11 @@ app.get("/event_details/:id", async (req, res) => {
   }
 });
 
-
-
 app.use('/team',check_login, Team)
 app.use('/event' , check_login ,   Event )
 app.use('/participants' , check_login , Participants )
 app.use('/interview' , check_login , Interview)
+app.use('/front_page' , front_page_event)
 
 app.get("/event_details/:id", async (req, res) => {
   try {

@@ -3,6 +3,7 @@ const router = express.Router()
 
 // model importing
 const participants = require('../models/Participants.js')
+const event = require('../models/Event_register.js')
 
 // participant ne kaha kaha register kiya h uska route
 router.get('/student' , async (req, res) => {
@@ -17,7 +18,6 @@ router.get('/student' , async (req, res) => {
         const list = await participants.find({rollNo: roll})
         return res.status(200).json(list);
     }
-
 })
 
 // kisi society ke liye ek particular event ke particpant ki list 
@@ -40,11 +40,14 @@ router.post('/:event_name' , async (req, res) => {
     const event_name = req.params.event_name 
     console.log(event_name)
 
-    if(!name || !roll || !event_name) {
+    const list = await event.findOne({event_name: event_name})
+    const image_url = list.image_url;
+
+    if(!name || !roll || !event_name || !image_url) {
         return res.status(400).json({message: 'All fields are required'})
     }
     
-    const new_participant = new participants({name : name, rollNo:roll, event_name:event_name})
+    const new_participant = new participants({name : name, rollNo:roll, event_name:event_name,image_url:image_url})
     await new_participant.save()
     console.log(res.data);
     // console.log(new_participant)

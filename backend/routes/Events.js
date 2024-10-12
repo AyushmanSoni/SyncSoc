@@ -12,14 +12,15 @@ router.post("/event_add" , async (req, res) => {
     const date = req.body.date
     const short_description = req.body.short_description 
     const fee = req.body.fee
-    const time = req.body.time
+    const startTime = req.body.startTime
+    const endTime = req.body.endTime
     const remarks = req.body.remarks
     const name = req.body.name 
     const image_url = req.body.image_url 
 
-    console.log(venue , date , short_description , fee , time , remarks , name , image_url)
+    console.log(venue , date , short_description , fee , endTime , remarks , name , image_url)
 
-    if(!venue || !date || !short_description || !fee || !time || !name){
+    if(!venue || !date || !short_description || !fee || !startTime || !name){
         return res.status(400).json({message : "All fields are required"})
     }
 
@@ -28,7 +29,7 @@ router.post("/event_add" , async (req, res) => {
     console.log(society)
 
     try{
-        const newevent = new events({name : name , society:society , venue : venue , date : date, short_description : short_description, fee : fee , time : time, remarks : remarks ,  image_url : image_url})
+        const newevent = new events({name : name , society:society , venue : venue , date : date, short_description : short_description, fee : fee , time : time, remarks : remarks , startTime:startTime, endTime:endTime , image_url : image_url})
         await newevent.save()
         return res.status(200).json({"Success": "1"});
     }
