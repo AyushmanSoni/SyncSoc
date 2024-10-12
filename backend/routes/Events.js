@@ -29,13 +29,13 @@ router.post("/event_add" , async (req, res) => {
     console.log(society)
 
     try{
-        const newevent = new events({name : name , society:society , venue : venue , date : date, short_description : short_description, fee : fee , time : time, remarks : remarks , startTime:startTime, endTime:endTime , image_url : image_url})
+        const newevent = new events({name : name , society:society , venue : venue , date : date, short_description : short_description, fee : fee , remarks : remarks , startTime:startTime, endTime:endTime , image_url : image_url})
         await newevent.save()
         return res.status(200).json({"Success": "1"});
     }
     catch(err){
         console.log(err)
-        return res.status(301).json({message : "Event with name name exists"})
+        return res.status(301).json({message : err})
     }
 })
 

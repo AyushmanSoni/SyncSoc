@@ -8,7 +8,8 @@ const AddEvent = () => {
     date: "",
     short_description: "",
     fee: "",
-    time: "",
+    startTime: "",
+    endTime: "",
     remarks: "",
     image_url: "",
   });
@@ -31,7 +32,8 @@ const AddEvent = () => {
         Data.date === "" ||
         Data.short_description === "" ||
         Data.fee === "" ||
-        Data.time === "" ||
+        Data.startTime === "" ||
+        Data.endTime === "" ||
         Data.image_url === ""
       ) {
         alert("All fields are required");
@@ -50,7 +52,8 @@ const AddEvent = () => {
           date: "",
           short_description: "",
           fee: "",
-          time: "",
+          startTime: "",
+          endTime: "",
           remarks: "",
           image_url: "",
         });
@@ -105,13 +108,24 @@ const AddEvent = () => {
             />
           </div>
           <div className='w-1/3 pl-6'>
-            <label htmlFor="" className='text-[#683B2B] text-lg font-medium'>Time</label>
+            <label htmlFor="" className='text-[#683B2B] text-lg font-medium'>Start Time</label>
             <input 
               type="time"
               className='w-full mt-2 bg-[#F3F8F9] rounded-lg border border-gray-300 text-zinc-700 p-2 outline-none'
-              name="time"
+              name="startTime"
               required
-              value={Data.time}
+              value={Data.startTime}
+              onChange={change}
+            />
+          </div>
+          <div className='w-1/3 pl-6'>
+            <label htmlFor="" className='text-[#683B2B] text-lg font-medium'>End Time</label>
+            <input 
+              type="time"
+              className='w-full mt-2 bg-[#F3F8F9] rounded-lg border border-gray-300 text-zinc-700 p-2 outline-none'
+              name="endTime"
+              required
+              value={Data.endTime}
               onChange={change}
             />
           </div>

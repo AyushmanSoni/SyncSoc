@@ -75,7 +75,7 @@ const RectangularCard = () => {
           >
             <div className="w-[15%] flex items-center justify-center">
               <div className="text-center">
-                <p className='text-[18px] font-semibold'>{event.time}</p>
+                <p className='text-[18px] font-semibold'>{event.startTime}</p>
                 <p className='text-[18px] font-semibold'>Onwards</p>
               </div>
             </div>
