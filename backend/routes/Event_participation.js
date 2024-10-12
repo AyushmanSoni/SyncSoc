@@ -32,22 +32,24 @@ router.get('/society/:event_name' , async (req, res) => {
     }
     return res.status(401).json({message: 'unauthorised'})
 })
+
 //to register for an event
 router.post('/:event_name' , async (req, res) => {
     console.log(req.user)
-    const name = req.user.name 
-    const roll = req.user.rollNo 
-    const event_name = req.params.event_name 
+    const name = req.user.name
+    const roll = req.user.rollNo
+    const event_name = req.params.event_name
     console.log(event_name)
 
     const list = await event.findOne({event_name: event_name})
     const image_url = list.image_url;
+    const form_link = list.form_link;
 
     if(!name || !roll || !event_name || !image_url) {
         return res.status(400).json({message: 'All fields are required'})
     }
     
-    const new_participant = new participants({name : name, rollNo:roll, event_name:event_name,image_url:image_url})
+    const new_participant = new participants({name : name, rollNo:roll, event_name:event_name,image_url:image_url,form_link:form_link})
     await new_participant.save()
     console.log(res.data);
     // console.log(new_participant)
