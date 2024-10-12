@@ -17,7 +17,7 @@ const ProSocEvents = ({ society }) => { // Accept society as a prop
       if (role === 'society') {
         try {
           const token = localStorage.getItem('token'); // Retrieve the token from local storage
-          const response = await axios.get(`http://localhost:5000/event/list_of_event/${society}`, {
+          const response = await axios.get(`http://localhost:5000/event/list_of_event`, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${token}`,  // Add token to the request headers
@@ -63,7 +63,7 @@ const ProSocEvents = ({ society }) => { // Accept society as a prop
   return (
     <div className='bg-[#F1DFDA] h-auto flex flex-col items-center'>
       <div className='text-5xl font-medium text-[#A25C43] my-8'>
-        {society} Events
+        {society} Our Events
       </div>
       <div className="w-3/4 mx-auto">
         {events.map((event) => (

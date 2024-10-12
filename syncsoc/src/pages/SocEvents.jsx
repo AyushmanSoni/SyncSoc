@@ -18,7 +18,7 @@ const SocEvents = () => {
       if (role === 'society') {
         try {
           const token = localStorage.getItem('token'); // Retrieve the token from local storage
-          const response = await axios.get(`http://localhost:5000/event/list_of_event/${society}`, {
+          const response = await axios.get(`http://localhost:5000/event/list_of_event`, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${token}`,  // Add token to the request headers
