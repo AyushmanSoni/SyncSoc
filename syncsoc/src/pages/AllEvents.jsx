@@ -2,11 +2,16 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Loader from '../components/Loader/Loader';
+import { FaTrash } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 const RectangularCard = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+
+  const role = useSelector((state) => state.auth.role); // Get the role of the logged-in user
+  console.log(role);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -38,6 +43,8 @@ const RectangularCard = () => {
 
     fetchEvents();
   }, []);
+
+  
 
   if (loading) {
     return (
@@ -87,6 +94,7 @@ const RectangularCard = () => {
                 <p className="text-[18px] ml-8">{event.short_description}</p>
               </div>
             </div>
+            <div>
             <div className="w-[30%] flex items-center justify-center">
               <Link 
                 to={`/eventdetails/${event._id}`} 
@@ -94,6 +102,17 @@ const RectangularCard = () => {
               >
                 Read More
               </Link>
+            </div>
+            {/* {role==="society" && (
+              <>
+              <button 
+                    onClick={() => handleDelete(event._id)} 
+                    className="ml-4 p-2 bg-red-500 text-white rounded-full hover:bg-red-700"
+                  >
+                    <FaTrash />
+                  </button>
+              </>
+            )} */}
             </div>
           </div>
         ))}

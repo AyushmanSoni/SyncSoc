@@ -46,9 +46,9 @@ const Sidebar = ({ data }) => {
               </Link>
             </div>
             <div className='flex items-center mt-2'>
-              <IoIosSettings size={24} className='mr-2 text-[#A25C43]' />
-              <Link to="/pro/settings" className="text-[#A25C43] text-lg font-medium w-full py-2 ">
-                Settings
+            <SiGooglemeet size={24} className='mr-2 text-[#A25C43]' />
+              <Link to="/interviews" className="text-[#A25C43] text-lg font-medium w-full py-2 ">
+                Interviews
               </Link>
             </div>
           </>

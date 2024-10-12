@@ -3,14 +3,16 @@ import axios from 'axios';
 import { Link } from 'react-router-dom'; // Remove useParams
 import Loader from '../components/Loader/Loader';
 import { useSelector } from 'react-redux'; // Use selector to get the role
+import { FaTrash } from 'react-icons/fa';
 
 const ProSocEvents = ({ society }) => { // Accept society as a prop
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  console.log(society);
-
-  const role = useSelector((state) => state.auth.role); // Get the role of the logged-in user
+  const role = useSelector((state) => state.auth.role);
+  const name = useSelector((state) => state.auth.name); // Get the role of the logged-in user
+  console.log(role);
+  console.log(name);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -43,6 +45,27 @@ const ProSocEvents = ({ society }) => { // Accept society as a prop
 
     fetchEvents();
   }, [society, role]); // Fetch events whenever the society or role changes
+
+
+
+  const handleDelete = async (eventname) => {
+    try {
+      const token = localStorage.getItem('token'); // Retrieve the token from storage
+      await axios.delete(`http://localhost:5000/event/delete/${eventname}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,  // Add token to the request headers
+        }
+      });
+      // Update the event list after deletion
+      setEvents(events.filter(event => event.name !== eventname));
+
+    } catch (error) {
+      console.error('Error deleting event:', error);
+      alert('Failed to delete event');
+    }
+  };
+ 
 
   if (loading) {
     return (
@@ -92,13 +115,21 @@ const ProSocEvents = ({ society }) => { // Accept society as a prop
                 <p className="text-[18px] ml-8">{event.short_description}</p>
               </div>
             </div>
-            <div className="w-[30%] flex items-center justify-center">
+            <div className='flex w-[30%] items-center justify-between'> {/* Flex container with more space for buttons */}
               <Link 
                 to={`/eventdetails/${event._id}`} 
-                className="px-6 py-2 bg-[#FFFDFB] font-medium text-[18px] text-[#A25C43] border-2 border-[#D49E8D] rounded-full hover:bg-[#683B2B] hover:text-white hover:border-none"
+                className="px-6 py-2 w-[150px] bg-[#FFFDFB] font-medium text-[18px] text-[#A25C43] border-2 border-[#D49E8D] rounded-full hover:bg-[#683B2B] hover:text-white hover:border-none text-center" // Set fixed width
               >
                 Read More
               </Link>
+              {role === "society" && (
+                <button 
+                  onClick={() => handleDelete(event.name)} 
+                  className="p-2 h-12 w-12 bg-red-500 text-white rounded-full hover:bg-red-700 flex items-center justify-center" // Ensure delete button has fixed size and is centered
+                >
+                  <FaTrash />
+                </button>
+              )}
             </div>
           </div>
         ))}
