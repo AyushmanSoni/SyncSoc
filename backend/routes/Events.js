@@ -109,6 +109,23 @@ router.delete('/delete/:name', async (req, res) =>{
     // }
 // });
 
+
+router.get('/form_link/:id' , async(req,res)=>{
+    const id = req.params.id
+    try{
+        const event = await events.findById(id)
+        if(!event){
+            return res.status(404).json({message : "Event not found"})
+        }
+        // console.log()
+        return res.status(200).json(event.form_link)
+    }
+    catch(err){
+        console.log(err)
+        return res.status(301).json({message : err})
+    }
+})
+
 router.get("/event_details/:id", async (req, res) => {
     try {
         const eventId = req.params.id;

@@ -5,7 +5,7 @@ import { useLocation, useParams, useNavigate } from 'react-router-dom';
 const RegistrationForm = () => {
   const { state } = useLocation(); // Get the eventName from state
   const { eventId } = useParams(); // Get eventId from URL params
-  const eventName = state?.eventName || 'Unknown Event'; // Fallback for null state
+  const eventName = state?.eventName || 'Unknown Event';
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -29,6 +29,42 @@ const RegistrationForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const getFormLink = async (eventId) => {
+    try {
+      // Make GET request to the API endpoint
+
+
+      const token = localStorage.getItem('token'); // Ensure token is available
+      if (!token) {
+        alert('You need to be logged in to register.');
+        return;
+      }
+
+      const response = await axios.get(
+          `http://localhost:5000/event/form_link/${eventId}`,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}` // Token for backend authentication
+            }
+          }
+        );
+
+      // Extract form link from the response
+      const formLink = response.data;
+      console.log(response.data);
+      // Check if form link exists
+      if (formLink) {
+        console.log('Form Link:', formLink);
+        return formLink;  // Return the form link
+      } else {
+        console.log('No form link available for this event.');
+      }
+    } catch (error) {
+      console.error('Error fetching form link:', error);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -61,6 +97,13 @@ const RegistrationForm = () => {
       // If registration is successful
       setMessage(response.data.message || 'Registration successful!');
       setError('');
+
+      // Fetch the form link after successful registration
+      const formLink = await getFormLink(eventId);
+      if (formLink) {
+        // Navigate to the form link if it exists
+        window.open(formLink, '_blank'); // Open form link in a new tab
+      }
     } catch (err) {
       console.error('Error during registration:', err);
       setError(err.response?.data?.message || 'Registration failed. Please try again.');

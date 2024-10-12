@@ -8,7 +8,7 @@ const studentSchema = new mongoose.Schema({
     },
     rollNo: {
         type: String,
-        required: true
+        required: true,
     },
     event_name: {
         type: String,
@@ -22,6 +22,9 @@ const studentSchema = new mongoose.Schema({
         type: String,
     }
 });
+
+// Compound index to ensure unique combination of rollNo and society
+studentSchema.index({ rollNo: 1, event_name: 1 }, { unique: true });
 
 // Create the model
 const participants = mongoose.model('participants', studentSchema);

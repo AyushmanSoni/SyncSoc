@@ -3,7 +3,7 @@ const router = express.Router()
 
 // model importing
 const participants = require('../models/Participants.js')
-const event = require('../models/Event_register.js')
+const events = require('../models/Event_register.js')
 
 // participant ne kaha kaha register kiya h uska route
 router.get('/student' , async (req, res) => {
@@ -41,8 +41,10 @@ router.post('/:event_name' , async (req, res) => {
     const event_name = req.params.event_name
     console.log(event_name)
 
-    const list = await event.findOne({event_name: event_name})
+    const list = await events.findOne({name: event_name})
+    console.log(list)
     const image_url = list.image_url;
+    console.log(list)
     const form_link = list.form_link;
 
     if(!name || !roll || !event_name || !image_url) {
@@ -51,9 +53,9 @@ router.post('/:event_name' , async (req, res) => {
     
     const new_participant = new participants({name : name, rollNo:roll, event_name:event_name,image_url:image_url,form_link:form_link})
     await new_participant.save()
-    console.log(res.data);
+    // console.log(res.data);
     // console.log(new_participant)
-    return res.json({message: 'Hello from the event route'})
+    return res.json({message: 'registered'})
 })
 
 

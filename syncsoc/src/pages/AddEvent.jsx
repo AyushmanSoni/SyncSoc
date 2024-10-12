@@ -12,6 +12,7 @@ const AddEvent = () => {
     endTime: "",
     remarks: "",
     image_url: "",
+    form_link:"",
   });
 
   const headers = {
@@ -34,7 +35,7 @@ const AddEvent = () => {
         Data.fee === "" ||
         Data.startTime === "" ||
         Data.endTime === "" ||
-        Data.image_url === ""
+        Data.image_url === "" 
       ) {
         alert("All fields are required");
       } else {
@@ -56,6 +57,7 @@ const AddEvent = () => {
           endTime: "",
           remarks: "",
           image_url: "",
+          form_link:"",
         });
         alert(response.data.message);
       }
@@ -154,18 +156,8 @@ const AddEvent = () => {
             onChange={change}
           />
         </div>
-        <div className='mt-4'>
-          <label htmlFor="" className='text-[#683B2B] text-xl font-medium'>Remarks</label>
-          <textarea
-            className='w-full mt-2 bg-[#F3F8F9] rounded-lg border border-gray-300 text-zinc-700 p-2 outline-none'
-            rows="4"
-            placeholder='remarks (optional)'
-            name="remarks"
-            value={Data.remarks}
-            onChange={change}
-          />
-        </div>
-        <div className='mt-4 flex justify-between'>
+
+        <div className='mt-4 flex justify-between gap-16'>
           <div className='w-1/2'>
             <label htmlFor="" className='text-[#683B2B] text-xl font-medium'>Fee</label>
             <input 
@@ -178,11 +170,38 @@ const AddEvent = () => {
               onChange={change}
             />
           </div>
-          <button className='mt-6  px-6 bg-[#A25C43] text-white font-semibold py-2 rounded hover:bg-[#683B2B]'
+          <div className='w-1/2'>
+            <label htmlFor="" className='text-[#683B2B] text-xl font-medium'>Google Form Link</label>
+            <input 
+              type="text"
+              className='w-full mt-2 bg-[#F3F8F9] rounded-lg border border-gray-300 text-zinc-700 p-2 outline-none'
+              placeholder='enter the link google form for registration'
+              name="form_link"
+              required
+              value={Data.form_link}
+              onChange={change}
+            />
+          </div>
+          
+        </div>
+        <div className='flex justify-between'>
+        <div className='mt-4 w-1/2'>
+          <label htmlFor="" className='text-[#683B2B] text-xl font-medium'>Remarks</label>
+          <textarea
+            className='w-full mt-2 bg-[#F3F8F9] rounded-lg border border-gray-300 text-zinc-700 p-2 outline-none'
+            rows="4"
+            placeholder='remarks (optional)'
+            name="remarks"
+            value={Data.remarks}
+            onChange={change}
+          />
+        </div>
+        <button className='mt-6  px-6 bg-[#A25C43] h-1/3  text-white font-semibold py-3 rounded hover:bg-[#683B2B]'
           onClick={submit}>
           Add Event
         </button>
         </div>
+        
         
       </div>
     </div>
