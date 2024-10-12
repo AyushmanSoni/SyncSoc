@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Loader from '../Loader/Loader';
+import Loader from '../components/Loader/Loader';
 import { useSelector } from 'react-redux';
 
 const RectangularCard = () => {
@@ -22,13 +22,13 @@ const RectangularCard = () => {
       // Determine the URL based on the active tab
       switch (tab) {
         case 'past':
-          url = 'http://localhost:5000/front_page/events/recent-past';
+          url = 'http://localhost:5000/events/recent-past';
           break;
         case 'ongoing':
-          url = 'http://localhost:5000/front_page/events/recent-present';
+          url = 'http://localhost:5000/events/recent-present';
           break;
         case 'upcoming':
-          url = 'http://localhost:5000/front_page/events/recent-future';
+          url = 'http://localhost:5000/events/recent-future';
           break;
         default:
           throw new Error('Invalid tab selected');
@@ -79,48 +79,9 @@ const RectangularCard = () => {
 
   return (
     <div className='bg-[#F1DFDA] h-auto flex flex-col items-center'>
-      <div className='text-2xl font-medium text-[#D49E8D] mt-8'>
-        Our Timeline
+      <div className='text-5xl font-medium text-[#A25C43] my-8'>
+        All Events
       </div>
-      <div className='text-3xl font-semibold text-[#683B2B] mt-2 '>
-        At What Time?
-      </div>
-      <p className='text-lg  text-[#D49E8D] mt-2 '>
-      Effortlessly organize your time and stay
-      </p>
-      <p className='text-lg  text-[#D49E8D]  '>
-      on track with our timetable feature.
-      </p>
-
-      
-
-      <div class="mb-4 border-b border-gray-300 dark:border-gray-700">
-    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-600 dark:text-gray-400" id="event-tab" data-tabs-toggle="#event-tab-content" role="tablist">
-        <li class="me-2" role="presentation">
-            <button class="inline-block p-4 border-b-2 rounded-t-lg border-transparent hover:text-gray-900 hover:border-gray-400 dark:hover:text-gray-300" id="past-tab" data-tabs-target="#past-events" type="button" role="tab" aria-controls="past-events" aria-selected="true">Past Events</button>
-        </li>
-        <li class="me-2" role="presentation">
-            <button class="inline-block p-4 border-b-2 rounded-t-lg border-transparent hover:text-gray-900 hover:border-gray-400 dark:hover:text-gray-300" id="present-tab" data-tabs-target="#present-events" type="button" role="tab" aria-controls="present-events" aria-selected="false">Ongoing Events</button>
-        </li>
-        <li class="me-2" role="presentation">
-            <button class="inline-block p-4 border-b-2 rounded-t-lg border-transparent hover:text-gray-900 hover:border-gray-400 dark:hover:text-gray-300" id="future-tab" data-tabs-target="#future-events" type="button" role="tab" aria-controls="future-events" aria-selected="false">Upcoming Events</button>
-        </li>
-    </ul>
-</div>
-
-<div id="event-tab-content">
-    <div class="hidden p-4 rounded-lg bg-white dark:bg-gray-800" id="past-events" role="tabpanel" aria-labelledby="past-tab">
-        <p class="text-sm text-gray-500 dark:text-gray-400">Here is the list of <strong class="font-medium text-gray-800 dark:text-white">Past Events</strong>. Add the content and event details here.</p>
-    </div>
-    <div class="hidden p-4 rounded-lg bg-white dark:bg-gray-800" id="present-events" role="tabpanel" aria-labelledby="present-tab">
-        <p class="text-sm text-gray-500 dark:text-gray-400">Here is the list of <strong class="font-medium text-gray-800 dark:text-white">Ongoing Events</strong>. Add the content and event details here.</p>
-    </div>
-    <div class="hidden p-4 rounded-lg bg-white dark:bg-gray-800" id="future-events" role="tabpanel" aria-labelledby="future-tab">
-        <p class="text-sm text-gray-500 dark:text-gray-400">Here is the list of <strong class="font-medium text-gray-800 dark:text-white">Upcoming Events</strong>. Add the content and event details here.</p>
-    </div>
-</div>
-
-
       {/* Tabs Navigation */}
       <div className="flex space-x-4 mb-8">
         <button 

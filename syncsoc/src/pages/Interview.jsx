@@ -105,7 +105,7 @@ const InterviewPage = () => {
                                     <td className="px-4 py-2 border border-[#4e362a]">{interview.name}</td>
                                     <td className="px-4 py-2 border border-[#4e362a]">{interview.rollNo}</td>
                                     <td className="px-4 py-2 border border-[#4e362a]">
-                                        {new Date(interview.timeOfInterview).toLocaleString()}
+                                        {(interview.timeOfInterview)}
                                     </td>
                                 </tr>
                             ))}
@@ -128,7 +128,7 @@ const InterviewPage = () => {
                                 <tr key={index}>
                                     <td className="px-4 py-2 border border-[#4e362a]">{interview.society}</td>
                                     <td className="px-4 py-2 border border-[#4e362a]">
-                                        {new Date(interview.timeOfInterview).toLocaleString()}
+                                        {(interview.timeOfInterview)}
                                     </td>
                                     <td className="px-4 py-2 border border-[#4e362a]">{interview.venue}</td>
                                 </tr>
