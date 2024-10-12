@@ -1,9 +1,12 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-function connect(url){
-    mongoose.connect(url)
-    .then(console.log('DAtabase connection established'))
-    .catch((e)=>{console.log(e)})
+async function connect(url) {
+  try {
+    await mongoose.connect(url);
+    console.log('Database connection established');
+  } catch (e) {
+    console.log('Error connecting to the database:', e);
+  }
 }
 
-module.exports = {connect};
+module.exports = { connect };
