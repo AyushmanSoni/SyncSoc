@@ -62,41 +62,48 @@ const SocEvents = () => {
   }
 
   return (
-    <div className='bg-[#F1DFDA] h-auto flex flex-col items-center'>
-      <div className='text-5xl font-medium text-[#A25C43] my-8'>
+    <div className="bg-[#F1DFDA] h-auto flex flex-col items-center">
+      <div className="text-3xl md:text-5xl font-medium text-[#A25C43] my-8 text-center px-4">
         {society} Events
       </div>
-      <div className="w-3/4 mx-auto">
+      <div className="w-full md:w-3/4 mx-auto px-4">
         {events.map((event) => (
-          <div 
-            key={event._id} 
-            className="flex bg-[#F1DFDA] text-[#A25C43] p-4 rounded-lg mb-4 h-44 border-b-2 border-[#E1C2B7] transition duration-300 ease-in-out hover:shadow-lg"
+          <div
+            key={event._id}
+            className="flex flex-col sm:flex-row bg-[#F1DFDA] text-[#A25C43] p-4 rounded-lg mb-4 border-b-2 border-[#E1C2B7] transition duration-300 ease-in-out hover:shadow-lg"
           >
-            <div className="w-[15%] flex items-center justify-center">
+            {/* Event Time Section */}
+            <div className="w-full sm:w-[15%] flex items-center justify-center mb-4 sm:mb-0">
               <div className="text-center">
-                <p className='text-[18px] font-semibold'>{event.time}</p>
-                <p className='text-[18px] font-semibold'>Onwards</p>
+                <p className="text-[16px] md:text-[18px] font-semibold">{event.time}</p>
+                <p className="text-[16px] md:text-[18px] font-semibold">Onwards</p>
               </div>
             </div>
-            <div className="w-[15%] flex rounded items-center justify-center">
+
+            {/* Event Image Section */}
+            <div className="w-full sm:w-[15%] flex rounded items-center justify-center mb-4 sm:mb-0">
               <img
                 src={event.image_url}
                 alt={event.name}
-                className="h-full w-auto object-contain"
+                className="h-24 md:h-full w-auto object-contain"
               />
             </div>
-            <div className="w-[45%] flex flex-col justify-center">
-              <div className="flex-1 flex">
-                <p className="text-[22px] mt-8 ml-8 font-medium text-[#A25C43]">{event.name}</p>
-              </div>
-              <div className="flex-1 flex text-[#D49E8D]">
-                <p className="text-[18px] ml-8">{event.short_description}</p>
-              </div>
+
+            {/* Event Description Section */}
+            <div className="w-full sm:w-[45%] flex flex-col justify-center mb-4 sm:mb-0">
+              <p className="text-[18px] md:text-[22px] mt-4 sm:mt-8 sm:ml-8 font-medium text-[#A25C43]">
+                {event.name}
+              </p>
+              <p className="text-[16px] md:text-[18px] sm:ml-8 text-[#D49E8D]">
+                {event.short_description}
+              </p>
             </div>
-            <div className="w-[30%] flex items-center justify-center">
-              <Link 
-                to={`/eventdetails/${event._id}`} 
-                className="px-6 py-2 bg-[#FFFDFB] font-medium text-[18px] text-[#A25C43] border-2 border-[#D49E8D] rounded-full hover:bg-[#683B2B] hover:text-white hover:border-none"
+
+            {/* Buttons Section */}
+            <div className="w-full sm:w-[30%] flex flex-col sm:flex-row items-center justify-between sm:items-center">
+              <Link
+                to={`/eventdetails/${event._id}`}
+                className="px-6 py-2 mb-2 sm:mb-0 w-full sm:w-[150px] bg-[#FFFDFB] font-medium text-[16px] md:text-[18px] text-[#A25C43] border-2 border-[#D49E8D] rounded-full hover:bg-[#683B2B] hover:text-white hover:border-none text-center"
               >
                 Read More
               </Link>
