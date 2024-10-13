@@ -22,7 +22,7 @@ const HeroSection = () => {
       {/* Navbar */}
       <div className="flex justify-between items-center px-6 md:px-24 py-6">
         <div className="flex items-center space-x-4">
-          <img src={logo} alt="Rangtarangini Logo" className="h-10 md:h-12 text-[#683B2B]" />
+          
           <div className="text-lg md:text-2xl font-medium text-[#683B2B]">Acoustic and Media</div>
         </div>
 
