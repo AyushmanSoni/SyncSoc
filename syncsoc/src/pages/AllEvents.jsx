@@ -94,7 +94,6 @@ const RectangularCard = () => {
                 <p className="text-[18px] ml-8">{event.short_description}</p>
               </div>
             </div>
-            <div>
             <div className="w-[30%] flex items-center justify-center">
               <Link 
                 to={`/eventdetails/${event._id}`} 
@@ -102,17 +101,6 @@ const RectangularCard = () => {
               >
                 Read More
               </Link>
-            </div>
-            {/* {role==="society" && (
-              <>
-              <button 
-                    onClick={() => handleDelete(event._id)} 
-                    className="ml-4 p-2 bg-red-500 text-white rounded-full hover:bg-red-700"
-                  >
-                    <FaTrash />
-                  </button>
-              </>
-            )} */}
             </div>
           </div>
         ))}

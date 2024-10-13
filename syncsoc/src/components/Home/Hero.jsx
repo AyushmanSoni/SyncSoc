@@ -1,6 +1,7 @@
 import React from 'react';
 import heroimage from '../../assets/hero.svg';
 import { Link } from 'react-router-dom';
+import { FaCheck } from "react-icons/fa";
 const Hero = () => {
   return (
     <div className='h-auto lg:h-[75vh] flex flex-col lg:flex-row bg-[#FFFDFB]'>
@@ -31,21 +32,21 @@ const Hero = () => {
           </Link>
         </div>
         <div className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-4'>
-          <div className='flex items-center'>
-            <span className='text-green-500 mr-2'>✔️</span>
-            <span className='text-[#b0725c] font-medium'>Wide range of genres</span>
+          <div className='flex items-center '>
+          <FaCheck  className='text-[#683B2B] mr-2'/>
+            <span className='text-[#b0725c] font-medium'>Explore Societies</span>
           </div>
           <div className='flex items-center'>
-            <span className='text-green-500 mr-2'>✔️</span>
-            <span className='text-[#b0725c] font-medium'>Affordable prices</span>
+          <FaCheck  className='text-[#683B2B] mr-2'/>
+            <span className='text-[#b0725c] font-medium'>Register For Events</span>
           </div>
           <div className='flex items-center'>
-            <span className='text-green-500 mr-2'>✔️</span>
-            <span className='text-[#b0725c] font-medium'>Exclusive collections</span>
+          <FaCheck  className='text-[#683B2B] mr-2'/>
+            <span className='text-[#b0725c] font-medium'>Explore Fests</span>
           </div>
           <div className='flex items-center'>
-            <span className='text-green-500 mr-2'>✔️</span>
-            <span className='text-[#b0725c] font-medium'>Fast shipping</span>
+          <FaCheck  className='text-[#683B2B] mr-2'/>
+            <span className='text-[#b0725c] font-medium'>Smooth Interviews</span>
           </div>
         </div>
       </div>
