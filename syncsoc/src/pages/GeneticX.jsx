@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa'; // Importing icons for the menu
-import image from '../assets/Group 1.svg'; // Replace with your actual image path
-import logo from '../assets/rang.svg'; // Replace with your actual logo path
+import image from '../assets/dance.svg' // Replace with your actual image path
+
 
 const HeroSection = () => {
   const [menuOpen, setMenuOpen] = useState(false); // State to manage menu visibility
@@ -19,11 +19,10 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative bg-white min-h-screen flex flex-col">
+    <div className="relative bg-[#FFFDFB] min-h-screen flex flex-col">
       {/* Navbar */}
       <div className="flex justify-between items-center px-6 md:px-24 py-4">
         <div className="flex items-center space-x-4">
-          <img src={logo} alt="Rangtarangini Logo" className="h-12" />
           <div className="text-2xl font-medium text-[#683B2B]">GeneticXCrew</div>
         </div>
 
@@ -63,7 +62,7 @@ const HeroSection = () => {
       {/* Hero Section */}
       <div className="flex flex-col md:flex-row items-center justify-between px-8 md:px-24 h-full">
         {/* Left Text Section */}
-        <div className="md:w-1/2 mb-8 md:mb-0">
+        <div className="md:w-1/2 mb-8 md:mb-32">
           <h1 className='text-4xl md:text-6xl font-bold text-[#683B2B]'>Movement</h1>
           <h1 className="text-4xl mt-4 md:text-6xl font-bold text-[#683B2B]">
             Expression<br />

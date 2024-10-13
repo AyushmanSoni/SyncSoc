@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import image from '../assets/Group 1.svg';
+import image from '../assets/ams.svg'
 import logo from '../assets/rang.svg'; // replace with your actual logo path
 
 const HeroSection = () => {
@@ -18,7 +18,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative bg-white min-h-screen">
+    <div className="relative bg-[#FFFDFB] min-h-screen">
       {/* Navbar */}
       <div className="flex justify-between items-center px-6 md:px-24 py-6">
         <div className="flex items-center space-x-4">
@@ -53,7 +53,7 @@ const HeroSection = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="flex flex-col md:flex-row items-center justify-between px-6 md:px-24 py-6 md:py-12">
+      <div className="flex flex-col md:flex-row items-center justify-between px-6 md:px-24 md:pb-12">
         {/* Left Text Section */}
         <div className="md:w-1/2 mb-6 md:mb-0">
           <h1 className="text-4xl md:text-6xl font-bold text-[#683B2B]">Capture</h1>
@@ -76,7 +76,7 @@ const HeroSection = () => {
         </div>
 
         {/* Right Image Section */}
-        <div className="md:w-1/2">
+        <div className="md:w-1/2 mb-12">
           <img
             src={image}
             alt="Photography"

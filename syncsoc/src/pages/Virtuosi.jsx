@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import image from '../assets/Group 1.svg';
-import logo from '../assets/rang.svg'; // replace with your actual logo path
+import image from '../assets/music.svg'; // Replace with your actual image path
 
 const HeroSection = () => {
   const societyName = 'virtuosi';
@@ -12,16 +11,11 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative bg-white h-screen">
+    <div className="relative bg-[#FFFDFB]  h-screen">
       {/* Navbar */}
       <div className="flex justify-between items-center px-6 md:px-24 py-6">
         <div className="flex items-center space-x-4">
-          <img 
-            src={logo} 
-            alt="Virtuosi Logo" 
-            className="h-12 text-[#683B2B]" 
-          />
-          <div className="text-2xl font-medium text-[#683B2B]">Virtuosi</div>
+          <div className="text-3xl font-medium text-[#683B2B] ">Virtuosi</div>
         </div>
         
         {/* Hamburger Menu for Mobile */}
@@ -54,13 +48,13 @@ const HeroSection = () => {
       <div className="flex flex-col md:flex-row items-center justify-between px-6 md:px-24 h-full">
         {/* Left Text Section */}
         <div className="md:w-1/2 mb-28 text-center md:text-left">
-          <h1 className='text-5xl md:text-6xl font-bold text-[#683B2B]'>Rock</h1>
+          <h1 className='text-5xl md:text-6xl font-bold text-[#683B2B]'>Echoes of</h1>
           <h1 className="text-5xl mt-4 md:text-6xl font-bold text-[#683B2B]">
-            &<br />
-            <span className="text-[#D49E8D] mt-4">Roll!</span>
+            Sound <br />
+            <span className="text-[#D49E8D] mt-4">and Soul!</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-500 mt-4 mx-auto md:mx-0 w-full md:w-[80%]">
-            Welcome to our melodious music society, where every note resonates with passion, creating harmony that moves the soul.
+            Where the echoes of music resonate deep within the soul, creating harmony and emotion that lingers forever.
           </p>
 
           <div className="mt-8 space-x-4 flex justify-center md:justify-start">
@@ -79,7 +73,7 @@ const HeroSection = () => {
         <div className="ml-0 md:ml-20 md:mt-0 md:w-1/2 mb-36 flex justify-center">
           <img
             src={image} // Replace with your actual image path
-            alt="Your Image"
+            alt="Echoes of Sound and Soul"
             className="w-[90%] h-auto rounded-lg"
           />
         </div>

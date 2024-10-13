@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import image from '../assets/Group 1.svg'; // Replace with your actual image path
-import logo from '../assets/rang.svg'; // Replace with your actual logo path
+import image from '../assets/Group.svg'; // Replace with your actual image path
+// Replace with your actual logo path
 
 const HeroSection = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,12 +16,7 @@ const HeroSection = () => {
       {/* Navbar */}
       <div className="flex justify-between items-center px-6 md:px-24 py-6">
         <div className="flex items-center space-x-4">
-          <img 
-            src={logo} 
-            alt="Rangtarangini Logo" 
-            className="h-12 text-[#683B2B]" 
-          />
-          <div className="text-2xl font-medium text-[#683B2B]">Rangtarangini</div>
+          <div className="text-3xl font-medium text-[#683B2B]">Rangtarangini</div>
         </div>
 
         {/* Mobile Menu Icon */}
@@ -77,11 +72,11 @@ const HeroSection = () => {
         </div>
 
         {/* Right Image Section */}
-        <div className="md:w-1/2 flex justify-center mb-16 md:mb-0">
+        <div className="md:w-1/2 flex justify-center mb-4 md:mb-0">
           <img
             src={image} // Replace with your actual image path
             alt="Your Image"
-            className="w-[90%] h-auto rounded-lg"
+            className="w-[70%] h-auto rounded-lg"
           />
         </div>
       </div>

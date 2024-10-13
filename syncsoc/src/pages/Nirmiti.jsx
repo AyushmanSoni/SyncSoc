@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import image from '../assets/Group 1.svg'; // Replace with your actual image path
+import image from '../assets/paint.svg' // Replace with your actual image path
 import logo from '../assets/rang.svg'; // Replace with your actual logo path
 
 const HeroSection = () => {
@@ -9,7 +9,7 @@ const HeroSection = () => {
   const navigate = useNavigate();
 
   const handleNavigateToTeam = () => {
-    const societyName = 'Nirmiti'; // Replace with your society name
+    const societyName = 'nirmiti'; // Replace with your society name
     navigate(`/team/${societyName}`);
     setMenuOpen(false); // Close the menu after navigating
   };
@@ -19,12 +19,11 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative bg-white min-h-screen">
+    <div className="relative bg-[#FFFDFB] min-h-screen">
       {/* Navbar */}
       <div className="flex justify-between items-center px-6 md:px-24 py-6">
         <div className="flex items-center space-x-4">
-          <img src={logo} alt="Nirmiti Logo" className="h-12" />
-          <div className="text-2xl font-medium text-[#683B2B]">Nirmiti</div>
+          <div className="text-3xl font-medium text-[#683B2B]">Nirmiti</div>
         </div>
 
         {/* Mobile Menu Icon */}
@@ -81,11 +80,11 @@ const HeroSection = () => {
         </div>
 
         {/* Right Image Section */}
-        <div className="md:w-1/2 flex justify-center mb-16 md:mb-0">
+        <div className="md:w-1/2 flex justify-center mb-16 mt-8 md:mb-0">
           <img
             src={image} // Replace with your actual image path
             alt="Nirmiti Art"
-            className="w-[90%] h-auto rounded-lg"
+            className="w-[80%] h-auto rounded-lg"
           />
         </div>
       </div>
