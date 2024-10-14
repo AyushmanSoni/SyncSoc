@@ -3,7 +3,7 @@ const router = require ("express").Router();
 const user = require("../models/Personal_details.js");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const Secret = "Do you want to know my secret?"
+const Secret = process.env.SECRET
 const {check_login}= require("../middlewares/token_verify.js")
 
 // constants importing
@@ -38,7 +38,7 @@ router.post('/Signup', async (req, res) => {
         }
 
         const hashedPassword = await bcryptjs.hash(password, 10);
-        console.log(hashedPassword);
+        // console.log(hashedPassword);
 
         const newUser = new user({
             name,
@@ -75,7 +75,7 @@ router.post('/Login', async (req, res) => {
 
         // Compare the password
         const isPasswordValid = await bcryptjs.compare(password, registeredUser.password);
-        console.log(password , registeredUser.password)
+        // console.log(password , registeredUser.password)
         if (!isPasswordValid) {
             return res.status(400).send("Invalid credentials");
         }

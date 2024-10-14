@@ -7,9 +7,6 @@ const cors = require("cors");
 
 require("dotenv").config();
 
-// const PORT = process.env.PORT || 5000;
-// db -> mongodb+srv://ayushman:sAnsksrsoni3660@cluster0.z8hwd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-
 // predefined middleware
 app.use(cors());
 app.use(express.urlencoded({ extended: false}))
