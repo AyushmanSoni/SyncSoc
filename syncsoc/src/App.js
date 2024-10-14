@@ -33,6 +33,7 @@ import SocEvents from './pages/SocEvents';
 import AddMemberPage from "./pages/AddMember";
 import ProSocEvents from "./pages/ProSocEvents";
 import ParticipantsPage from "./components/Profile/Participants";
+import Effe from "./pages/Effe";
 
 
 const App = () => {
@@ -69,6 +70,7 @@ const App = () => {
           <Route path="/robotics" element={<Gravity />} />
           <Route path="/electronics" element={<Tesla />} />
           <Route path="/sport" element={<Spirit/>} />
+          <Route path="/fests" element={<Effe />} />
           
           <Route path="/about" element={<AboutUs />} />
           {/* <Route path="/interviews" element={<Interview/>} /> */}
