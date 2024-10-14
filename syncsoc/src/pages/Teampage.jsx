@@ -71,6 +71,9 @@ const TeamPage = () => {
     );
   }
 
+  if (!members || members.length === 0) {
+    return <ErrorMessage message="No members Found" />;
+  }
   if (error) {
     return <div className="flex justify-center items-center h-screen text-red-600">{error}</div>;
   }

@@ -7,21 +7,21 @@ import logo from '../assets/rang.svg';  // Replace with your actual logo path
 const HeroSection = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
-
-  const handleNavigateToTeam = () => {
-    const societyName = 'geekhaven';  // Replace with your society name
-    navigate(`/team/${societyName}`);
-  };
+  const societyName = 'geekhaven';
+  // const handleNavigateToTeam = () => {
+  //   const societyName = 'geekhaven';  // Replace with your society name
+  //   navigate(`/team/${societyName}`);
+  // };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
   // Function to handle both navigating and closing the menu
-  const handleNavigateAndCloseMenu = () => {
-    handleNavigateToTeam(); // First action (navigate)
-    toggleMenu();           // Second action (close menu)
-  };
+  // const handleNavigateAndCloseMenu = () => {
+  //   handleNavigateToTeam(); // First action (navigate)
+  //   toggleMenu();           // Second action (close menu)
+  // };
 
   return (
     <div className="relative bg-white min-h-screen">
@@ -42,10 +42,8 @@ const HeroSection = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6 md:space-x-12 text-base md:text-lg font-medium">
           <Link to="/" className="text-[#D49E8D] hover:text-[#683B2B]">Home</Link>
-          <button onClick={handleNavigateToTeam} className="text-[#D49E8D] hover:text-[#683B2B]">
-            Team
-          </button>
-          <a href="#services" className="text-[#D49E8D] hover:text-[#683B2B]">Events</a>
+          <Link to={`/team/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]">Team</Link>
+          <Link to={`/events/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]">Events</Link>
           <a href="#contact" className="text-[#D49E8D] hover:text-[#683B2B]">Contact</a>
         </div>
 
@@ -53,10 +51,8 @@ const HeroSection = () => {
         {menuOpen && (
           <div className="absolute top-16 left-0 w-full bg-white flex flex-col items-center space-y-4 py-4 md:hidden">
             <Link to="/" className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Home</Link>
-            <button onClick={handleNavigateAndCloseMenu} className="text-[#D49E8D] hover:text-[#683B2B]">
-              Team
-            </button>
-            <a href="#services" className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Events</a>
+            <Link to={`/team/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Team</Link>
+            <Link to={`/events/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Events</Link>
             <a href="#contact" className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Contact</a>
           </div>
         )}
