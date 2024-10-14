@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'; // Removed useParams
 import Loader from '../components/Loader/Loader';
 import { useSelector } from 'react-redux'; // Use selector to get the role
 import { FaTrash } from 'react-icons/fa';
+import ErrorMessage from '../components/Extras/Error';
 
 const ProSocEvents = ({ society }) => { // Accept society as a prop
   const [events, setEvents] = useState([]);
@@ -77,7 +78,7 @@ const ProSocEvents = ({ society }) => { // Accept society as a prop
   }
 
   if (!events || events.length === 0) {
-    return <div>No events found</div>;
+    return <ErrorMessage message="No events Found" />;
   }
 
   return (

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Loader from '../components/Loader/Loader';
 import { FaTrash } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
+import ErrorMessage from '../components/Extras/Error';
 
 const RectangularCard = () => {
   const [events, setEvents] = useState([]);
@@ -53,11 +54,11 @@ const RectangularCard = () => {
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <ErrorMessage message={error} />;
   }
 
   if (!events || events.length === 0) {
-    return <div>No events found</div>;
+    return <ErrorMessage message="No events Found" />;
   }
 
   return (

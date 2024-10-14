@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import ErrorMessage from '../components/Extras/Error';
+import Loader from '../components/Loader/Loader';
 
 const TeamPage = () => {
   const { society } = useParams(); // Get the society name from the URL
@@ -24,7 +26,7 @@ const TeamPage = () => {
         setSortedMembers(response.data); // Initialize sorted members with the full list
         setLoading(false);
       } catch (err) {
-        setError('Failed to fetch team members');
+        setError('Either there is netwrok error or you are not logged in');
         setLoading(false);
       }
     };
@@ -32,6 +34,9 @@ const TeamPage = () => {
     fetchMembers();
   }, [society]);
 
+  if (error) {
+    return <ErrorMessage message={error} />;
+  }
   // Handle search
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
@@ -59,7 +64,11 @@ const TeamPage = () => {
   };
 
   if (loading) {
-    return <div className="flex justify-center items-center h-screen">Loading...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Loader />
+      </div>
+    );
   }
 
   if (error) {

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom'; // Import useParams
 import Loader from '../components/Loader/Loader';
 import { useSelector } from 'react-redux'; // Use selector to get the role
+import ErrorMessage from '../components/Extras/Error';
 
 const SocEvents = () => {
   const [events, setEvents] = useState([]);
@@ -54,12 +55,13 @@ const SocEvents = () => {
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <ErrorMessage message="Failed to fetch Events" />;
   }
 
   if (!events || events.length === 0) {
-    return <div>No events found</div>;
+    return <ErrorMessage message="No events Found" />;
   }
+
 
   return (
     <div className="bg-[#F1DFDA] h-auto flex flex-col items-center">
