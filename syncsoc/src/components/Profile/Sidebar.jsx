@@ -10,6 +10,8 @@ import { IoPersonAdd } from 'react-icons/io5';
 import { MdLibraryAdd } from 'react-icons/md';
 import { SiGooglemeet } from 'react-icons/si';
 import { IoMdPhotos } from 'react-icons/io';
+import { BsPersonUp } from "react-icons/bs";
+import { BsPersonVcardFill } from "react-icons/bs";
 
 const Sidebar = ({ data }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Sidebar toggle state
@@ -124,7 +126,7 @@ const Sidebar = ({ data }) => {
               <div className='flex items-center mt-2'>
                 <SiGooglemeet size={24} className='mr-2 text-[#A25C43]' />
                 <Link
-                  to='/pro/add-member'
+                  to='/pro/interviews'
                   className='text-[#A25C43] text-lg font-medium w-full py-2 rounded transition-all duration-200'
                   onClick={closeSidebar} // Close sidebar when link is clicked
                 >
@@ -132,13 +134,13 @@ const Sidebar = ({ data }) => {
                 </Link>
               </div>
               <div className='flex items-center mt-2'>
-                <IoIosSettings size={30} className='text-[#A25C43]' />
+              <BsPersonVcardFill size={30} className='text-[#A25C43] mr-1' />
                 <Link
-                  to='/pro/add-member'
+                  to='/pro/participants'
                   className='text-[#A25C43] text-lg font-medium w-full py-2 rounded transition-all duration-200'
                   onClick={closeSidebar} // Close sidebar when link is clicked
                 >
-                  Settings
+                  Participants
                 </Link>
               </div>
               <div className='flex items-center mt-2'>

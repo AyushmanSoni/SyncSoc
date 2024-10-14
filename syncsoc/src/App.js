@@ -32,6 +32,7 @@ import Interview from './pages/Interview';
 import SocEvents from './pages/SocEvents';
 import AddMemberPage from "./pages/AddMember";
 import ProSocEvents from "./pages/ProSocEvents";
+import ParticipantsPage from "./components/Profile/Participants";
 
 
 const App = () => {
@@ -70,7 +71,7 @@ const App = () => {
           <Route path="/sport" element={<Spirit/>} />
           
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/interviews" element={<Interview/>} />
+          {/* <Route path="/interviews" element={<Interview/>} /> */}
           <Route path="/eventdetails/:eventId" element={<EventDetail />} /> {/* Updated route */}
           <Route path="/events/:society" element={<SocEvents/>} />
           
@@ -88,8 +89,8 @@ const App = () => {
       <Route index element={<ProSocEvents society={society}/>} />
       <Route path="/pro/add-event" element={<AddEvent />} />
       <Route path="/pro/add-member" element={<AddMemberPage society={society}/>} />
-
-      <Route path="settings" element={<Settings />} />
+      <Route path="/pro/interviews" element={<Interview/>} />
+      <Route path="/pro/participants" element={<ParticipantsPage/> } />
     </>
   ) : null}
 </Route>

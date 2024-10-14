@@ -9,7 +9,6 @@ const Home = () => {
   return (
     <div>
       <Hero/>
-      <Events/>
       <Landing1/>
       <Landing2/>
       <Landing3/>
