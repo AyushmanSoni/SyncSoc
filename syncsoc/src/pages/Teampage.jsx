@@ -26,7 +26,7 @@ const TeamPage = () => {
         setSortedMembers(response.data); // Initialize sorted members with the full list
         setLoading(false);
       } catch (err) {
-        setError('Either there is netwrok error or you are not logged in');
+        setError('No Members Found!!  Either there is netwrok error or you are not logged in');
         setLoading(false);
       }
     };

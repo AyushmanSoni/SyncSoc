@@ -16,7 +16,6 @@ const SocEvents = () => {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      if (role === 'society') {
         try {
           const token = localStorage.getItem('token'); // Retrieve the token from local storage
           const response = await axios.get(`http://localhost:5000/event/list_of_event`, {
@@ -40,7 +39,6 @@ const SocEvents = () => {
         } finally {
           setLoading(false);
         }
-      }
     };
 
     fetchEvents();
@@ -96,7 +94,7 @@ const SocEvents = () => {
               <p className="text-[18px] md:text-[22px] mt-4 sm:mt-8 sm:ml-8 font-medium text-[#A25C43]">
                 {event.name}
               </p>
-              <p className="text-[16px] md:text-[18px] sm:ml-8 text-[#D49E8D]">
+              <p className="text-[16px] md:text-[18px] sm:ml-8 text-[#D49E8D] line-clamp-3">
                 {event.short_description}
               </p>
             </div>

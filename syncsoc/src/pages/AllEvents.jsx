@@ -90,7 +90,7 @@ const RectangularCard = () => {
                 <p className="text-[22px] mt-8 ml-8 md:mt-0 font-medium text-[#A25C43]">{event.name}</p>
               </div>
               <div className="flex-1 flex text-[#D49E8D]">
-                <p className="text-[18px] ml-8">{event.short_description}</p>
+                <p className="text-[18px] ml-8 line-clamp-3">{event.short_description}</p>
               </div>
             </div>
             <div className="w-full md:w-[30%] flex items-center justify-center">

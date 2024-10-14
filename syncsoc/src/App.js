@@ -73,7 +73,7 @@ const App = () => {
           <Route path="/fests" element={<Effe />} />
           
           <Route path="/about" element={<AboutUs />} />
-          {/* <Route path="/interviews" element={<Interview/>} /> */}
+          
           <Route path="/eventdetails/:eventId" element={<EventDetail />} /> {/* Updated route */}
           <Route path="/events/:society" element={<SocEvents/>} />
           
@@ -85,6 +85,7 @@ const App = () => {
     <>
       <Route index element={<Registered_events />} />
       <Route path="settings" element={<Settings />} />
+      <Route path="/pro/interviews" element={<Interview/>} />
     </>
   ) : role === "society" ? (
     <>

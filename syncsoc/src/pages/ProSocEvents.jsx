@@ -114,7 +114,7 @@ const ProSocEvents = ({ society }) => { // Accept society as a prop
               <p className="text-[18px] md:text-[22px] mt-4 sm:mt-8 sm:ml-8 font-medium text-[#A25C43]">
                 {event.name}
               </p>
-              <p className="text-[16px] md:text-[18px] sm:ml-8 text-[#D49E8D]">
+              <p className="text-[16px] md:text-[18px] sm:ml-8 text-[#D49E8D] line-clamp-3">
                 {event.short_description}
               </p>
             </div>

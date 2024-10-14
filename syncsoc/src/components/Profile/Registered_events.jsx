@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import ErrorMessage from '../Extras/Error';
+import Loader from '../Loader/Loader';
 
 const RegisteredEvents = () => {
   const [events, setEvents] = useState([]);
@@ -39,15 +41,19 @@ const RegisteredEvents = () => {
   }, []);
 
   if (loading) {
-    return <div className='text-center py-4'>Loading registered events...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Loader />
+      </div>
+    );
   }
 
   if (error) {
-    return <div className='text-center py-4'>{error}</div>;
+    return <ErrorMessage message={error} />;
   }
 
   if (!events || events.length === 0) {
-    return <div className='text-center py-4'>You haven't registered for any events yet.</div>;
+    return <ErrorMessage message="You haven't registered for any events" />;
   }
 
   return (

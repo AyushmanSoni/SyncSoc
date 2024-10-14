@@ -81,7 +81,7 @@ const Sidebar = ({ data }) => {
               <div className='flex items-center mt-2'>
                 <SiGooglemeet size={24} className='mr-2 text-[#A25C43]' />
                 <Link
-                  to='/interviews'
+                  to='/pro/interviews'
                   className='text-[#A25C43] text-lg font-medium w-full py-2'
                   onClick={closeSidebar} // Close sidebar when link is clicked
                 >
@@ -143,7 +143,7 @@ const Sidebar = ({ data }) => {
                   Participants
                 </Link>
               </div>
-              <div className='flex items-center mt-2'>
+              {/* <div className='flex items-center mt-2'>
                 <IoMdPhotos size={24} className='mr-2 text-[#A25C43]' />
                 <Link
                   to='/pro/add-member'
@@ -152,7 +152,7 @@ const Sidebar = ({ data }) => {
                 >
                   Gallery
                 </Link>
-              </div>
+              </div> */}
             </>
           )}
         </div>

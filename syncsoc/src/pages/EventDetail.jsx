@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-
+import ErrorMessage from '../components/Extras/Error';
+import Loader from '../components/Loader/Loader';
 // Mockup function for checking login status
 const check_login = () => {
   const token = localStorage.getItem("token");
@@ -47,9 +48,17 @@ const EventDetailsPage = () => {
     }
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
-  if (!event) return <div>No event details available</div>;
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Loader />
+      </div>
+    );
+  }
+  if (error) {
+    return <ErrorMessage message={error} />;
+  }
+  if (!event) return <ErrorMessage message="No event details Available" />;
 
   return (
     <div className="w-full h-full p-4 md:p-8 bg-[#F1DFDA] flex flex-col items-center">
