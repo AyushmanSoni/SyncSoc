@@ -48,16 +48,12 @@ const Navbar = () => {
     { title: 'Profile', link: '/pro' },
   ];
 
-  // Remove certain links based on login status and role
   if (!isLoggedIn) {
     links.splice(6, 1); // Remove 'All Events' and 'Fests'
   }
   if (isLoggedIn && role === 'admin') {
     links.splice(5, 1); // Remove 'Fests' for admin
   }
-  // if (isLoggedIn && role === 'user') {
-  //   links.splice(4, 1); // Remove 'About Us' for regular user
-  // }
 
   const toggleDropdown = (index) => {
     setActiveDropdown(activeDropdown === index ? null : index);
@@ -68,36 +64,20 @@ const Navbar = () => {
     setActiveSubDropdown(activeSubDropdown === index ? null : index);
   };
 
-  // Delay state for dropdowns
-  const [closeTimeout, setCloseTimeout] = useState(null);
-
-  const handleMouseEnter = () => {
-    if (closeTimeout) clearTimeout(closeTimeout);
-  };
-
-  const handleMouseLeave = () => {
-    setCloseTimeout(
-      setTimeout(() => {
-        setActiveDropdown(null);
-        setActiveSubDropdown(null);
-      }, 300) // Adjust delay as needed
-    );
-  };
-
   return (
     <div className='bg-[#FFFDFB] text-[#F9F6F3] px-4 md:px-24 py-4'>
       <div className='flex items-center justify-between'>
         <Link to ="/">
-        <div className='flex items-center'>
-          <img
-            className='h-10 me-4'
-            src='https://www.svgrepo.com/show/458732/group.svg'
-            alt='logo'
-          />
-          <h1 className='text-2xl font-semibold text-[#683B2B]'>
-            Sync<span className='text-[#2E1A12]'>Soc</span>
-          </h1>
-        </div>
+          <div className='flex items-center'>
+            <img
+              className='h-10 me-4'
+              src='https://www.svgrepo.com/show/458732/group.svg'
+              alt='logo'
+            />
+            <h1 className='text-2xl font-semibold text-[#683B2B]'>
+              Sync<span className='text-[#2E1A12]'>Soc</span>
+            </h1>
+          </div>
         </Link>
         <button
           className='md:hidden text-gray-500 text-2xl ml-4'
@@ -105,16 +85,14 @@ const Navbar = () => {
         >
           <FaGripLines />
         </button>
-        <div
-          className={`hidden md:flex md:flex-grow md:justify-center md:items-center`}
-        >
+        <div className={`hidden md:flex md:flex-grow md:justify-center md:items-center`}>
           <div className='flex flex-col md:flex-row md:gap-8 text-[#683B2B] font-medium'>
             {links.map((items, i) => (
               <div
                 key={i}
                 className='relative z-50'
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                onMouseEnter={() => toggleDropdown(i)}
+                onMouseLeave={() => setTimeout(() => setActiveDropdown(null), 200)}
               >
                 <Link
                   to={items.link}
@@ -189,28 +167,22 @@ const Navbar = () => {
         <div className='flex flex-col items-start gap-4'>
           {links.map((item, i) => (
             <div key={i}>
-              <Link
-                to={item.link}
-                className='px-4 py-2 text-gray-700 hover:text-[#086D8A]'
+              <button
+                onClick={() => toggleDropdown(i)}
+                className='px-4 py-2 text-[#683B2B] font-medium'
               >
                 {item.title}
-              </Link>
+              </button>
               {item.dropdown && activeDropdown === i && (
                 <div className='ml-4 mt-2'>
                   {item.dropdown.map((subItem, j) => (
                     <div key={j}>
-                      <Link
-                        to={subItem.link}
-                        className='block px-4 py-2 text-[#683B2B] hover:bg-[#F7F5F1]'
-                        onClick={(e) => {
-                          if (subItem.subDropdown) {
-                            e.preventDefault();
-                            toggleSubDropdown(j);
-                          }
-                        }}
+                      <button
+                        onClick={() => toggleSubDropdown(j)}
+                        className='block px-4 py-2 text-[#683B2B] font-medium'
                       >
                         {subItem.title}
-                      </Link>
+                      </button>
                       {subItem.subDropdown && activeSubDropdown === j && (
                         <div className='ml-4 mt-2'>
                           {subItem.subDropdown.map((subSubItem, k) => (
@@ -234,7 +206,7 @@ const Navbar = () => {
             <>
               <Link
                 to='/login'
-                className='px-4 py-2 text-[#683B2B] hover:text-[#2E1A12]'
+                className='px-4 py-2 text-[#683B2B] font-medium hover:text-[#2E1A12]'
               >
                 LogIn
               </Link>
