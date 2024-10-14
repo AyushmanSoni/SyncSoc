@@ -56,18 +56,27 @@ const Navbar = () => {
   }
 
   const toggleDropdown = (index) => {
-    setActiveDropdown(activeDropdown === index ? null : index);
-    setActiveSubDropdown(null); // Close sub-dropdown when switching main dropdowns
+    if (activeDropdown === index) {
+      setActiveDropdown(null);
+      setActiveSubDropdown(null);
+    } else {
+      setActiveDropdown(index);
+      setActiveSubDropdown(null); // Reset sub-dropdown when toggling main dropdown
+    }
   };
 
   const toggleSubDropdown = (index) => {
-    setActiveSubDropdown(activeSubDropdown === index ? null : index);
+    if (activeSubDropdown === index) {
+      setActiveSubDropdown(null);
+    } else {
+      setActiveSubDropdown(index);
+    }
   };
 
   return (
     <div className='bg-[#FFFDFB] text-[#F9F6F3] px-4 md:px-24 py-4'>
       <div className='flex items-center justify-between'>
-        <Link to ="/">
+        <Link to="/">
           <div className='flex items-center'>
             <img
               className='h-10 me-4'
@@ -88,40 +97,35 @@ const Navbar = () => {
         <div className={`hidden md:flex md:flex-grow md:justify-center md:items-center`}>
           <div className='flex flex-col md:flex-row md:gap-8 text-[#683B2B] font-medium'>
             {links.map((items, i) => (
-              <div
-                key={i}
-                className='relative z-50'
-                onMouseEnter={() => toggleDropdown(i)}
-                onMouseLeave={() => setTimeout(() => setActiveDropdown(null), 200)}
-              >
-                <Link
-                  to={items.link}
-                  className='px-4 py-2 flex items-center'
-                  onClick={(e) => {
-                    if (items.dropdown) {
+              <div key={i} className='relative z-50'>
+                {items.dropdown ? (
+                  <button
+                    className='px-4 py-2 flex items-center'
+                    onClick={(e) => {
                       e.preventDefault();
                       toggleDropdown(i);
-                    }
-                  }}
-                >
-                  {items.title}
-                </Link>
+                    }}
+                  >
+                    {items.title}
+                  </button>
+                ) : (
+                  <Link to={items.link} className='px-4 py-2 flex items-center'>
+                    {items.title}
+                  </Link>
+                )}
                 {items.dropdown && activeDropdown === i && (
                   <div className='absolute left-0 mt-2 bg-[#FFFDFB] shadow-lg rounded-md w-56'>
                     {items.dropdown.map((subItem, j) => (
                       <div key={j} className='relative'>
-                        <Link
-                          to={subItem.link}
+                        <button
                           className='block px-4 py-2 text-[#683B2B] hover:bg-[#F7F5F1]'
                           onClick={(e) => {
-                            if (subItem.subDropdown) {
-                              e.preventDefault();
-                              toggleSubDropdown(j);
-                            }
+                            e.preventDefault();
+                            toggleSubDropdown(j);
                           }}
                         >
                           {subItem.title}
-                        </Link>
+                        </button>
                         {subItem.subDropdown && activeSubDropdown === j && (
                           <div className='absolute left-full top-0 mt-0 ml-1 bg-[#FFFDFB] shadow-lg rounded-md w-56'>
                             {subItem.subDropdown.map((subSubItem, k) => (
@@ -167,12 +171,18 @@ const Navbar = () => {
         <div className='flex flex-col items-start gap-4'>
           {links.map((item, i) => (
             <div key={i}>
-              <button
-                onClick={() => toggleDropdown(i)}
-                className='px-4 py-2 text-[#683B2B] font-medium'
-              >
-                {item.title}
-              </button>
+              {item.dropdown ? (
+                <button
+                  onClick={() => toggleDropdown(i)}
+                  className='px-4 py-2 text-[#683B2B] font-medium'
+                >
+                  {item.title}
+                </button>
+              ) : (
+                <Link to={item.link} className='px-4 py-2 text-[#683B2B] font-medium'>
+                  {item.title}
+                </Link>
+              )}
               {item.dropdown && activeDropdown === i && (
                 <div className='ml-4 mt-2'>
                   {item.dropdown.map((subItem, j) => (
