@@ -87,6 +87,7 @@ const Navbar = () => {
   return (
     <div className='bg-[#FFFDFB] text-[#F9F6F3] px-4 md:px-24 py-4'>
       <div className='flex items-center justify-between'>
+        <Link to ="/">
         <div className='flex items-center'>
           <img
             className='h-10 me-4'
@@ -97,6 +98,7 @@ const Navbar = () => {
             Sync<span className='text-[#2E1A12]'>Soc</span>
           </h1>
         </div>
+        </Link>
         <button
           className='md:hidden text-gray-500 text-2xl ml-4'
           onClick={() => setIsOpen(!isOpen)}

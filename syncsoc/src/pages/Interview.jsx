@@ -91,30 +91,34 @@ const InterviewPage = () => {
                         </div>
                     )}
 
-                    <table className="min-w-full table-auto bg-white border-collapse border border-[#4e362a] rounded-lg">
-                        <thead className="bg-[#c1a492]">
-                            <tr>
-                                <th className="px-4 py-2 border border-[#4e362a] text-[#4e362a]">Name</th>
-                                <th className="px-4 py-2 border border-[#4e362a] text-[#4e362a]">Roll No</th>
-                                <th className="px-4 py-2 border border-[#4e362a] text-[#4e362a]">Time of Interview</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {Array.isArray(interviews) && interviews.map((interview, index) => (
-                                <tr key={index}>
-                                    <td className="px-4 py-2 border border-[#4e362a]">{interview.name}</td>
-                                    <td className="px-4 py-2 border border-[#4e362a]">{interview.rollNo}</td>
-                                    <td className="px-4 py-2 border border-[#4e362a]">
-                                        {(interview.timeOfInterview)}
-                                    </td>
+                    <div className="overflow-x-auto">
+                        <table className="min-w-full table-auto bg-white border-collapse border border-[#4e362a] rounded-lg">
+                            <thead className="bg-[#c1a492]">
+                                <tr>
+                                    <th className="px-4 py-2 border border-[#4e362a] text-[#4e362a]">Name</th>
+                                    <th className="px-4 py-2 border border-[#4e362a] text-[#4e362a]">Roll No</th>
+                                    <th className="px-4 py-2 border border-[#4e362a] text-[#4e362a]">Time of Interview</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {Array.isArray(interviews) && interviews.map((interview, index) => (
+                                    <tr key={index}>
+                                        <td className="px-4 py-2 border border-[#4e362a]">{interview.name}</td>
+                                        <td className="px-4 py-2 border border-[#4e362a]">{interview.rollNo}</td>
+                                        <td className="px-4 py-2 border border-[#4e362a]">
+                                            {interview.timeOfInterview}
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             )}
+
+            {/* Member/User View */}
             {role === "member" && (
-                <div>
+                <div className="overflow-x-auto">
                     <table className="min-w-full table-auto bg-white border-collapse border border-[#4e362a] rounded-lg">
                         <thead className="bg-[#c1a492]">
                             <tr>
@@ -128,7 +132,7 @@ const InterviewPage = () => {
                                 <tr key={index}>
                                     <td className="px-4 py-2 border border-[#4e362a]">{interview.society}</td>
                                     <td className="px-4 py-2 border border-[#4e362a]">
-                                        {(interview.timeOfInterview)}
+                                        {interview.timeOfInterview}
                                     </td>
                                     <td className="px-4 py-2 border border-[#4e362a]">{interview.venue}</td>
                                 </tr>

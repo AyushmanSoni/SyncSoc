@@ -28,13 +28,13 @@ const Login = () => {
         alert("All fields are required");
       } else {
         
-        console.log(formData);
+        // console.log(formData);
         const response = await axios.post('http://localhost:5000/Login', formData , {
             headers: {
               'Content-Type': 'application/json'
             }
         });
-        console.log(response.data);
+        // console.log(response.data);
         
         // Storing user data
         dispatch(authActions.login());
@@ -42,20 +42,21 @@ const Login = () => {
         localStorage.setItem("id", response.data.id);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("role", response.data.role);
-        navigate("/profile");
+        // navigate("/profile");
         
         // Handling response
         if (response.data && response.data.message) {
           alert(response.data.message);
         } else {
-          alert('Login successful');
+          // alert('Login successful');
+          console.log("login successful");
         }
         
         // Dispatch actions (if needed)
         // dispatch(authActions.login());
         // dispatch(authActions.changeRole(response.data.role));
         
-        navigate("/all-events");
+        navigate("/");
       }
     } catch (err) {
       console.error('Error during login:', err);

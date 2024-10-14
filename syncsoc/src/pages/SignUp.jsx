@@ -27,19 +27,17 @@ const SignUp = () => {
       if (formData.name === "" || formData.email === "" || formData.password === "" || formData.rollNo === "") {
         alert("All fields are required");
       } else {
-        console.log(formData);
+        // console.log(formData);
         const response = await axios.post('http://localhost:5000/Signup', formData, {
           headers: {
             'Content-Type': 'application/json'
           }
         });
-        console.log("working");
-        console.log(response.data);
-        alert(response.data.message);
+        // console.log(response.data);
         navigate("/login");
       }
     } catch (err) {
-      console.log("working");
+      // console.log("working");
       console.error('Error during sign up:', err);
       setError('Sign up failed. Please try again.');
       alert(err.response?.data?.message || 'An error occurred. Please try again.');

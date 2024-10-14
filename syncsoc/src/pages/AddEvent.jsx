@@ -12,7 +12,7 @@ const AddEvent = () => {
     endTime: "",
     remarks: "",
     image_url: "",
-    form_link:"",
+    form_link:""
   });
 
   const headers = {
@@ -39,14 +39,13 @@ const AddEvent = () => {
       ) {
         alert("All fields are required");
       } else {
-        // const response = await axios.post("https://localhost:5000/event/event_add",Data,{ headers });
         const response = await axios.post('http://localhost:5000/event/event_add', Data, {
             headers: {
               'Content-Type': 'application/json',
               'authorization': `Bearer ${localStorage.token}` 
             }
           });
-        console.log(response)
+        console.log(response);
         setData({
           name: "",
           venue: "",
@@ -57,7 +56,7 @@ const AddEvent = () => {
           endTime: "",
           remarks: "",
           image_url: "",
-          form_link:"",
+          form_link: ""
         });
         alert(response.data.message);
       }
@@ -69,26 +68,28 @@ const AddEvent = () => {
   return (
     <div className='h-[100%] p-0 md:p-4'>
       <h1 className='text-3xl md:text-2xl font-semibold text-[#683B2B] mb-4 ml-4 mt-4'>Add Events</h1>
-      <div className='p-4 '>
-        <div className='mt-2 flex '>
-        <div>
-          <label htmlFor="" className='text-[#683B2B] text-lg font-medium'>Event Name</label>
-          <input 
-            type="text"
-            className='w-full mt-2 bg-[#F3F8F9] rounded-lg border border-gray-300 text-zinc-700 p-2 outline-none'
-            placeholder='Enter the name of event'
-            name="name"
-            required
-            value={Data.name}
-            onChange={change}
-          />
-        </div>
-        <div className='w-1/2 ml-6'>
-            <label htmlFor="" className='text-[#683B2B] text-xl font-medium'>Image URL</label>
+      <div className='p-4'>
+        
+        {/* Event Name and Image URL */}
+        <div className='mt-2 flex flex-col md:flex-row gap-4'>
+          <div className='flex-1'>
+            <label htmlFor="" className='text-[#683B2B] text-lg font-medium'>Event Name</label>
             <input 
               type="text"
               className='w-full mt-2 bg-[#F3F8F9] rounded-lg border border-gray-300 text-zinc-700 p-2 outline-none'
-              placeholder='Enter image url/Drive link'
+              placeholder='Enter the name of event'
+              name="name"
+              required
+              value={Data.name}
+              onChange={change}
+            />
+          </div>
+          <div className='flex-1'>
+            <label htmlFor="" className='text-[#683B2B] text-lg font-medium'>Image URL</label>
+            <input 
+              type="text"
+              className='w-full mt-2 bg-[#F3F8F9] rounded-lg border border-gray-300 text-zinc-700 p-2 outline-none'
+              placeholder='Enter image URL/Drive link'
               name="image_url"
               required
               value={Data.image_url}
@@ -96,9 +97,10 @@ const AddEvent = () => {
             />
           </div>
         </div>
-        
-        <div className='mt-4 flex '>
-          <div className='w-1/3'>
+
+        {/* Date, Start Time, and End Time */}
+        <div className='mt-4 flex flex-col md:flex-row gap-4'>
+          <div className='flex-1'>
             <label htmlFor="" className='text-[#683B2B] text-lg font-medium'>Date</label>
             <input 
               type="date"
@@ -109,7 +111,7 @@ const AddEvent = () => {
               onChange={change}
             />
           </div>
-          <div className='w-1/3 pl-6'>
+          <div className='flex-1'>
             <label htmlFor="" className='text-[#683B2B] text-lg font-medium'>Start Time</label>
             <input 
               type="time"
@@ -120,7 +122,7 @@ const AddEvent = () => {
               onChange={change}
             />
           </div>
-          <div className='w-1/3 pl-6'>
+          <div className='flex-1'>
             <label htmlFor="" className='text-[#683B2B] text-lg font-medium'>End Time</label>
             <input 
               type="time"
@@ -132,24 +134,28 @@ const AddEvent = () => {
             />
           </div>
         </div>
+
+        {/* Venue */}
         <div className='mt-4'>
           <label htmlFor="" className='text-[#683B2B] text-lg font-medium'>Venue</label>
           <input 
             type="text"
             className='w-full mt-2 bg-[#F3F8F9] rounded-lg border border-gray-300 text-zinc-700 p-2 outline-none'
-            placeholder='venue of event'
+            placeholder='Enter the venue of event'
             name="venue"
             required
             value={Data.venue}
             onChange={change}
           />
         </div>
+
+        {/* Short Description */}
         <div className='mt-4'>
           <label htmlFor="" className='text-[#683B2B] text-lg font-medium'>Short Description</label>
           <textarea
             className='w-full mt-2 bg-[#F3F8F9] rounded-lg border border-gray-300 text-zinc-700 p-2 outline-none'
             rows="4"
-            placeholder='short description of event'
+            placeholder='Enter short description of the event'
             name="short_description"
             required
             value={Data.short_description}
@@ -157,52 +163,56 @@ const AddEvent = () => {
           />
         </div>
 
-        <div className='mt-4 flex justify-between gap-16'>
-          <div className='w-1/2'>
-            <label htmlFor="" className='text-[#683B2B] text-xl font-medium'>Fee</label>
+        {/* Fee and Google Form Link */}
+        <div className='mt-4 flex flex-col md:flex-row gap-4'>
+          <div className='flex-1'>
+            <label htmlFor="" className='text-[#683B2B] text-lg font-medium'>Fee</label>
             <input 
               type="number"
               className='w-full mt-2 bg-[#F3F8F9] rounded-lg border border-gray-300 text-zinc-700 p-2 outline-none'
-              placeholder='fee of event'
+              placeholder='Enter the fee for the event'
               name="fee"
               required
               value={Data.fee}
               onChange={change}
             />
           </div>
-          <div className='w-1/2'>
-            <label htmlFor="" className='text-[#683B2B] text-xl font-medium'>Google Form Link</label>
+          <div className='flex-1'>
+            <label htmlFor="" className='text-[#683B2B] text-lg font-medium'>Google Form Link</label>
             <input 
               type="text"
               className='w-full mt-2 bg-[#F3F8F9] rounded-lg border border-gray-300 text-zinc-700 p-2 outline-none'
-              placeholder='enter the link google form for registration'
+              placeholder='Enter Google form link for registration'
               name="form_link"
               required
               value={Data.form_link}
               onChange={change}
             />
           </div>
-          
         </div>
-        <div className='flex justify-between'>
-        <div className='mt-4 w-1/2'>
-          <label htmlFor="" className='text-[#683B2B] text-xl font-medium'>Remarks</label>
-          <textarea
-            className='w-full mt-2 bg-[#F3F8F9] rounded-lg border border-gray-300 text-zinc-700 p-2 outline-none'
-            rows="4"
-            placeholder='remarks (optional)'
-            name="remarks"
-            value={Data.remarks}
-            onChange={change}
-          />
+
+        {/* Remarks and Submit Button */}
+        <div className='mt-4 flex flex-col md:flex-row gap-4'>
+          <div className='flex-1'>
+            <label htmlFor="" className='text-[#683B2B] text-lg font-medium'>Remarks</label>
+            <textarea
+              className='w-full mt-2 bg-[#F3F8F9] rounded-lg border border-gray-300 text-zinc-700 p-2 outline-none'
+              rows="4"
+              placeholder='Optional remarks'
+              name="remarks"
+              value={Data.remarks}
+              onChange={change}
+            />
+          </div>
+          <div className='flex justify-end items-center'>
+            <button
+              className='px-6 py-3 bg-[#A25C43] text-white font-semibold rounded hover:bg-[#683B2B] transition duration-300 mt-6'
+              onClick={submit}
+            >
+              Add Event
+            </button>
+          </div>
         </div>
-        <button className='mt-6  px-6 bg-[#A25C43] h-1/3  text-white font-semibold py-3 rounded hover:bg-[#683B2B]'
-          onClick={submit}>
-          Add Event
-        </button>
-        </div>
-        
-        
       </div>
     </div>
   );

@@ -39,15 +39,15 @@ const RegisteredEvents = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading registered events...</div>;
+    return <div className='text-center py-4'>Loading registered events...</div>;
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <div className='text-center py-4'>{error}</div>;
   }
 
   if (!events || events.length === 0) {
-    return <div>You haven't registered for any events yet.</div>;
+    return <div className='text-center py-4'>You haven't registered for any events yet.</div>;
   }
 
   return (
@@ -55,27 +55,28 @@ const RegisteredEvents = () => {
       <div className='text-4xl font-medium text-[#A25C43] my-8'>
         Your Registered Events
       </div>
-      <div className="w-3/4 mx-auto">
+      <div className="w-full max-w-4xl mx-auto p-4">
         {events.map((event) => (
           <div 
             key={event._id} 
-            className="flex bg-[#F1DFDA] text-[#A25C43] p-4 rounded-lg  h-28 border-b-2 border-[#E1C2B7] transition duration-300 ease-in-out hover:shadow-lg"
+            className="flex bg-[#F1DFDA] text-[#A25C43] p-4 rounded-lg mb-4 h-auto sm:h-28 border-b-2 border-[#E1C2B7] transition duration-300 ease-in-out hover:shadow-lg"
           >
-            <div className="w-[15%] flex rounded items-center justify-center">
+            <div className="w-[30%] flex items-center justify-center sm:w-[15%] rounded">
               <img
                 src={event.image_url}
                 className="h-full w-auto object-contain"
+                alt={event.event_name}
               />
             </div>
-            <div className="w-[45%] flex flex-col justify-center">
-              <div className="flex-1 flex">
-                <p className="text-[20px] mt-8 ml-8 font-medium text-[#A25C43]">{event.event_name}</p>
+            <div className="flex-1 flex flex-col justify-center pl-4 sm:w-[45%]">
+              <div className="flex-1">
+                <p className="text-[20px] font-medium text-[#A25C43]">{event.event_name}</p>
               </div>
             </div>
-            <div className="w-[30%] flex items-center justify-center">
+            <div className="w-full sm:w-[30%] flex items-center justify-center mt-2 sm:mt-0">
               <Link 
                 to={`/eventdetails/${event._id}`} 
-                className="px-6 py-2 bg-[#FFFDFB] font-medium text-[18px] text-[#A25C43] border-2 border-[#D49E8D] rounded-full hover:bg-[#683B2B] hover:text-white hover:border-none"
+                className="px-4 py-2 bg-[#FFFDFB] font-medium text-[16px] sm:text-[18px] text-[#A25C43] border-2 border-[#D49E8D] rounded-full hover:bg-[#683B2B] hover:text-white hover:border-none transition duration-200"
               >
                 View Details
               </Link>
