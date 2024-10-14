@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const TeamSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        trim: true,
     },
     rollNo: {
         type: String,
@@ -13,11 +14,13 @@ const TeamSchema = new mongoose.Schema({
     },
     Position: {
         type: String,
-        required: true
+        required: true,
+        trim: true,
     },
     society:{
         type: String,
         required: true,
+        trim: true,
     }
 });
 

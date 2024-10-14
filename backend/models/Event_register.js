@@ -21,6 +21,7 @@ const Event_schema = new mongoose.Schema({
     fee: {
         type: Number,
         required: true,
+        min: 0 // Fee should be non-negative
     },
     short_description: {
         type: String,
@@ -46,7 +47,12 @@ const Event_schema = new mongoose.Schema({
     },
     form_link:{
         type: String,
-    }
+    },
+    timestamp: {
+        type: Date,
+        default: Date.now,
+        index: { expires: '30d' } // TTL index to delete the document after 30 days
+    },
 }
 );
 

@@ -4,6 +4,7 @@ const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
+        trim: true ,
     },
     rollNo: {
         type: String,
@@ -13,6 +14,8 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         unique: true,
+        sparse: true, // Allows for null values while still maintaining the unique constraint
+        lowercase: true, // Converts email to lowercase before saving
     },
     password: {
         type: String,

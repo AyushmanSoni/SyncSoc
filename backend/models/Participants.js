@@ -8,24 +8,30 @@ const studentSchema = new mongoose.Schema({
     },
     rollNo: {
         type: String,
-        required: true,
+        required: true
     },
     event_name: {
         type: String,
         required: true
     },
-    image_url:{
+    image_url: {
         type: String,
-        required: true,
+        required: true
     },
-    form_link:{
+    form_link: {
         type: String,
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+        expires: '30d' // TTL index to automatically remove documents 3 days after creation
     }
 });
 
-// Compound index to ensure unique combination of rollNo and society
+// Compound index to ensure unique combination of rollNo and event_name
 studentSchema.index({ rollNo: 1, event_name: 1 }, { unique: true });
 
 // Create the model
-const participants = mongoose.model('participants', studentSchema);
-module.exports = participants;
+const Participants = mongoose.model('Participants', studentSchema);
+
+module.exports = Participants;
