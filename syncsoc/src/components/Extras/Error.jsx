@@ -3,7 +3,7 @@ import image from '../../assets/error.svg';
 
 const ErrorMessage = ({ message }) => {
   return (
-    <div className="flex flex-col items-center justify-center bg-[#FFFDFB] h-screen text-center">
+    <div className="flex flex-col items-center justify-center h-screen text-center">
       <img
         src={image} // Replace this with any error image link or your own image
         alt="Error"
