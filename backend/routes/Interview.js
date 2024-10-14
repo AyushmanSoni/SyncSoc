@@ -1,6 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const XLSX = require('xlsx');
+const fs = require('fs'); 
 
 // model importing
 const Interview = require('../models/Interview');
@@ -9,54 +10,6 @@ const router = express.Router();
 
 // Set up Multer for file upload handling
 const upload = multer({ dest: 'uploads/' });
-
-// // Route to handle Excel file upload and store data into MongoDB
-// router.post('/upload', upload.single('file'), async (req, res) => {
-//     const society = req.user.email.split("@")[0] 
-//     // const { society } = req.user.name;
-//     console.log(society)
-//     console.log(req.user)
-    
-
-//     if (!req.file) {
-//         return res.status(400).send('No file uploaded.');
-//     }
-
-//     if (!society) {
-//         return res.status(400).send('No society parameter provided.');
-//     }
-
-//     try {
-//         // Read the uploaded Excel file
-//         const workbook = XLSX.readFile(req.file.path);
-//         const sheetName = workbook.SheetNames[0]; // Assuming data is in the first sheet
-//         const sheet = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1 });
-
-//         // Iterate over rows and insert them into MongoDB
-//         const insertPromises = sheet.map((row, index) => {
-//             if (index === 0) return; // Skip header row, if necessary
-
-//             const newRow = new Interview({
-//                 rollNo: row[0], // Assuming rollNo is in the first column
-//                 name:row[1],
-//                 venue:row[2],
-//                 timeOfInterview: row[3], // Assuming timeOfInterview is in the second column, cast to Date if appropriate
-//                 society: society // Add the society from the request parameters
-//             });
-
-//             // console.log(new)
-//             return newRow.save(); // Save the row to MongoDB
-//         });
-
-//         await Promise.all(insertPromises);
-
-//         res.send('File uploaded and data inserted into MongoDB.');
-//     } catch (err) {
-//         console.error('Error processing file:', err);
-//         res.status(500).send('An error occurred while processing the file.');
-//     }
-// });
-
 
 // Route to handle Excel file upload and store data into MongoDB
 router.post('/upload', upload.single('file'), async (req, res) => {
@@ -67,7 +20,7 @@ router.post('/upload', upload.single('file'), async (req, res) => {
     }
 
     if (!society) {
-        return res.status(400).json({ message: 'society login needed.' });
+        return res.status(400).json({ message: 'Society login needed.' });
     }
 
     try {
@@ -131,12 +84,20 @@ router.post('/upload', upload.single('file'), async (req, res) => {
         // Wait for all insertions and updates to complete
         await Promise.allSettled(promises);
 
+        // Delete the file after processing
+        fs.unlink(req.file.path, (err) => {
+            if (err) {
+                console.error('Error deleting the file:', err);
+            }
+        });
+
         res.status(201).json({ message: 'File uploaded and data inserted/updated in MongoDB.' });
     } catch (err) {
         console.error('Error processing file:', err);
         return res.status(500).json({ message: 'An error occurred while processing the file.' });
     }
 });
+
 
 
 // Get interview schedule for the user's society
