@@ -30,7 +30,7 @@ const HeroSection = () => {
           <Link to="/" className="text-[#D49E8D] hover:text-[#683B2B]">Home</Link>
           <Link to={`/team/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]">Team</Link>
           <Link to={`/events/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]">Events</Link>
-          <a href="#contact" className="text-[#D49E8D] hover:text-[#683B2B]">Contact</a>
+          
         </div>
       </div>
 
@@ -40,7 +40,7 @@ const HeroSection = () => {
           <Link to="/" className="block px-4 py-2 text-[#D49E8D] hover:bg-[#D49E8D] hover:text-white">Home</Link>
           <Link to={`/team/${societyName}`} className="block px-4 py-2 text-[#D49E8D] hover:bg-[#D49E8D] hover:text-white">Team</Link>
           <Link to={`/events/${societyName}`} className="block px-4 py-2 text-[#D49E8D] hover:bg-[#D49E8D] hover:text-white">Events</Link>
-          <a href="#contact" className="block px-4 py-2 text-[#D49E8D] hover:bg-[#D49E8D] hover:text-white">Contact</a>
+          
         </div>
       )}
 

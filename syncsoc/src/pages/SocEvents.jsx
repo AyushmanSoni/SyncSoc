@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom'; // Import useParams
+import { Link, useParams } from 'react-router-dom';
 import Loader from '../components/Loader/Loader';
-import { useSelector } from 'react-redux'; // Use selector to get the role
+import { useSelector } from 'react-redux';
 import ErrorMessage from '../components/Extras/Error';
 
 const SocEvents = () => {
@@ -10,35 +10,34 @@ const SocEvents = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const { society } = useParams();
-  console.log(society); // Extract the society name from URL parameters
+  const { society } = useParams(); // Extract society name from URL parameters
   const role = useSelector((state) => state.auth.role); // Get the role of the logged-in user
 
   useEffect(() => {
     const fetchEvents = async () => {
-        try {
-          const token = localStorage.getItem('token'); // Retrieve the token from local storage
-          const response = await axios.get(`http://localhost:5000/event/list_of_event`, {
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`,  // Add token to the request headers
-            }
-          });
-
-          const result = response.data;
-
-          if (Array.isArray(result)) {
-            setEvents(result);
-          } else {
-            throw new Error('Unexpected data format received');
+      try {
+        const token = localStorage.getItem('token'); // Retrieve the token from local storage
+        const response = await axios.get(`http://localhost:5000/event/list_of_event/${society}`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,  // Add token to the request headers
           }
+        });
 
-        } catch (error) {
-          console.error('Error fetching events:', error);
-          setError('Failed to fetch events');
-        } finally {
-          setLoading(false);
+        const result = response.data;
+
+        if (Array.isArray(result)) {
+          setEvents(result);
+        } else {
+          throw new Error('Unexpected data format received');
         }
+
+      } catch (error) {
+        console.error('Error fetching events:', error);
+        setError('Failed to fetch events');
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchEvents();
@@ -60,7 +59,6 @@ const SocEvents = () => {
     return <ErrorMessage message="No events Found" />;
   }
 
-
   return (
     <div className="bg-[#F1DFDA] h-auto flex flex-col items-center">
       <div className="text-3xl md:text-5xl font-medium text-[#A25C43] my-8 text-center px-4">
@@ -75,7 +73,7 @@ const SocEvents = () => {
             {/* Event Time Section */}
             <div className="w-full sm:w-[15%] flex items-center justify-center mb-4 sm:mb-0">
               <div className="text-center">
-                <p className="text-[16px] md:text-[18px] font-semibold">{event.time}</p>
+                <p className="text-[16px] md:text-[18px] font-semibold">{event.startTime}</p>
                 <p className="text-[16px] md:text-[18px] font-semibold">Onwards</p>
               </div>
             </div>

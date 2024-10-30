@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaGripLines } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -11,7 +11,7 @@ const Navbar = () => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const role = useSelector((state) => state.auth.role);
 
-  const links = [
+  let links = [
     { title: 'Home', link: '/' },
     {
       title: 'Societies',
@@ -44,14 +44,14 @@ const Navbar = () => {
     { title: 'All Events', link: '/all-events' },
     { title: 'Fests', link: '/fests' },
     { title: 'About Us', link: '/about' },
-    { title: 'Profile', link: '/pro' },
   ];
 
   if (!isLoggedIn) {
-    links.splice(6, 1); // Remove 'All Events' and 'Fests'
-  }
-  if (isLoggedIn && role === 'admin') {
-    links.splice(5, 1); // Remove 'Fests' for admin
+    links = links.filter((link) => link.title !== 'Profile');
+  } else if (isLoggedIn && role === 'admin') {
+    links = links.filter((link) => link.title !== 'Profile');
+  } else {
+    links.push({ title: 'Profile', link: '/pro' });
   }
 
   const toggleDropdown = (index) => {
@@ -60,7 +60,7 @@ const Navbar = () => {
       setActiveSubDropdown(null);
     } else {
       setActiveDropdown(index);
-      setActiveSubDropdown(null); // Reset sub-dropdown when toggling main dropdown
+      setActiveSubDropdown(null);
     }
   };
 
@@ -91,7 +91,7 @@ const Navbar = () => {
           className='md:hidden text-gray-500 text-2xl ml-4'
           onClick={() => setIsOpen(!isOpen)}
         >
-          <FaGripLines />
+          {isOpen ? <FaTimes /> : <FaBars />}
         </button>
         <div className={`hidden md:flex md:flex-grow md:justify-center md:items-center`}>
           <div className='flex flex-col md:flex-row md:gap-8 text-[#683B2B] font-medium'>
@@ -165,7 +165,6 @@ const Navbar = () => {
           )}
         </div>
       </div>
-      {/* Mobile menu */}
       <div className={`md:hidden ${isOpen ? 'block' : 'hidden'} mt-4`}>
         <div className='flex flex-col items-start gap-4'>
           {links.map((item, i) => (

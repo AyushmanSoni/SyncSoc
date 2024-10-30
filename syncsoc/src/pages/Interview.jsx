@@ -65,23 +65,24 @@ const InterviewPage = () => {
             });
             fetchSocietyInterviews(); // Refresh the interview list
         } catch (err) {
+            console.log(err);
             setError('File upload failed');
         }
     };
 
     return (
-        <div className="container mx-auto py-10 px-4 bg-[#f8f4f1]">
+        <div className="container mx-auto py-10 px-4 bg-[#f8f4f1] ">
             <h1 className="text-center text-3xl font-bold mb-5 text-[#4e362a]">Interviews</h1>
 
-            {error && <p className="text-red-500 text-center">{error}</p>}
+            {/* {error && <p className="text-red-500 text-center">{error}</p>} */}
 
             {/* Society View */}
             {role === "society" && (
                 <div>
                     {!file && (
                         <div className="mb-5">
-                            <label className="block text-sm font-medium mb-2 text-[#4e362a]">
-                                Upload Interview Schedule (Excel)
+                            <label className="block text-md mt-2 font-medium mb-2 text-[#4e362a]">
+                                Upload Interview Schedule (Excel) in format od columns as: rollNo. ,name, venue, time
                             </label>
                             <input
                                 type="file"

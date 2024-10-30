@@ -19,7 +19,7 @@ router.post('/add_member', async (req, res) => {
         try {
             const newMember = new Team_Schema({ name, rollNo, Position: position, society });
             await newMember.save();
-            return res.status(201).json(newMember); // Use 201 for created resource
+            return res.status(201).json({message:"member added successfully"}); // Use 201 for created resource
         } catch (err) {
             console.error(err);
             return res.status(409).json({ message: "Person with the same rollNo already exists." }); // Use 409 Conflict for unique constraint violations

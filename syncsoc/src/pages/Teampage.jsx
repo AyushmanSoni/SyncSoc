@@ -79,7 +79,7 @@ const TeamPage = () => {
   }
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
+    <div className="p-6 max-w-7xl mx-auto bg-[#FFFDFB]">
       <h1 className="text-4xl font-bold text-[#683B2B] mb-8 text-center md:text-left">
         Team Members - {society}
       </h1>
