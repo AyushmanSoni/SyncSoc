@@ -1,17 +1,12 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import image from '../assets/ams.svg'
-import logo from '../assets/rang.svg'; // replace with your actual logo path
+import { FaBars, FaTimes } from 'react-icons/fa'; // Replace with your actual image path
+// Replace with your actual logo path
 
 const HeroSection = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate();
-
-  const handleNavigateToTeam = () => {
-    const societyName = 'AMS'; // replace with your society name
-    navigate(`/team/${societyName}`);
-  };
+  const societyName = 'ams'; // Replace with your society name dynamically if needed
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -22,8 +17,7 @@ const HeroSection = () => {
       {/* Navbar */}
       <div className="flex justify-between items-center px-6 md:px-24 py-6">
         <div className="flex items-center space-x-4">
-          
-          <div className="text-lg md:text-2xl font-medium text-[#683B2B]">Acoustic and Media</div>
+          <div className="text-3xl font-medium text-[#683B2B]">Acoustics and Media</div>
         </div>
 
         {/* Mobile Menu Icon */}
@@ -34,53 +28,56 @@ const HeroSection = () => {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6 md:space-x-12 text-base md:text-lg font-medium">
+        <div className="hidden md:flex space-x-12 text-lg font-medium">
           <Link to="/" className="text-[#D49E8D] hover:text-[#683B2B]">Home</Link>
-          <button onClick={handleNavigateToTeam} className="text-[#D49E8D] hover:text-[#683B2B]">Team</button>
-          <a href="#services" className="text-[#D49E8D] hover:text-[#683B2B]">Events</a>
-          <a href="#contact" className="text-[#D49E8D] hover:text-[#683B2B]">Contact</a>
+          <Link to={`/team/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]">Team</Link>
+          <Link to={`/events/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]">Events</Link>
+          
         </div>
-
-        {/* Mobile Menu Dropdown */}
-        {menuOpen && (
-          <div className="absolute top-16 left-0 w-full bg-white flex flex-col items-center space-y-4 py-4 md:hidden">
-            <Link to="/" className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Home</Link>
-            <button onClick={() => { handleNavigateToTeam(); toggleMenu(); }} className="text-[#D49E8D] hover:text-[#683B2B]">Team</button>
-            <a href="#services" className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Events</a>
-            <a href="#contact" className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Contact</a>
-          </div>
-        )}
       </div>
 
+      {/* Mobile Menu Dropdown */}
+      {menuOpen && (
+        <div className="absolute top-16 left-0 w-full bg-white flex flex-col items-center space-y-4 py-4 md:hidden">
+          <Link to="/" className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Home</Link>
+          <Link to={`/team/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Team</Link>
+          <Link to={`/events/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Events</Link>
+          
+        </div>
+      )}
+
       {/* Hero Section */}
-      <div className="flex flex-col md:flex-row items-center justify-between px-6 md:px-24 md:pb-12">
+      <div className="flex flex-col md:flex-row items-center justify-between px-8 md:px-24 min-h-[70vh] mb-16">
         {/* Left Text Section */}
-        <div className="md:w-1/2 mb-6 md:mb-0">
-          <h1 className="text-4xl md:text-6xl font-bold text-[#683B2B]">Capture</h1>
-          <h1 className="text-4xl mt-2 md:mt-4 md:text-6xl font-bold text-[#683B2B]">
-            Frame<br />
+        <div className="md:w-1/2 mb-10 md:mb-0">
+          <h1 className='text-4xl md:text-6xl font-bold text-[#683B2B]'>Capture</h1>
+          <h1 className="text-4xl mt-2 md:text-6xl font-bold text-[#683B2B]">
+          Frame<br/>
             <span className="text-[#D49E8D]">Color!</span>
           </h1>
-          <p className="text-base md:text-lg text-gray-500 mt-4 md:w-[80%]">
-            Welcome to our photography society, where every captured moment reveals a new perspective and freezes time in stunning clarity.
+          <p className="text-lg md:text-xl text-gray-500 mt-4 w-[80%]">
+          Welcome to our photography society, where every captured moment reveals a new perspective and freezes time in stunning clarity.
           </p>
-
-          <div className="mt-6 md:mt-8 space-x-4">
-            <button className="bg-[#683B2B] text-white py-2 md:py-3 px-8 md:px-12 text-base md:text-lg rounded-lg hover:bg-[#4A291B] transition duration-300">
+          <div className="mt-8 space-x-4">
+            {/* Link to the Events page with the society name */}
+            <Link 
+              to={`/events/${societyName}`} 
+              className="bg-[#683B2B] text-white py-3 px-12 text-lg rounded-lg hover:bg-[#4A291B] transition duration-300"
+            >
               Events
-            </button>
-            <button className="bg-transparent border-2 border-[#683B2B] text-[#683B2B] text-base md:text-lg py-2 md:py-3 px-8 md:px-10 rounded-md hover:text-[#4A291B] transition duration-300">
+            </Link>
+            <button className="bg-transparent border-2 border-[#683B2B] text-[#683B2B] text-lg py-3 px-10 rounded-md hover:text-[#4A291B] transition duration-300">
               Gallery
             </button>
           </div>
         </div>
 
         {/* Right Image Section */}
-        <div className="md:w-1/2 mb-12">
+        <div className="md:w-1/2 mt-8 flex justify-center  md:mb-0">
           <img
-            src={image}
-            alt="Photography"
-            className="w-full h-auto max-w-[80%] md:max-w-[90%] mx-auto"
+            src={image} // Replace with your actual image path
+            alt="Your Image"
+            className="w-[80%] h-auto rounded-lg"
           />
         </div>
       </div>
