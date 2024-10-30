@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import image from '../assets/Group.svg'; // Replace with your actual image path
+import image from '../assets/Group.svg';
+import { FaBars, FaTimes } from 'react-icons/fa'; // Replace with your actual image path
 // Replace with your actual logo path
 
 const HeroSection = () => {
@@ -22,7 +23,7 @@ const HeroSection = () => {
         {/* Mobile Menu Icon */}
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-[#D49E8D]">
-            {menuOpen ? '✖' : '☰'}
+            {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
         </div>
 
@@ -31,7 +32,7 @@ const HeroSection = () => {
           <Link to="/" className="text-[#D49E8D] hover:text-[#683B2B]">Home</Link>
           <Link to={`/team/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]">Team</Link>
           <Link to={`/events/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]">Events</Link>
-          <a href="#contact" className="text-[#D49E8D] hover:text-[#683B2B]">Contact</a>
+          
         </div>
       </div>
 
@@ -41,7 +42,7 @@ const HeroSection = () => {
           <Link to="/" className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Home</Link>
           <Link to={`/team/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Team</Link>
           <Link to={`/events/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Events</Link>
-          <a href="#contact" className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Contact</a>
+          
         </div>
       )}
 

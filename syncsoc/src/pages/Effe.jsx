@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import image from '../assets/Group.svg'; // Replace with your actual image path
+import image from '../assets/Group.svg';
+import { FaBars, FaTimes } from 'react-icons/fa'; // Replace with your actual image path
 // Replace with your actual logo path
 
 const HeroSection = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const societyName = 'rangtarangini'; // Replace with your society name dynamically if needed
+  const societyName = 'effervesecence'; // Replace with your society name dynamically if needed
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -22,7 +23,7 @@ const HeroSection = () => {
         {/* Mobile Menu Icon */}
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-[#D49E8D]">
-            {menuOpen ? '✖' : '☰'}
+            {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
         </div>
 
@@ -31,7 +32,7 @@ const HeroSection = () => {
           <Link to="/" className="text-[#D49E8D] hover:text-[#683B2B]">Home</Link>
           <Link to={`/team/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]">Team</Link>
           <Link to={`/events/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]">Events</Link>
-          <a href="#contact" className="text-[#D49E8D] hover:text-[#683B2B]">Contact</a>
+          
         </div>
       </div>
 
@@ -41,7 +42,7 @@ const HeroSection = () => {
           <Link to="/" className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Home</Link>
           <Link to={`/team/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Team</Link>
           <Link to={`/events/${societyName}`} className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Events</Link>
-          <a href="#contact" className="text-[#D49E8D] hover:text-[#683B2B]" onClick={toggleMenu}>Contact</a>
+          
         </div>
       )}
 
@@ -51,7 +52,7 @@ const HeroSection = () => {
         <div className="md:w-1/2 mb-10 md:mb-0">
           <h1 className='text-4xl md:text-6xl font-bold text-[#683B2B]'>Experience</h1>
           <h1 className="text-4xl mt-4 md:text-6xl font-bold text-[#683B2B]">
-            Cultural <br/>
+          Cultural <br/>
             <span className="text-[#D49E8D]">Bliss!</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-500 mt-4 w-[80%]">

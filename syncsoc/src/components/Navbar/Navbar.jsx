@@ -33,9 +33,9 @@ const Navbar = () => {
           title: 'Technical',
           link: '/societies/technical',
           subDropdown: [
-            { title: 'Coding Club', link: '/coding' },
-            { title: 'Robotics Club', link: '/robotics' },
-            { title: 'Electronics Club', link: '/electronics' },
+            { title: 'Geekhaven', link: '/coding' },
+            { title: 'Gravity', link: '/robotics' },
+            { title: 'Tesla', link: '/electronics' },
           ],
         },
         { title: 'Sports Society', link: '/sport' },
