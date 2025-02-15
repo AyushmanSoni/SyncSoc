@@ -48,17 +48,17 @@ Below is a representation of the **user flow** of the application:
 Here are some screenshots of SyncSoc:  
 
 ### **🏠 Home Page**  
-![Home Page](public/images/homepage.png)  
+![Home Page](photos/landing.jpeg)  
+### **🏠 All events list Page**  
+![Home Page](photos/all_events.jpeg)  
+### **🏠 Login page**  
+![Home Page](photos/login.png)  
+### **🏠 Society Page**  
+![Home Page](photos/soc_page.jpeg)  
+### **📋 Event details**  
+![Societies](photos/event_details.jpeg)  
 
-### **📋 Societies List**  
-![Societies](public/images/societies.png)  
-
-### **📅 Events Page**  
-![Events](public/images/events.png)  
-
-> 🖼 *Place your images in the `/public/images/` directory*  
-
----
+## More images are available in photos folder you can go and check
 
 ## **💻 Installation**  
 
