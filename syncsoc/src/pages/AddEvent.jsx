@@ -7,7 +7,7 @@ const AddEvent = () => {
     venue: "",
     date: "",
     short_description: "",
-    fee: "",
+    fee: "0",
     startTime: "",
     endTime: "",
     remarks: "",
@@ -32,7 +32,6 @@ const AddEvent = () => {
         Data.venue === "" ||
         Data.date === "" ||
         Data.short_description === "" ||
-        Data.fee === "" ||
         Data.startTime === "" ||
         Data.endTime === "" ||
         Data.image_url === "" 
@@ -51,7 +50,7 @@ const AddEvent = () => {
           venue: "",
           date: "",
           short_description: "",
-          fee: "",
+          fee: "0",
           startTime: "",
           endTime: "",
           remarks: "",

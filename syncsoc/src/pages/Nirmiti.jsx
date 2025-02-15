@@ -6,7 +6,7 @@ import { FaBars, FaTimes } from 'react-icons/fa'; // Replace with your actual im
 
 const HeroSection = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const societyName = 'saraswa'; // Replace with your society name dynamically if needed
+  const societyName = 'nirmiti'; // Replace with your society name dynamically if needed
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -17,7 +17,7 @@ const HeroSection = () => {
       {/* Navbar */}
       <div className="flex justify-between items-center px-6 md:px-24 py-6">
         <div className="flex items-center space-x-4">
-          <div className="text-3xl font-medium text-[#683B2B]">Saraswa</div>
+          <div className="text-3xl font-medium text-[#683B2B]">Nirmiti</div>
         </div>
 
         {/* Mobile Menu Icon */}

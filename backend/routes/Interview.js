@@ -15,6 +15,8 @@ const upload = multer({ dest: 'uploads/' });
 router.post('/upload', upload.single('file'), async (req, res) => {
     const society = req.user.email.split("@")[0];
 
+    console.log(society)
+
     if (!req.file) {
         return res.status(400).json({ message: 'No file uploaded.' });
     }
@@ -33,8 +35,17 @@ router.post('/upload', upload.single('file'), async (req, res) => {
             return res.status(400).json({ message: 'The uploaded file is empty.' });
         }
 
+        console.log(sheet)
+
         // Extract headers
         const headers = sheet[0];
+
+        // for(int i=0;i<headers.length;i++) {
+        //     while(header[i][headers[i]])
+        // }
+
+        console.log(headers)  
+
         const rollNoIndex = headers.indexOf('rollNo');
         const nameIndex = headers.indexOf('name');
         const venueIndex = headers.indexOf('venue');
@@ -58,6 +69,7 @@ router.post('/upload', upload.single('file'), async (req, res) => {
             }
 
             const rollNo = row[rollNoIndex];
+            console.log(rollNo)
 
             // Check if the entry already exists
             const existingEntry = await Interview.findOne({ rollNo: rollNo, society: society });
@@ -91,6 +103,7 @@ router.post('/upload', upload.single('file'), async (req, res) => {
             }
         });
 
+        console.log("done")
         res.status(201).json({ message: 'File uploaded and data inserted/updated in MongoDB.' });
     } catch (err) {
         console.error('Error processing file:', err);

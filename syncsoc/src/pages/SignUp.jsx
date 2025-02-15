@@ -20,7 +20,7 @@ const SignUp = () => {
   };
 
   const handleSubmit = async (e) => {
-    console.log("working");
+    // console.log("working");
     e.preventDefault();
 
     try {
@@ -34,13 +34,16 @@ const SignUp = () => {
           }
         });
         // console.log(response.data);
+
+
+        // console.log(response);
         navigate("/login");
       }
     } catch (err) {
       // console.log("working");
       console.error('Error during sign up:', err);
       setError('Sign up failed. Please try again.');
-      alert(err.response?.data?.message || 'An error occurred. Please try again.');
+      alert(err.response?.data || 'An error occurred. Please try again.');
 
     }
   };

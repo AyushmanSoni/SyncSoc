@@ -75,6 +75,9 @@ const Login = () => {
       <div className="absolute inset-0 flex items-center justify-center z-10 p-4 md:p-0">
         <div className="bg-[#FFFDFB] p-8 max-w-md w-full rounded-lg shadow-lg md:bg-transparent md:shadow-none md:ml-auto md:mr-[5%]">
           <h2 className="text-[28px] md:text-[36px] font-bold text-[#683B2B] text-center md:text-left">Log In</h2>
+          <p className='text-[#683B2B]'>For visting the website as a guest</p>
+          <p>rollNo : <b>demo</b> and password: <b>demo</b></p>
+          
 
           {error && <div className="mb-4 text-red-500">{error}</div>}
           
@@ -115,6 +118,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

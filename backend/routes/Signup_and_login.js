@@ -13,15 +13,24 @@ const {check} = require('../constants.js')
 // field -> rollNo , password  , email , age , name
 router.post('/Signup', async (req, res) => {
     try {
-        const { name, email, password, rollNo } = req.body;
+        let { name, email, password, rollNo } = req.body;
 
+        
         if (!name || !email || !password || !rollNo) {
             return res.status(400).send("All fields are required");
         }
+        email = email.toLowerCase();
+        rollNo = rollNo.toLowerCase();
 
+        
         const emailParts = email.split("@");
-        const socname = emailParts[0];
-        const domain = emailParts[1];
+        let socname = emailParts[0];
+        const domain = emailParts[1];   
+        socname = socname.toLowerCase();
+
+        if(rollNo!== socname ){
+            return res.status(400).send("Roll No and email should be consistent accordingly . ");
+        }
 
         if (domain !== "iiita.ac.in") {
             return res.status(400).send("Signup with college email id please");
@@ -31,6 +40,9 @@ router.post('/Signup', async (req, res) => {
         if (check(socname)) {
             type = "society";
         }
+
+
+        console.log("type -> " , socname , type) ;
 
         const existingUser = await user.findOne({ rollNo });
         if (existingUser) {
@@ -61,11 +73,13 @@ router.post('/Signup', async (req, res) => {
 // Login route
 router.post('/Login', async (req, res) => {
     try {
-        const { rollNo, password } = req.body;
+        let { rollNo, password } = req.body;
 
         if (!rollNo || !password) {
             return res.status(400).send("All fields are required");
         }
+
+        rollNo = rollNo.toLowerCase();
 
         // Find the user
         const registeredUser = await user.findOne({ rollNo });
@@ -98,6 +112,8 @@ router.post('/Login', async (req, res) => {
 
 // Get user info route
 router.get("/get-user-info", check_login, async (req, res) => {
+
+    // console.log(req);
     try {
         return res.json(req.user); 
     } catch (error) {

@@ -82,7 +82,15 @@ const InterviewPage = () => {
                     {!file && (
                         <div className="mb-5">
                             <label className="block text-md mt-2 font-medium mb-2 text-[#4e362a]">
-                                Upload Interview Schedule (Excel) in format od columns as: rollNo. ,name, venue, time
+                                <p>
+                                    Upload Interview Schedule (Excel) in format of columns as: rollNo ,name, venue, timeOfInterview .
+                                </p>
+                                <p>
+                                    Maintain this structure only to use it effectively . 
+                                </p>
+                                <p>
+                                    Format for timeOfInterview must be like 6:10-6:20 or 6:10 to 6:20 (give in intervals) 
+                                </p> 
                             </label>
                             <input
                                 type="file"
