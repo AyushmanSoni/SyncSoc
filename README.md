@@ -43,6 +43,23 @@ Below is a representation of the **user flow** of the application:
 
 ---
 
+## **🖼 Screenshots**  
+
+Here are some screenshots of SyncSoc:  
+
+### **🏠 Home Page**  
+![Home Page](public/images/homepage.png)  
+
+### **📋 Societies List**  
+![Societies](public/images/societies.png)  
+
+### **📅 Events Page**  
+![Events](public/images/events.png)  
+
+> 🖼 *Place your images in the `/public/images/` directory*  
+
+---
+
 ## **💻 Installation**  
 
 ### **1️⃣ Clone the Repository**  
@@ -77,23 +94,6 @@ The app will be available at **http://localhost:3000**.
 - **Navigation Bar** – Optimized dropdown menu for societies.  
 - **Login / Signup** – Authenticate users.  
 - **Admin Panel** (If applicable) – Manage events and users.  
-
----
-
-## **🖼 Screenshots**  
-
-Here are some screenshots of SyncSoc:  
-
-### **🏠 Home Page**  
-![Home Page](public/images/homepage.png)  
-
-### **📋 Societies List**  
-![Societies](public/images/societies.png)  
-
-### **📅 Events Page**  
-![Events](public/images/events.png)  
-
-> 🖼 *Place your images in the `/public/images/` directory*  
 
 ---
 
