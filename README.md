@@ -39,7 +39,7 @@ SyncSoc is a **React-based web application** designed to help manage **societies
 
 Below is a representation of the **user flow** of the application:  
 
-![User Flow](public/images/userflow.png)  
+![User Flow](/images/userflow.png)  
 
 ---
 
