@@ -39,7 +39,24 @@ SyncSoc is a **React-based web application** designed to help manage **societies
 
 Below is a representation of the **user flow** of the application:  
 
-![User Flow](public/images/userflow.png)  
+![User Flow](/images/userflow.png)  
+
+---
+
+## **🖼 Screenshots**  
+
+Here are some screenshots of SyncSoc:  
+
+### **🏠 Home Page**  
+![Home Page](public/images/homepage.png)  
+
+### **📋 Societies List**  
+![Societies](public/images/societies.png)  
+
+### **📅 Events Page**  
+![Events](public/images/events.png)  
+
+> 🖼 *Place your images in the `/public/images/` directory*  
 
 ---
 
@@ -77,23 +94,6 @@ The app will be available at **http://localhost:3000**.
 - **Navigation Bar** – Optimized dropdown menu for societies.  
 - **Login / Signup** – Authenticate users.  
 - **Admin Panel** (If applicable) – Manage events and users.  
-
----
-
-## **🖼 Screenshots**  
-
-Here are some screenshots of SyncSoc:  
-
-### **🏠 Home Page**  
-![Home Page](public/images/homepage.png)  
-
-### **📋 Societies List**  
-![Societies](public/images/societies.png)  
-
-### **📅 Events Page**  
-![Events](public/images/events.png)  
-
-> 🖼 *Place your images in the `/public/images/` directory*  
 
 ---
 
