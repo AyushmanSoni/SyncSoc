@@ -38,7 +38,7 @@ const AddEvent = () => {
       ) {
         alert("All fields are required");
       } else {
-        const response = await axios.post('http://localhost:5000/event/event_add', Data, {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/event/event_add`, Data, {
             headers: {
               'Content-Type': 'application/json',
               'authorization': `Bearer ${localStorage.token}` 

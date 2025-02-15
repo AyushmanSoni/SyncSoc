@@ -21,7 +21,7 @@ const InterviewPage = () => {
 
     const fetchSocietyInterviews = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/interview/interview_schedule`, {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/interview/interview_schedule`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -39,7 +39,7 @@ const InterviewPage = () => {
 
     const fetchUserInterviews = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/interview/interview-time`, {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/interview/interview-time`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -58,7 +58,7 @@ const InterviewPage = () => {
         setFile(e.target.files[0]);
 
         try {
-            await axios.post('http://localhost:5000/interview/upload', formData, {
+            await axios.post(`${process.env.REACT_APP_API_URL}/interview/upload`, formData, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }

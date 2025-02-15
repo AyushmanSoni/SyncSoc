@@ -43,7 +43,7 @@ const RegistrationForm = () => {
       }
 
       const response = await axios.get(
-          `http://localhost:5000/event/form_link/${eventId}`,
+          `${process.env.REACT_APP_API_URL}/event/form_link/${eventId}`,
           {
             headers: {
               'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ const RegistrationForm = () => {
 
       // Send the registration request with token in headers
       const response = await axios.post(
-        `http://localhost:5000/participants/${eventName}`, // Register for the specific event
+        `${process.env.REACT_APP_API_URL}/participants/${eventName}`, // Register for the specific event
         formData,
         {
           headers: {

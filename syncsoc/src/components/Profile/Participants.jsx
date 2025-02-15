@@ -9,7 +9,7 @@ const ParticipantsPage = () => {
   const fetchParticipants = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`http://localhost:5000/participants/society/${eventName}`, {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/participants/society/${eventName}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,

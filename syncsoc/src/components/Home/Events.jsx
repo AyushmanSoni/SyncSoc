@@ -22,13 +22,13 @@ const RectangularCard = () => {
       // Determine the URL based on the active tab
       switch (tab) {
         case 'past':
-          url = 'http://localhost:5000/front_page/events/recent-past';
+          url = `${process.env.REACT_APP_API_URL}/front_page/events/recent-past`;
           break;
         case 'ongoing':
-          url = 'http://localhost:5000/front_page/events/recent-present';
+          url = `${process.env.REACT_APP_API_URL}/front_page/events/recent-present`;
           break;
         case 'upcoming':
-          url = 'http://localhost:5000/front_page/events/recent-future';
+          url = `${process.env.REACT_APP_API_URL}/front_page/events/recent-future`;
           break;
         default:
           throw new Error('Invalid tab selected');

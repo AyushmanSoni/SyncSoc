@@ -28,7 +28,7 @@ const SignUp = () => {
         alert("All fields are required");
       } else {
         // console.log(formData);
-        const response = await axios.post('http://localhost:5000/Signup', formData, {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/Signup`, formData, {
           headers: {
             'Content-Type': 'application/json'
           }

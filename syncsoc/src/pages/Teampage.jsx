@@ -17,7 +17,7 @@ const TeamPage = () => {
     const fetchMembers = async () => {
       try {
         const token = localStorage.getItem('token'); // Get the token from storage
-        const response = await axios.get(`http://localhost:5000/team/list_of_members/${society}`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/team/list_of_members/${society}`, {
           headers: {
             Authorization: `Bearer ${token}` // Pass token in Authorization header
           }

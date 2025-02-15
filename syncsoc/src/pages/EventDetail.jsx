@@ -21,7 +21,7 @@ const EventDetailsPage = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          `http://localhost:5000/event_details/${eventId}`,
+          `${process.env.REACT_APP_API_URL}/event_details/${eventId}`,
           {
             headers: {
               "Content-Type": "application/json",

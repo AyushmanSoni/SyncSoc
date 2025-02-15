@@ -12,7 +12,7 @@ const AddMemberPage = ({ society }) => {
     try {
       const token = localStorage.getItem('token'); // Get token for the request
       const response = await axios.post(
-        'http://localhost:5000/team/add_member',
+        `${process.env.REACT_APP_API_URL}team/add_member`,
         {
           ...newMember,
           society, // Include the society in the request

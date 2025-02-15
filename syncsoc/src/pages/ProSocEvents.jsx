@@ -20,7 +20,7 @@ const ProSocEvents = ({ society }) => { // Accept society as a prop
       if (role === 'society') {
         try {
           const token = localStorage.getItem('token'); // Retrieve the token from local storage
-          const response = await axios.get(`http://localhost:5000/event/list_of_event`, {
+          const response = await axios.get(`${process.env.REACT_APP_API_URL}/event/list_of_event`, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${token}`,  // Add token to the request headers
@@ -50,7 +50,7 @@ const ProSocEvents = ({ society }) => { // Accept society as a prop
   const handleDelete = async (eventname) => {
     try {
       const token = localStorage.getItem('token'); // Retrieve the token from storage
-      await axios.delete(`http://localhost:5000/event/delete/${eventname}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/event/delete/${eventname}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,  // Add token to the request headers
